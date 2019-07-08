@@ -24,4 +24,5 @@ export class ServiceService {
   logIn(credenciales:UsuarioRegistrado){
     return this.http.put<UsuarioRegistrado>(this.url+'/'+credenciales.id_rutUsuario ,credenciales);
   }
+  
 }
