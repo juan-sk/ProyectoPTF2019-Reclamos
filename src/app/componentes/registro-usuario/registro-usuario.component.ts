@@ -24,7 +24,7 @@ export class RegistroUsuarioComponent implements OnInit {
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.correo_usuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.pass_usuario))){
       this.mensaje="";
-      this.service.createPersona(this.usuarioARegistrar).subscribe(data=>{
+      this.service.crearUsuario(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego");
         //this.router.navigate(["listar"]); 
       })

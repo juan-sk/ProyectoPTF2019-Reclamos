@@ -9,20 +9,20 @@ export class ServiceService {
   constructor(private http:HttpClient) { }
   url='http://localhost:8080/Usuario'
 
-  getPersona(){
+  getUsuarios(){
     return this.http.get<UsuarioRegistrado[]>(this.url);
   }
-  createPersona(usuarioregistrado:UsuarioRegistrado){
+  crearUsuario(usuarioregistrado:UsuarioRegistrado){
     return this.http.post<UsuarioRegistrado>(this.url,usuarioregistrado);
   }
-  getPersonaId(id:number){
+  getUsuarioId(id:number){
     return this.http.get<UsuarioRegistrado>(this.url+"/"+id);
   }
-  updatePersona(usuarioregistrado:UsuarioRegistrado){
+  updateUsuario(usuarioregistrado:UsuarioRegistrado){
     return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.id_rutUsuario,usuarioregistrado);
   }
   logIn(credenciales:UsuarioRegistrado){
     return this.http.put<UsuarioRegistrado>(this.url+'/'+credenciales.id_rutUsuario ,credenciales);
   }
-  
+
 }
