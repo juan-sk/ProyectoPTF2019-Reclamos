@@ -31,6 +31,7 @@ export class RegistroUsuarioComponent implements OnInit {
       this.mensaje="";
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
+        localStorage.setItem("id", ""+this.usuarioARegistrar.id_rut_usuario_r);
         this.router.navigate(["perfil"]); 
       })
     }else{
