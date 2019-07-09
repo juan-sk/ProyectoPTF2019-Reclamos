@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     let id=localStorage.getItem("id");
   
     this.service.logIn(this.credenciales).subscribe(data=>{
-      data=this.credenciales;
+      this.credenciales=data;
       
     })
   }

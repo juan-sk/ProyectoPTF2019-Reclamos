@@ -13,33 +13,37 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombre_usuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
+                                <input [(ngModel)]="usuarioARegistrar.nombre_usuario_r" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellido_usuario"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                                <input [(ngModel)]="usuarioARegistrar.apellido_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Rut</label>
+                                <input [(ngModel)]="usuarioARegistrar.id_rut_usuario_r" type="number" name="" id="">
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input type="text" class="form-control" id="Apellidos" placeholder="DD/MM/YYYY">
+                                <input [(ngModel)]="usuarioARegistrar.fecha_nacimiento_usuario_r"type="date" class="form-control" id="Apellidos" placeholder="DD/MM/YYYY">
                             </div>
                             <label style="color: #dddddd;">Telefono</label><br>
                             <div class="btn-group">
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
+                            <input [(ngModel)]="usuarioARegistrar.telefono_usuario_r"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Género</label><br>
-                               <input  [(ngModel)]="usuarioARegistrar.genero_usuario"type="text" name="" id="">
+                               <input  [(ngModel)]="usuarioARegistrar.genero_usuario_r"type="text" name="" id="">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Seleccione
                               </button>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.correo_usuario"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="usuarioARegistrar.correo_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
@@ -47,7 +51,7 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.pass_usuario" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="usuarioARegistrar.password_usuario_r" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>

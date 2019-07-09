@@ -15,14 +15,17 @@ export class ServiceService {
   crearUsuario(usuarioregistrado:UsuarioRegistrado){
     return this.http.post<UsuarioRegistrado>(this.url,usuarioregistrado);
   }
+  crearUsuarioPrueba(usuarioregistrado:UsuarioRegistrado){
+    return this.http.post<UsuarioRegistrado>(this.url,usuarioregistrado);
+  }
   getUsuarioId(id:number){
     return this.http.get<UsuarioRegistrado>(this.url+"/"+id);
   }
   updateUsuario(usuarioregistrado:UsuarioRegistrado){
-    return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.id_rutUsuario,usuarioregistrado);
+    return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.id_rut_usuario_r,usuarioregistrado);
   }
   logIn(credenciales:UsuarioRegistrado){
-    return this.http.put<UsuarioRegistrado>(this.url+'/'+credenciales.id_rutUsuario ,credenciales);
+    return this.http.put<UsuarioRegistrado>(this.url+'/'+credenciales.id_rut_usuario_r ,credenciales);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { ServiceService } from 'src/app/Services/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,25 +14,28 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   correo2:string;
   mensaje:string="";
-  constructor(private service:ServiceService) { }
+  constructor(private router:Router,private service:ServiceService) { }
 
   ngOnInit() {
   
   }
   registro(){
-    let noNulo:boolean=(this.correo2==null||this.usuarioARegistrar.correo_usuario==null||this.correo2==null||this.usuarioARegistrar.correo_usuario==null);
+    console.log("rut: "+this.usuarioARegistrar.id_rut_usuario_r.toString()+" nombre: "+this.usuarioARegistrar.nombre_usuario_r+
+    " apellido: "+this.usuarioARegistrar.apellido_usuario_r+" correo: "+this.usuarioARegistrar.correo_usuario_r+" genero: "
+    +this.usuarioARegistrar.genero_usuario_r+" pass: "+this.usuarioARegistrar.password_usuario_r+" fecha n: "+
+    this.usuarioARegistrar.fecha_nacimiento_usuario_r+" telefono: "+this.usuarioARegistrar.telefono_usuario_r);
+    let noNulo:boolean=(this.correo2==null||this.usuarioARegistrar.correo_usuario_r==null||this.correo2==null||this.usuarioARegistrar.correo_usuario_r==null);
     if (noNulo){
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
-    }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.correo_usuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.pass_usuario))){
+    }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.correo_usuario_r))&&(this.validarPass(this.pass2,this.usuarioARegistrar.password_usuario_r))){
       this.mensaje="";
-      this.service.crearUsuario(this.usuarioARegistrar).subscribe(data=>{
-        alert("se agrego");
-        //this.router.navigate(["listar"]); 
+      this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
+        alert("se agrego correctamente");
+        this.router.navigate(["perfil"]); 
       })
     }else{
-      this.mensaje="Error en: constraseña o correo no coinciden ";
+      this.mensaje="Error en: constraseña o correo, no coinciden ";
     }
-    console.log("termino el registro ");
 
   }
   validarCorreo(correo_usuario:string,correo2:string):boolean{
