@@ -1,0 +1,70 @@
+<!-- CONTENIDO -->
+            <div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+                <div class="col-4"></div>
+                <div class="col-4" style="height:1230px; ">
+                
+                        <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
+                            Registro de Nuevo Usuario
+                        </h4><br>
+
+                        <p style="color: #eeeeee; text-align: center">
+                            Ingresa tu información para crear tu usuario:
+                        </p>
+                        <div>
+                            <div class="form-group">
+                                <label style="color: #dddddd;">Nombre</label>
+                                <input [(ngModel)]="usuarioARegistrar.nombre_usuario_r" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #dddddd;">Apellido</label>
+                                <input [(ngModel)]="usuarioARegistrar.apellido_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Rut</label>
+                                <input [(ngModel)]="usuarioARegistrar.id_rut_usuario_r" type="number" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #dddddd;">Fecha de Nacimiento</label>
+                                <input [(ngModel)]="usuarioARegistrar.fecha_nacimiento_usuario_r"type="date" class="form-control" id="Apellidos" placeholder="DD/MM/YYYY">
+                            </div>
+                            <label style="color: #dddddd;">Telefono</label><br>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Chile(+56)
+                              </button>
+                            <input [(ngModel)]="usuarioARegistrar.telefono_usuario_r"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
+                            </div>
+                            <div>
+                                <br><label style="color: #dddddd;">Género</label><br>
+                               <input  [(ngModel)]="usuarioARegistrar.genero_usuario_r"type="text" name="" id="">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Seleccione
+                              </button>
+                            </div>
+                            <div>
+                                <br><label style="color: #dddddd;">Correo electrónico</label>
+                                <input [(ngModel)]="usuarioARegistrar.correo_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                            </div>
+                            <div>
+                                <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
+                                <input [(ngModel)]="correo2" type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                            </div>
+                            <div>
+                                <br><label style="color: #dddddd;">Contraseña</label>
+                                <input [(ngModel)]="usuarioARegistrar.password_usuario_r" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
+                            </div>
+                            <div>
+                                <br><label style="color: #dddddd;">Confirmar contraseña</label>
+                                <input [(ngModel)]="pass2"type="password" class="form-control" id="Apellidos" placeholder="********************">
+                                 <br>       
+                                <div class ="row">
+                                    <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
+                                 </div>
+                            </div>
+                            <br><br><button type="button" (click)="registro()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button><br>
+                            <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
+                        </div>
+                    
+                </div>
+                <div class="col-4"></div>
+            </div>
