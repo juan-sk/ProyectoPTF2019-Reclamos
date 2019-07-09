@@ -31,9 +31,9 @@ export class RegistroUsuarioComponent implements OnInit {
       this.mensaje="";
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
-        localStorage.setItem("id", ""+this.usuarioARegistrar.id_rut_usuario_r);
-        this.router.navigate(["perfil"]); 
       })
+      this.router.navigate(["perfil"]); 
+      localStorage.setItem("id", ""+this.usuarioARegistrar.id_rut_usuario_r);
     }else{
       this.mensaje="Error en: constraseña o correo, no coinciden ";
     }
