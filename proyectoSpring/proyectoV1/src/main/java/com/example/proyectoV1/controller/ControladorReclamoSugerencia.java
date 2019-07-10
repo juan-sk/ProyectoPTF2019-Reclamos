@@ -22,7 +22,7 @@ import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
 @RequestMapping({"/ReclamoSujerencia"})
 @EnableAutoConfiguration
 
-public class ControladorRS {
+public class ControladorReclamoSugerencia {
 @Autowired
 ReclamoSujerenciaRepositorio service;
 //y yo soy un terisinosaurio
