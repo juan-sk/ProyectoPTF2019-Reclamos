@@ -44,9 +44,9 @@ public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 }
 
 @PutMapping(path= {"/{rutUsuario}"})
-public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
+public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutUsuario){
 	System.out.println("dendro de editar");
-p.setRutusuario(rutusuario);
+p.setRutUsuario(rutUsuario);
 return service.edit(p);
 }
 

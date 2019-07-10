@@ -5,7 +5,7 @@ import com.example.proyectoV1.entities.Usuario;
 
 public interface UsuarioService {
 	List<Usuario>listar();
-	Usuario listarId_RutUsuario(int rutusuario);
+	Usuario listarId_RutUsuario(int rutUsuario);
 	Usuario add(Usuario p);
 	Usuario edit(Usuario p);
 	Usuario delete(Usuario p);
