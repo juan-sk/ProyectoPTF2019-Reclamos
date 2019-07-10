@@ -1,22 +1,23 @@
 export class UsuarioRegistrado{
-    rutusuario:number;
-    nombreusuario:string;
-    apellidousuario:string;
-    emailusuario:string;
-    passusuario:string;
-    fechanacusuario:Date;
-    fonousuario:number;
-    generousuario:string;
+    rutUsuario:number;
+    nombreUsuario:string;
+    apellidoUsuario:string;
+    emailUsuario:string;
+    passUsuario:string;
+    fechaNacUsuario:Date;
+    fonoUsuario:number;
+    generoUsuario:string;
     
     constructor(){
-        this.rutusuario;
-        this.nombreusuario="";
-        this.apellidousuario="";
-        this.emailusuario="";
-        this.passusuario="";
-        this.fechanacusuario=new Date();
-        this.fonousuario=0;
-        this.generousuario="";
+
+        this.rutUsuario=0;
+        this.nombreUsuario="";
+        this.apellidoUsuario="";
+        this.emailUsuario="";
+        this.passUsuario="";
+        this.fechaNacUsuario=new Date();
+        this.fonoUsuario=0;
+        this.generoUsuario="";
     }
   
     

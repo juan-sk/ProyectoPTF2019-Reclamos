@@ -11,6 +11,7 @@ import { ServiceService } from 'src/app/Services/service.service';
 export class LoginComponent implements OnInit {
   correo:string;
   pass:string;
+  si;
   credenciales=new UsuarioRegistrado();
   errorMsg="";
   constructor(private router:Router,private service:ServiceService) { }
@@ -18,10 +19,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   enviarCredenciales(){
-    this.credenciales.correo_usuario_r=this.correo;
-    this.credenciales.password_usuario_r=this.pass;
-    let email=this.credenciales.correo_usuario_r;
-    if(this.service.logIn(this.credenciales).subscribe(data=>{this.credenciales=data;})){
+    this.credenciales.emailUsuario=this.correo;
+    this.credenciales.passUsuario=this.pass;
+    console.log("cosa email: "+this.correo)
+    let email=this.credenciales.emailUsuario;
+    let resultado=this.service.logIn(this.credenciales).subscribe(data=>{
+      this.si=data;this.credenciales=data;})
+
+    if(this.si){
       localStorage.setItem("Email", email);
       this.router.navigate(["perfil"]);
     }else {
