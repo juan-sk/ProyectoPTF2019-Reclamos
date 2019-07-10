@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Usuario {
 	
  @Id
- @Column
+ @Column //(name= )
  private int rutusuario;
  @Column
  private String nombreusuario;

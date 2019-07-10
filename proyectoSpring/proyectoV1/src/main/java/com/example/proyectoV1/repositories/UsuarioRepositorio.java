@@ -11,5 +11,5 @@ public interface UsuarioRepositorio  extends Repository<Usuario,Integer>{
 	Usuario save(Usuario p);
 	void delete(Usuario p);
 	Usuario findOne(int id_rutUsuario);
-	Usuario findByCorreo(String emailusuario);
+	Usuario findByEmailusuario(String emailusuario);
 }

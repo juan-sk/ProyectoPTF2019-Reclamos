@@ -45,9 +45,9 @@ public class UsuarioServiceImp  implements UsuarioService{
 		boolean verificador= false;
 		String emailusuario = p.getEmailusuario();
 		String pass = p.getPassusuario();
-		Usuario usuarioAVerificar = repositorio.findByCorreo(emailusuario);
+		Usuario usuarioAVerificar = repositorio.findByEmailusuario(emailusuario);
 		
-		if(emailusuario.equals(usuarioAVerificar.getEmailusuario()) && pass.equals(usuarioAVerificar.getPassusuario())) {
+		if(pass.equals(usuarioAVerificar.getPassusuario())) {
 			verificador = true;
 		}
 		
