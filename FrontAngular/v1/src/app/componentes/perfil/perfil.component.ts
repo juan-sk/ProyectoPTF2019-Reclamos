@@ -26,4 +26,8 @@ export class PerfilComponent implements OnInit {
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
   }
+
+   buscarPorId(){
+    this.serviceRS.getReclamo(this.idbusqueda);
+  }
 }
