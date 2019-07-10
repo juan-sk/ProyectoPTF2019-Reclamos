@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Services/service.service';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   si;
   credenciales=new UsuarioRegistrado();
   errorMsg="";
-  constructor(private router:Router,private service:ServiceService) { }
+  idbusqueda:number;
+  constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
 
   ngOnInit() {
   }
@@ -42,6 +44,10 @@ export class LoginComponent implements OnInit {
 
   registrar(){
     this.router.navigate(["registrar"]);
+  }
+
+   buscarPorId(){
+    this.serviceRS.getReclamo(this.idbusqueda);
   }
 
 }
