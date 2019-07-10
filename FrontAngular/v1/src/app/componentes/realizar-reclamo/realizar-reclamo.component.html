@@ -1,0 +1,43 @@
+<!-- CONTENIDO -->
+			<div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+				<div class="col-3" style="background-color: #dddddd">
+					<div>
+						<br>
+						<img src="../../assets/photo-placeholder.jpeg">
+						<div style="background-color: darkgray; height:10px; width: 200px; transform: translate(150px, -100px);"></div>
+						<div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
+						<button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
+						<br><br><br><br>
+						<button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+						<br>
+						<button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
+						<br>
+						<button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
+						<br>
+					</div>
+				</div>
+				<div class="col-9" style="height:730px; "><br>
+					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar reclamo</h1>
+					<br>
+					<div>
+						<br><label style="color: #eeeeee;">Empresa</label><br>
+						<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Seleccione
+					  </button>
+					</div><br>
+					<div class="form-group">
+					    <label for="inputlg" style="color: #eeeeee">Título</label>
+					    <input class="form-control" id="inputlg" type="text" placeholder="Recuerda utilizar un título preciso y explicativo">
+					</div>
+					<div class="form-group">
+					    <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
+					    <textarea [(ngModel)]="rs.detalle_reclamo" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+					</div>
+					<br><hr style="border: 1px solid #dddddd">
+					<div class="form-group">
+					    <label for="exampleFormControlFile1" style="color: #eeeeee">Adjuntar archivo (opcional)</label>
+					    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+					</div><br>
+					<button class="btn btn-primary btn-lg btn-block" onclick="location.href='InterfazUR-ReclamoSUCCESS.html'">Enviar Reclamo</button>
+				</div>
+			</div>
