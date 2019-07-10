@@ -1,54 +1,37 @@
 package com.example.proyectoV1.services;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import com.example.proyectoV1.entities.Empresa;
+import com.example.proyectoV1.repositories.EmpresaRepositorio;
+@Service
+public class EmpresaServiceImp implements EmpresaService{
 
-import com.example.proyectoV1.entities.ReclamoSugerencia;
-import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
-
-public class EmpresaServiceImp implements ReclamoSugerenciaService{
 	@Autowired
-	private ReclamoSugerenciaRepositorio repositorio;
-	
+	private EmpresaRepositorio repositorio;
+
 	@Override
-	public List<ReclamoSugerencia> listar() {
+	public List<Empresa> listar(){
 		return repositorio.findAll();	
 	}
+
 	@Override
-	public ResponseEntity<ReclamoSugerencia> listarID(int id) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(repositorio.findOne(id));
-				//soy un tiranosaurio :3
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); 
-		}
+	public Empresa listarID(int id) {
+		return repositorio.findOne(id);
 	}
 
 	@Override
-	public ResponseEntity<ReclamoSugerencia> add(ReclamoSugerencia r) {
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(repositorio.save(r));
-				
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); 
-		}
+	public Empresa add(Empresa r) {
+		return repositorio.save(r);
 	}
 
 	@Override
-	public ReclamoSugerencia edit(ReclamoSugerencia r) {
+	public Empresa edit(Empresa r) {
 		return repositorio.update(r);
-		
 	}
 
-	@Override 
-	public ReclamoSugerencia delete(ReclamoSugerencia r) {
+	@Override
+	public Empresa delete(Empresa r) {
 		return repositorio.delete(r);
-		
 	}
-}
-
-
 }
