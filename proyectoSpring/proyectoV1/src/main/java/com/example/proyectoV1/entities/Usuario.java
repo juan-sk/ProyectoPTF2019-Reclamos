@@ -21,11 +21,7 @@ public class Usuario {
  @Column  (name= "fechanacusuario")
  private Date fechaNacUsuario;
  @Column  (name= "fonousuario")
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Karukami/ProyectoPTF2019-Reclamos.git
- private int fonousuario;
-=======
  private int fonoUsuario;
->>>>>>> 144e94b me falto un atributo por cambiar
  @Column  (name= "generousuario")
  private String generoUsuario;
   
