@@ -8,7 +8,7 @@ import { ReclamoSugerencia } from '../Modelo/ReclamoSugerencia';
 export class RsServiceService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/RS'
+  url='http://localhost:8080/ReclamoSugerencia'
 
 
   crearReclamo(rs:ReclamoSugerencia){

@@ -12,13 +12,14 @@ export class RealizarReclamoComponent implements OnInit {
 
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service:RsServiceService) { }
 
   ngOnInit() {
   }
 
   realizarReclamoSugerencia() {
   	alert("hola");
+    this.service.crearReclamo(this.rs);
   }
 
 }
