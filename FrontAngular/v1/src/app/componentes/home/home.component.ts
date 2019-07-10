@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   nombre:string = localStorage.getItem('Email');
 
   ngOnInit() {
-    if(this.nombre!="anonimo"){
+    if(this.nombre=="anonimo"){
       this.router.navigate(["perfil"]);
     }
   }

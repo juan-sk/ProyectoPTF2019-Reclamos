@@ -25,7 +25,7 @@ import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
 public class ControladorRS {
 @Autowired
 ReclamoSujerenciaRepositorio service;
-
+//y yo soy un terisinosaurio
 @GetMapping
 	public List<ReclamoSugerencia>Listar(){
 		return service.listar(); 

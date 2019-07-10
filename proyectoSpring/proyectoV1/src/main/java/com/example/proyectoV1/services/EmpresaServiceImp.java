@@ -1,15 +1,15 @@
 package com.example.proyectoV1.services;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
 
-@Service
-public abstract class ReclamoSujerenciaServiceImp implements ReclamoSujerenciaService{
+public class EmpresaServiceImp implements ReclamoSujerenciaService{
 	@Autowired
 	private ReclamoSujerenciaRepositorio repositorio;
 	
@@ -48,4 +48,7 @@ public abstract class ReclamoSujerenciaServiceImp implements ReclamoSujerenciaSe
 		return repositorio.delete(r);
 		
 	}
+}
+
+
 }
