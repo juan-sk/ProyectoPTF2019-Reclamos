@@ -36,7 +36,7 @@ public class UsuarioServiceImp  implements UsuarioService{
 	@Override
 	public Usuario delete(Usuario p) {
 		// TODO Auto-generated method stub
-		return null;
+		return null;  
 	}
 
 	@Override
