@@ -10,7 +10,7 @@ export class RsServiceService {
   constructor(private http:HttpClient) { }
   url='http://localhost:8080/RS'
 
-  crearReclamo(rs:ReclamoSujerencia){
+  enviarReclamo(rs:ReclamoSujerencia){
   	return this.http.post<ReclamoSujerencia>(this.url,rs);
   }
 }

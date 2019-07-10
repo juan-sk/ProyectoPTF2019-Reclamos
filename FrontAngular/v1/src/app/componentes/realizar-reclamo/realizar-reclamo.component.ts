@@ -18,7 +18,7 @@ export class RealizarReclamoComponent implements OnInit {
   }
 
   realizarReclamoSugerencia() {
-  	alert("hola")
+  	alert("hola");
   }
 
 }
