@@ -7,6 +7,13 @@ import com.example.proyectoV1.entities.ReclamoSugerencia;
 
 public interface ReclamoSugerenciaService {	
 	List<ReclamoSugerencia> listar();
+	ReclamoSugerencia add(ReclamoSugerencia r);
+	ReclamoSugerencia edit(ReclamoSugerencia r);
+	ReclamoSugerencia delete(ReclamoSugerencia r);
+
+	
+	
+	/*
 	ResponseEntity<ReclamoSugerencia> listarID(int id);
 	//Crear y guardar un RS
 	ResponseEntity<ReclamoSugerencia> add(ReclamoSugerencia r);
@@ -15,4 +22,5 @@ public interface ReclamoSugerenciaService {
 	//Eliminar un RS
 	ReclamoSugerencia delete(ReclamoSugerencia r);
 	//Guardar un RS
+	 */
 }

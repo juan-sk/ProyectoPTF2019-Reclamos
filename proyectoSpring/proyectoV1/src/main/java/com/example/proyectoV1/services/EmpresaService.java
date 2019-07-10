@@ -1,19 +1,22 @@
 package com.example.proyectoV1.services;
-
 import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-
-import com.example.proyectoV1.entities.ReclamoSugerencia;
+import com.example.proyectoV1.entities.Empresa;
 
 public interface EmpresaService {
-		List<ReclamoSugerencia> listar();
+		List<Empresa> listar();
+		Empresa add(Empresa e);
+		Empresa edit(Empresa e);
+		Empresa delete(Empresa e);
+		
+		/*
 		ResponseEntity<ReclamoSugerencia> listarID(int id);
+		List<Empresa> listar();
+		Empresa listarID(int id);
 		//Crear y guardar un RS
-		ResponseEntity<ReclamoSugerencia> add(ReclamoSugerencia r);
+		Empresa add(Empresa r);
 		//Editar un RS
-		ReclamoSugerencia edit(ReclamoSugerencia r);
+		Empresa edit(Empresa r);
 		//Eliminar un RS
-		ReclamoSugerencia delete(ReclamoSugerencia r);
-		//Guardar un RS
+		Empresa delete(Empresa r);
+		//Guardar un RS */
 }

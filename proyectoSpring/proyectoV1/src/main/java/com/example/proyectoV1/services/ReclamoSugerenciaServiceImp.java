@@ -9,10 +9,33 @@ import com.example.proyectoV1.entities.ReclamoSugerencia;
 import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
 @Service
-public abstract class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
+public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	@Autowired
 	private ReclamoSugerenciaRepositorio repositorio;
+
+	@Override
+	public List<ReclamoSugerencia> listar() {
+		return repositorio.findAll();
+	}
+
+	@Override
+	public ReclamoSugerencia add(ReclamoSugerencia r) {
+		return repositorio.save(r);
+	}
+
+	@Override
+	public ReclamoSugerencia edit(ReclamoSugerencia r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReclamoSugerencia delete(ReclamoSugerencia r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
+	/*
 	@Override
 	public List<ReclamoSugerencia> listar() {
 		return repositorio.findAll();	
@@ -48,4 +71,5 @@ public abstract class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaSe
 		return repositorio.delete(r);
 		
 	}
+	*/
 }

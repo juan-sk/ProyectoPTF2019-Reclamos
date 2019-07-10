@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ReclamoSujerencia } from '../Modelo/ReclamoSujerencia';
+import { ReclamoSugerencia } from '../Modelo/ReclamoSugerencia';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,14 @@ import { ReclamoSujerencia } from '../Modelo/ReclamoSujerencia';
 export class RsServiceService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/RS'
+  url='http://localhost:8080/ReclamoSugerencia'
 
-  crearReclamo(rs:ReclamoSujerencia){
-  	return this.http.post<ReclamoSujerencia>(this.url,rs);
+
+  crearReclamo(rs:ReclamoSugerencia){
+  	return this.http.post<ReclamoSugerencia>(this.url,rs);
+  }
+
+  getReclamo(id:number){
+    return this.http.get<ReclamoSugerencia>(this.url + "/" + id);
   }
 }
