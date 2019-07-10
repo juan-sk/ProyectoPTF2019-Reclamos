@@ -1,4 +1,5 @@
-<div clas="container-fluid">
+
+<div class="container-fluid">
 
     <!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
@@ -41,10 +42,9 @@
                         </nav>
                     </div>
                 </div>
+                <router-outlet></router-outlet>
       </div>  
-      <router-outlet></router-outlet>
-      
-    </div>
+
   <!-- CONTENIDO -->
   <div class="row">
         <div class="col-8" style="height:730px; background-color: #000000; background-image: url('../assets/fondousuario.png'); background-repeat: no-repeat; ">
@@ -67,4 +67,6 @@
             </form>
         </div>
     </div>
+
+<router-outlet></router-outlet>
 </div>
