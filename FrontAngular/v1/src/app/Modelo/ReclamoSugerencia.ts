@@ -1,4 +1,4 @@
-export class ReclamoSujerencia{
+export class ReclamoSugerencia{
     idReclamoSujerencia:number;
     idEmpresa:number;
     fechaReclamoSujerencia:Date;
