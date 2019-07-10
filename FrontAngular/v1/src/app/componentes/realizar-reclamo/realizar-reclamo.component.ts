@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RS } from 'src/app/Modelo/RS';
+import { ReclamoSujerencia} from 'src/app/Modelo/ReclamoSujerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RealizarReclamoComponent implements OnInit {
 
-	rs:RS=new RS();
+	rs:ReclamoSujerencia=new ReclamoSujerencia();
 
   constructor(private router:Router) { }
 
