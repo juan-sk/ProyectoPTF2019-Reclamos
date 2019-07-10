@@ -25,7 +25,7 @@ public class Usuario {
  @Column
  private String generousuario;
  
-//
+////
 //==============================================================0
 //Get&Set
 
