@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 
-public interface ReclamoSujerenciaService {	
+public interface ReclamoSugerenciaService {	
 	List<ReclamoSugerencia> listar();
 	ResponseEntity<ReclamoSugerencia> listarID(int id);
 	//Crear y guardar un RS

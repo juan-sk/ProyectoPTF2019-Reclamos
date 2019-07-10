@@ -6,12 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
-import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
+import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
 @Service
-public abstract class ReclamoSujerenciaServiceImp implements ReclamoSujerenciaService{
+public abstract class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	@Autowired
-	private ReclamoSujerenciaRepositorio repositorio;
+	private ReclamoSugerenciaRepositorio repositorio;
 	
 	@Override
 	public List<ReclamoSugerencia> listar() {

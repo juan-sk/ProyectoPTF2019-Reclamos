@@ -1,16 +1,15 @@
 package com.example.proyectoV1.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 import com.example.proyectoV1.entities.Empresa;
 import com.example.proyectoV1.repositories.EmpresaRepositorio;
-
 @Service
 public class EmpresaServiceImp implements EmpresaService{
+
 	@Autowired
 	private EmpresaRepositorio repositorio;
-	
+
 	@Override
 	public List<Empresa> listar(){
 		return repositorio.findAll();	

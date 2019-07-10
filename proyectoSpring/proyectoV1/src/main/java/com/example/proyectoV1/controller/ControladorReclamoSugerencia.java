@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
-import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
+import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
-@RequestMapping({"/ReclamoSujerencia"})
+@RequestMapping({"/ReclamoSugerencia"})
 @EnableAutoConfiguration
 
-public class ControladorRS {
+public class ControladorReclamoSugerencia {
 @Autowired
-ReclamoSujerenciaRepositorio service;
+ReclamoSugerenciaRepositorio service;
 //y yo soy un terisinosaurio
 @GetMapping
 	public List<ReclamoSugerencia>Listar(){
