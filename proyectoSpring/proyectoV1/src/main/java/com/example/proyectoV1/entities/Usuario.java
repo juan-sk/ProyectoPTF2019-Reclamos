@@ -21,7 +21,7 @@ public class Usuario {
  @Column  (name= "fechanacusuario")
  private Date fechaNacUsuario;
  @Column  (name= "fonousuario")
- private int fonousuario;
+ private int fonoUsuario;
  @Column  (name= "generousuario")
  private String generoUsuario;
   
@@ -65,10 +65,10 @@ public void setFechaNacUsuario(Date fechaNacUsuario) {
 	this.fechaNacUsuario = fechaNacUsuario;
 }
 public int getFonousuario() {
-	return fonousuario;
+	return fonoUsuario;
 }
 public void setFonousuario(int fonousuario) {
-	this.fonousuario = fonousuario;
+	this.fonoUsuario = fonousuario;
 }
 public String getGeneroUsuario() {
 	return generoUsuario;
