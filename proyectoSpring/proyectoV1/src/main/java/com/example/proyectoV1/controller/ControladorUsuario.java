@@ -30,7 +30,7 @@ UsuarioService service;
 @GetMapping
 public List<Usuario>Listar(){
 return service.listar(); 
-}
+} 
 
 @PostMapping
 public Usuario agregar(@RequestBody Usuario p) {

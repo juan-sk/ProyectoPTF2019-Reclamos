@@ -24,7 +24,7 @@ public class Usuario {
  private int fonousuario;
  @Column  (name= "generousuario")
  private String generoUsuario;
- 
+  
 
 //==============================================================0
 //Get&Set
