@@ -25,6 +25,18 @@ import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 public class ControladorReclamoSugerencia {
 @Autowired
 ReclamoSugerenciaRepositorio service;
+
+@GetMapping
+public List<ReclamoSugerencia>Listar(){
+	return service.listar();
+}
+
+@PostMapping
+public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
+	return service.add(r);
+}
+
+/*
 //y yo soy un terisinosaurio
 @GetMapping
 	public List<ReclamoSugerencia>Listar(){
@@ -49,5 +61,5 @@ public ResponseEntity<ReclamoSugerencia> editar(@RequestBody ReclamoSugerencia r
 r.setIdReclamo(id);
 return service.edit(r);
 }
-
+*/
 }

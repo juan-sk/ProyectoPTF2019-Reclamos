@@ -8,12 +8,13 @@ import com.example.proyectoV1.entities.ReclamoSugerencia;
 import java.util.List;
 public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerencia,Integer>{
 	List<ReclamoSugerencia>findAll();
+	ReclamoSugerencia save(ReclamoSugerencia r);
 	List<ReclamoSugerencia> listar();
 	ReclamoSugerencia findOne(int id);
-	ReclamoSugerencia save(ReclamoSugerencia r);
-	ReclamoSugerencia delete(ReclamoSugerencia r);
-	ResponseEntity<ReclamoSugerencia> listarID(int id);
+	void delete(ReclamoSugerencia r);
+	/*ResponseEntity<ReclamoSugerencia> listarID(int id);
 	ResponseEntity<ReclamoSugerencia> add(ReclamoSugerencia r);
-	ResponseEntity<ReclamoSugerencia> edit(ReclamoSugerencia r);
-	ReclamoSugerencia update(ReclamoSugerencia r);
+	ResponseEntity<ReclamoSugerencia> edit(ReclamoSugerencia r); 
+	ReclamoSugerencia update(ReclamoSugerencia r); */
+	ReclamoSugerencia add(ReclamoSugerencia r);
 }
