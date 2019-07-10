@@ -36,7 +36,7 @@ public class UsuarioServiceImp  implements UsuarioService{
 	@Override
 	public Usuario delete(Usuario p) {
 		// TODO Auto-generated method stub
-		return null;
+		return null;  
 	}
 
 	@Override
@@ -45,9 +45,9 @@ public class UsuarioServiceImp  implements UsuarioService{
 		boolean verificador= false;
 		String emailusuario = p.getEmailusuario();
 		String pass = p.getPassusuario();
-		Usuario usuarioAVerificar = repositorio.findByCorreo(emailusuario);
+		Usuario usuarioAVerificar = repositorio.findByEmailusuario(emailusuario);
 		
-		if(emailusuario.equals(usuarioAVerificar.getEmailusuario()) && pass.equals(usuarioAVerificar.getPassusuario())) {
+		if(pass.equals(usuarioAVerificar.getPassusuario())) {
 			verificador = true;
 		}
 		
