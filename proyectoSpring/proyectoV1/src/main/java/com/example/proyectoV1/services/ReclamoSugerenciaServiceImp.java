@@ -6,12 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
-import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
+import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
 @Service
-public abstract class ReclamoSujerenciaServiceImp implements ReclamoSujerenciaService{
+public abstract class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	@Autowired
-	private ReclamoSujerenciaRepositorio repositorio;
+	private ReclamoSugerenciaRepositorio repositorio;
 	
 	@Override
 	public List<ReclamoSugerencia> listar() {
@@ -21,7 +21,7 @@ public abstract class ReclamoSujerenciaServiceImp implements ReclamoSujerenciaSe
 	public ResponseEntity<ReclamoSugerencia> listarID(int id) {
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(repositorio.findOne(id));
-				
+				//soy un tiranosaurio :3
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); 
 		}

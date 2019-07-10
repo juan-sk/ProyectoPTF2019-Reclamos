@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 
 import java.util.List;
-public interface ReclamoSujerenciaRepositorio extends Repository<ReclamoSugerencia,Integer>{
+public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerencia,Integer>{
 	List<ReclamoSugerencia>findAll();
 	List<ReclamoSugerencia> listar();
 	ReclamoSugerencia findOne(int id);
