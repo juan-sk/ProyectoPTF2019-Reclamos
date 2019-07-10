@@ -17,4 +17,8 @@ export class RealizarReclamoComponent implements OnInit {
   ngOnInit() {
   }
 
+  realizarReclamoSugerencia() {
+  	alert("hola")
+  }
+
 }
