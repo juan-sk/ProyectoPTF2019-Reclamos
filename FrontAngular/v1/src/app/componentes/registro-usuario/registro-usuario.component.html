@@ -1,3 +1,43 @@
+    <!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+    <div class="row">
+                <div class="col" style="background-color: #eeeeee">
+                    <!-- style="transform: scaleX(1.03);" -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Nuevo Reclamo</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Historial de Reclamos</a>
+                              </li>
+                              <li>
+                                <button type="button" class="btn btn-success" style="margin-left: 670px; margin-right: 10px">Login</button> 
+                              </li>
+                              <li>
+                                <button type="button" onclick="location.href='MainEmpresas.html'" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px">Empresas</button>
+                              </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                            </form>
+                            </div>
+                    </nav>
+                </div>
+            </div>
+
+
 <!-- CONTENIDO -->
             <div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
                 <div class="col-4"></div>
@@ -13,37 +53,39 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombre_usuario_r" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
+                                <input [(ngModel)]="usuarioARegistrar.nombreusuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellido_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                                <input [(ngModel)]="usuarioARegistrar.apellidousuario"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
                             </div>
                             <div class="form-group">
-                                <label for="">Rut</label>
-                                <input [(ngModel)]="usuarioARegistrar.id_rut_usuario_r" type="number" name="" id="">
+
+                                <label for="" style="color: #dddddd">Rut</label>
+                                <input [(ngModel)]="usuarioARegistrar.rutusuario" type="number" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5">
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fecha_nacimiento_usuario_r"type="date" class="form-control" id="Apellidos" placeholder="DD/MM/YYYY">
+                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Apellidos" placeholder="MM/DD/YYYY">
+
                             </div>
                             <label style="color: #dddddd;">Telefono</label><br>
                             <div class="btn-group">
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.telefono_usuario_r"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
+                            <input [(ngModel)]="usuarioARegistrar.fonousuario"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Género</label><br>
-                               <input  [(ngModel)]="usuarioARegistrar.genero_usuario_r"type="text" name="" id="">
+                               <input  [(ngModel)]="usuarioARegistrar.generousuario"type="text" name="" id="">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Seleccione
                               </button>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.correo_usuario_r"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="usuarioARegistrar.emailusuario"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
@@ -51,7 +93,7 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.password_usuario_r" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="usuarioARegistrar.passusuario" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
