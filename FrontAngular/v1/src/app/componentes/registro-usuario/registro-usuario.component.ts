@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { ServiceService } from 'src/app/Services/service.service';
 import { Router } from '@angular/router';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -14,7 +15,8 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   correo2:string;
   mensaje:string="";
-  constructor(private router:Router,private service:ServiceService) { }
+    idbusqueda:number;
+  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService) { }
 
   ngOnInit() {
   
@@ -61,6 +63,10 @@ export class RegistroUsuarioComponent implements OnInit {
     +this.usuarioARegistrar.generoUsuario+" pass: "+this.usuarioARegistrar.passUsuario+" fecha n: "+
     this.usuarioARegistrar.fechaNacUsuario+" telefono: "+this.usuarioARegistrar.fonoUsuario+"pass2: "+this.pass2+" correo2: "+ this.correo2);
     
+  }
+
+  buscarPorId(){
+    this.serviceRS.getReclamo(this.idbusqueda);
   }
 
 }

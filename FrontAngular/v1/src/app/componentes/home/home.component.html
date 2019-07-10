@@ -34,10 +34,10 @@
                                       <button type="button" onclick="location.href='MainEmpresas.html'" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px">Empresas</button>
                                   </li>
                                 </ul>
-                                <form class="form-inline my-2 my-lg-0">
-                                      <input class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
-                                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                                </form>
+                                <div style="margin-left: 400px; margin-right: 200px">
+                                  <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
+                                      <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button></div>
+                                      
                                   </div>
                         </nav>
                     </div>
