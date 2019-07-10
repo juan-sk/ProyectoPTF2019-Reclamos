@@ -1,19 +1,19 @@
 export class ReclamoSugerencia{
-    idReclamoSujerencia:number;
+    idReclamoSugerencia:number;
     idEmpresa:number;
-    fechaReclamoSujerencia:Date;
-    detalleReclamoSujerencia:string;
-    usuarioReclamoSujerencia:number;
+    fechaReclamoSugerencia:Date;
+    detalleReclamoSugerencia:string;
+    usuarioReclamoSugerencia:number;
     idEmpleado:number;
     estado:string;
     tipo:string;
     
     constructor(){
-        this.idReclamoSujerencia=0;
+        this.idReclamoSugerencia=0;
         this.idEmpresa=0;
-        this.fechaReclamoSujerencia=new Date();
-        this.detalleReclamoSujerencia="";
-        this.usuarioReclamoSujerencia=0;
+        this.fechaReclamoSugerencia=new Date();
+        this.detalleReclamoSugerencia="";
+        this.usuarioReclamoSugerencia=0;
         this.idEmpleado=0;
         this.estado="";
         this.tipo="";

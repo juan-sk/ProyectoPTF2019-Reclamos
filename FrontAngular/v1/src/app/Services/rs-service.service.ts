@@ -14,4 +14,8 @@ export class RsServiceService {
   crearReclamo(rs:ReclamoSugerencia){
   	return this.http.post<ReclamoSugerencia>(this.url,rs);
   }
+
+  getReclamo(id:number){
+    return this.http.get<ReclamoSugerencia>(this.url + "/" + id);
+  }
 }
