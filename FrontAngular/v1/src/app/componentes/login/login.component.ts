@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
     console.log("cosa email: "+this.correo)
     let email=this.credenciales.emailUsuario;
     let resultado=this.service.logIn(this.credenciales).subscribe(data=>{
-      this.si=data;this.credenciales=data;})
-
+      this.si=data;//this.credenciales=data;
+    })
+      console.log("sadkjahsdk"+this.si);
     if(this.si){
       localStorage.setItem("Email", email);
       this.router.navigate(["perfil"]);

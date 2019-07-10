@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private router:Router) { }
+  nombre:string = localStorage.getItem('Email');
 
   ngOnInit() {
+    if(this.nombre!="anonimo"){
+      this.router.navigate(["perfil"]);
+    }
   }
   registrar(){
     this.router.navigate(['registrar']);

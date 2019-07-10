@@ -9,13 +9,19 @@ import { Router } from '@angular/router';
 export class PerfilComponent implements OnInit {
 
   constructor(private router:Router) { }
+  nombre:string = localStorage.getItem('Email');
 
   ngOnInit() {
+    if(this.nombre==null){
+      this.router.navigate(["home"]);
+    }
   }
 
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);
   }
 
-   nombre:string = localStorage.getItem('Email');
+  cerrarSesion(){
+    localStorage.setItem("Email", "anonimo");
+  }
 }
