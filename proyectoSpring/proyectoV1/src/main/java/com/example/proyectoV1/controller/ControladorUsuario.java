@@ -31,7 +31,7 @@ UsuarioService service;
 public List<Usuario>Listar(){
 return service.listar(); 
 }
-
+ 
 @PostMapping
 public Usuario agregar(@RequestBody Usuario p) {
 	return service.add(p);
