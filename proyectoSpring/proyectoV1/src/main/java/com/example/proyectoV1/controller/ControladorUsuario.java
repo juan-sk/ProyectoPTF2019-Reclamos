@@ -22,7 +22,7 @@ import com.example.proyectoV1.services.UsuarioService;
 @RequestMapping({"/Usuario"})
 @EnableAutoConfiguration
 public class ControladorUsuario {
-	
+	 
 
 @Autowired
 UsuarioService service;
@@ -30,7 +30,7 @@ UsuarioService service;
 @GetMapping
 public List<Usuario>Listar(){
 return service.listar(); 
-}
+} 
 
 @PostMapping
 public Usuario agregar(@RequestBody Usuario p) {
@@ -44,9 +44,9 @@ public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 }
 
 @PutMapping(path= {"/{rutUsuario}"})
-public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
+public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutUsuario){
 	System.out.println("dendro de editar");
-p.setRutusuario(rutusuario);
+p.setRutUsuario(rutUsuario);
 return service.edit(p);
 }
 

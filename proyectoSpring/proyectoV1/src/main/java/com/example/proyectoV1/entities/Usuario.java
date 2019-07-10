@@ -6,64 +6,64 @@ import javax.persistence.*;
 @Entity
 @Table(name="usuarior")
 public class Usuario {
-	
+	   
  @Id
- @Column //(name= )
- private int rutusuario;
- @Column
- private String nombreusuario;
- @Column
- private String apellidousuario;
- @Column        
- private String emailusuario;
- @Column
- private String passusuario;
- @Column
- private Date fechanacusuario;
- @Column
+ @Column (name= "rutusuario")
+ private int rutUsuario;
+ @Column (name= "nombreusuario")
+ private String nombreUsuario;
+ @Column  (name= "apellidousuario")
+ private String apellidoUsuario;
+ @Column  (name= "emailusuario")    
+ private String emailUsuario;
+ @Column  (name= "passusuario")
+ private String passUsuario;
+ @Column  (name= "fechanacusuario")
+ private Date fechaNacUsuario;
+ @Column  (name= "fonousuario")
  private int fonousuario;
- @Column
- private String generousuario;
- 
+ @Column  (name= "generousuario")
+ private String generoUsuario;
+  
 
 //==============================================================0
 //Get&Set
-
-public int getRutusuario() {
-	return rutusuario;
+ 
+public int getRutUsuario() {
+	return rutUsuario;
 }
-public void setRutusuario(int rutusuario) {
-	this.rutusuario = rutusuario;
+public void setRutUsuario(int rutUsuario) {
+	this.rutUsuario = rutUsuario;
 }
-public String getNombreusuario() {
-	return nombreusuario;
+public String getNombreUsuario() {
+	return nombreUsuario;
 }
-public void setNombreusuario(String nombreusuario) {
-	this.nombreusuario = nombreusuario;
+public void setNombreUsuario(String nombreUsuario) {
+	this.nombreUsuario = nombreUsuario;
 }
-public String getApellidousuario() {
-	return apellidousuario;
+public String getApellidoUsuario() {
+	return apellidoUsuario;
 }
-public void setApellidousuario(String apellidousuario) {
-	this.apellidousuario = apellidousuario;
+public void setApellidoUsuario(String apellidoUsuario) {
+	this.apellidoUsuario = apellidoUsuario;
 }
-public String getEmailusuario() {
-	return emailusuario;
+public String getEmailUsuario() {
+	return emailUsuario;
 }
-public void setEmailusuario(String emailusuario) {
-	this.emailusuario = emailusuario;
+public void setEmailUsuario(String emailUsuario) {
+	this.emailUsuario = emailUsuario;
 }
-public String getPassusuario() {
-	return passusuario;
+public String getPassUsuario() {
+	return passUsuario;
 }
-public void setPassusuario(String passusuario) {
-	this.passusuario = passusuario;
+public void setPassUsuario(String passUsuario) {
+	this.passUsuario = passUsuario;
 }
-public Date getFechanacusuario() {
-	return fechanacusuario;
+public Date getFechaNacUsuario() {
+	return fechaNacUsuario;
 }
-public void setFechanacusuario(Date fechanacusuario) {
-	this.fechanacusuario = fechanacusuario;
+public void setFechaNacUsuario(Date fechaNacUsuario) {
+	this.fechaNacUsuario = fechaNacUsuario;
 }
 public int getFonousuario() {
 	return fonousuario;
@@ -71,11 +71,15 @@ public int getFonousuario() {
 public void setFonousuario(int fonousuario) {
 	this.fonousuario = fonousuario;
 }
-public String getGenerousuario() {
-	return generousuario;
+public String getGeneroUsuario() {
+	return generoUsuario;
 }
-public void setGenerousuario(String generousuario) {
-	this.generousuario = generousuario;
+public void setGeneroUsuario(String generoUsuario) {
+	this.generoUsuario = generoUsuario;
 }
+ 
+
+
+
  
 }
