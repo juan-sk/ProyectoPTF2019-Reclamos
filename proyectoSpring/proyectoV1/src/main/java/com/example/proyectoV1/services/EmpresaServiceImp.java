@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
-import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
+import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
-public class EmpresaServiceImp implements ReclamoSujerenciaService{
+public class EmpresaServiceImp implements ReclamoSugerenciaService{
 	@Autowired
-	private ReclamoSujerenciaRepositorio repositorio;
+	private ReclamoSugerenciaRepositorio repositorio;
 	
 	@Override
 	public List<ReclamoSugerencia> listar() {
