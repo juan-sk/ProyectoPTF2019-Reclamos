@@ -22,7 +22,7 @@ import com.example.proyectoV1.services.UsuarioService;
 @RequestMapping({"/Usuario"})
 @EnableAutoConfiguration
 public class ControladorUsuario {
-	
+	 
 
 @Autowired
 UsuarioService service;

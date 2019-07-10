@@ -12,4 +12,4 @@ public interface UsuarioService {
 	boolean logIn(Usuario p);
 	
 }
- 
+  

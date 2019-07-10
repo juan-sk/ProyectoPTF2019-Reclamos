@@ -13,4 +13,4 @@ public interface UsuarioRepositorio  extends Repository<Usuario,Integer>{
 	Usuario findOne(int id_rutUsuario);
 	Usuario findByEmailUsuario(String emailUsuario);  
 }
- 
+  

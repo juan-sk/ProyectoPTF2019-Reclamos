@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="usuarior")
 public class Usuario {
-	
+	   
  @Id
  @Column (name= "rutusuario")
  private int rutUsuario;
