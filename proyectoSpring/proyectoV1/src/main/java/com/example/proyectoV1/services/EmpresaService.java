@@ -1,13 +1,15 @@
 package com.example.proyectoV1.services;
+import java.util.List;
+import com.example.proyectoV1.entities.Empresa;
 
-public class EmpresaService {
-		List<ReclamoSugerencia> listar();
-		ResponseEntity<ReclamoSugerencia> listarID(int id);
+public interface EmpresaService {
+		List<Empresa> listar();
+		Empresa listarID(int id);
 		//Crear y guardar un RS
-		ResponseEntity<ReclamoSugerencia> add(ReclamoSugerencia r);
+		Empresa add(Empresa r);
 		//Editar un RS
-		ReclamoSugerencia edit(ReclamoSugerencia r);
+		Empresa edit(Empresa r);
 		//Eliminar un RS
-		ReclamoSugerencia delete(ReclamoSugerencia r);
+		Empresa delete(Empresa r);
 		//Guardar un RS
 }
