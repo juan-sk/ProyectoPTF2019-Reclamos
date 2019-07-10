@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,14 +47,20 @@ public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 @PutMapping(path= {"/{rutUsuario}"})
 public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
 	System.out.println("dendro de editar");
-p.setRutusuario(rutusuario);
+p.setRutUsuario(rutusuario);
 return service.edit(p);
 }
 
+/*
 @PostMapping(path= {"/login"})
 public boolean logIn(@RequestBody Usuario p){
 	
+	return service.logIn(p); */
+
+@PostMapping (path= {"/login"})
+public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
 	return service.logIn(p);
 }
+
 
 }
