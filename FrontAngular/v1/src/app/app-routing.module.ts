@@ -5,13 +5,15 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { RealizarReclamoComponent } from './componentes/realizar-reclamo/realizar-reclamo.component';
+import { ReclamoEnviadoComponent } from './componentes/reclamo-enviado/reclamo-enviado.component';
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"registrar",component:RegistroUsuarioComponent},
   {path:"perfil",component:PerfilComponent},
-  {path:"realizar_reclamo",component:RealizarReclamoComponent}
+  {path:"realizar_reclamo",component:RealizarReclamoComponent},
+  {path:"reclamo_enviado",component:ReclamoEnviadoComponent}
 ];
 
 @NgModule({
