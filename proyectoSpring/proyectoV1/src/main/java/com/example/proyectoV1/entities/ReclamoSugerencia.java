@@ -4,64 +4,64 @@ import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="reclamosujerencia")
-public class ReclamoSujerencia {
+@Table(name="reclamosugerencia")
+public class ReclamoSugerencia {
  @Id
- @Column
+ @Column (name = "idreclamo")
  @GeneratedValue(strategy= GenerationType.IDENTITY)
- private int idreclamo;
+ private int idReclamo;
 
   /*@Column
   private String tag;*/ 
-  private int idempresa; 
-  @Column
-  private Date fechareclamo;
-   @Column
-  private String detallereclamo;
-  @Column
-  private int usuarioreclamo;
-  @Column
-  private int idempleado; 
-  @Column
+  private int idEmpresa; 
+  @Column (name = "fechareclamo")
+  private Date fechaReclamo;
+   @Column (name = "detallereclamo")
+  private String detalleReclamo;
+  @Column (name = "usuarioreclamo")
+  private int usuarioReclamo;
+  @Column (name = "idempleado")
+  private int idEmpleado; 
+  @Column (name = "estado")
   private String estado; 
-  @Column
+  @Column (name = "tipo")
   private String tipo;
   
 public int getIdReclamo() {
-	return idreclamo;
+	return idReclamo;
 }
 public void setIdReclamo(int idreclamo) {
-	this.idreclamo = idreclamo;
+	this.idReclamo = idreclamo;
 }
 public int getIdEmpresa() {
-	return idempresa;
+	return idEmpresa;
 }
 public void setIdEmpresa(int idempresa) {
-	this.idempresa = idempresa;
+	this.idEmpresa = idempresa;
 }
 public Date getFechaReclamo() {
-	return fechareclamo;
+	return fechaReclamo;
 }
 public void setFechaReclamo(Date fechareclamo) {
-	this.fechareclamo = fechareclamo;
+	this.fechaReclamo = fechareclamo;
 }
 public String getDetalleReclamo() {
-	return detallereclamo;
+	return detalleReclamo;
 }
 public void setDetalleReclamo(String detallereclamo) {
-	this.detallereclamo = detallereclamo;
+	this.detalleReclamo = detallereclamo;
 }
 public int getUsuarioReclamo() {
-	return usuarioreclamo;
+	return usuarioReclamo;
 }
 public void setUsuarioReclamo(int usuarioreclamo) {
-	this.usuarioreclamo = usuarioreclamo;
+	this.usuarioReclamo = usuarioreclamo;
 }
 public int getIdEmpleado() {
-	return idempleado;
+	return idEmpleado;
 }
 public void setIdEmpleado(int idempleado) {
-	this.idempleado = idempleado;
+	this.idEmpleado = idempleado;
 }
 public String getEstado() {
 	return estado;

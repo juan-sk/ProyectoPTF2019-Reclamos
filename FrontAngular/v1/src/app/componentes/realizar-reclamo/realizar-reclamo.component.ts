@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RS } from 'src/app/Modelo/RS';
+import { ReclamoSugerencia} from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-realizar-reclamo',
@@ -10,11 +11,21 @@ import { Router } from '@angular/router';
 })
 export class RealizarReclamoComponent implements OnInit {
 
-	rs:RS=new RS();
+	rs:ReclamoSugerencia=new ReclamoSugerencia();
+    idbusqueda:number;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private serviceRS:RsServiceService) { }
 
   ngOnInit() {
+  }
+
+  realizarReclamoSugerencia() {
+  	alert("hola");
+    this.serviceRS.crearReclamo(this.rs);
+  }
+
+  buscarPorId(){
+    this.serviceRS.getReclamo(this.idbusqueda);
   }
 
 }

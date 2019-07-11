@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,24 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  idbusqueda:number;
+
+  constructor(private router:Router, private service:RsServiceService) { }
+  nombre:string = localStorage.getItem('Email');
 
   ngOnInit() {
+    if(this.nombre=="anonimo"){
+      this.router.navigate(["perfil"]);
+    }
   }
   registrar(){
     this.router.navigate(['registrar']);
   }
   login(){
     this.router.navigate(['login']);
+  }
+
+  buscarPorId(){
+    this.service.getReclamo(this.idbusqueda);
   }
 }

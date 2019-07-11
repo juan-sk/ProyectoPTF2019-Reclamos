@@ -14,40 +14,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.proyectoV1.entities.ReclamoSujerencia;
-import com.example.proyectoV1.repositories.ReclamoSujerenciaRepositorio;
+import com.example.proyectoV1.entities.ReclamoSugerencia;
+import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
-@RequestMapping({"/ReclamoSujerencia"})
+@RequestMapping({"/ReclamoSugerencia"})
 @EnableAutoConfiguration
 
-public class ControladorRS {
+public class ControladorReclamoSugerencia {
 @Autowired
-ReclamoSujerenciaRepositorio service;
+ReclamoSugerenciaRepositorio service;
 
 @GetMapping
-	public List<ReclamoSujerencia>Listar(){
+public List<ReclamoSugerencia>Listar(){
+	return service.listar();
+}
+
+@PostMapping
+public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
+	return service.add(r);
+}
+
+/*
+//y yo soy un terisinosaurio
+@GetMapping
+	public List<ReclamoSugerencia>Listar(){
 		return service.listar(); 
 	}
 @GetMapping(path= {"/{id} "})
-public ResponseEntity<ReclamoSujerencia> listarId(@PathVariable("id")int id) {
+public ResponseEntity<ReclamoSugerencia> listarId(@PathVariable("id")int id) {
 	return service.listarID(id);}
 
 @PostMapping
-public ResponseEntity<ReclamoSujerencia> agregar(@RequestBody ReclamoSujerencia r) {
+public ResponseEntity<ReclamoSugerencia> agregar(@RequestBody ReclamoSugerencia r) {
 	return service.add(r);
 }
 
 @DeleteMapping (path= {"/{id}"})
-public ReclamoSujerencia eliminar (@RequestBody ReclamoSujerencia r, @PathVariable ("id") int id) {
+public ReclamoSugerencia eliminar (@RequestBody ReclamoSugerencia r, @PathVariable ("id") int id) {
 	return service.delete(r); 
 }
 
 @PutMapping(path= {"/{id}"})
-public ResponseEntity<ReclamoSujerencia> editar(@RequestBody ReclamoSujerencia r,@PathVariable("id") int id) {
+public ResponseEntity<ReclamoSugerencia> editar(@RequestBody ReclamoSugerencia r,@PathVariable("id") int id) {
 r.setIdReclamo(id);
 return service.edit(r);
 }
-
+*/
 }

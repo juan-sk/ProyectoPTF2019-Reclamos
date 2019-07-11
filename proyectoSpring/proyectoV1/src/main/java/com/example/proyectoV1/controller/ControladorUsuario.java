@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ import com.example.proyectoV1.services.UsuarioService;
 @RequestMapping({"/Usuario"})
 @EnableAutoConfiguration
 public class ControladorUsuario {
-	 
+	
 
 @Autowired
 UsuarioService service;
@@ -30,8 +31,8 @@ UsuarioService service;
 @GetMapping
 public List<Usuario>Listar(){
 return service.listar(); 
-} 
-
+}
+ 
 @PostMapping
 public Usuario agregar(@RequestBody Usuario p) {
 	return service.add(p);
@@ -44,16 +45,22 @@ public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 }
 
 @PutMapping(path= {"/{rutUsuario}"})
-public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutUsuario){
+public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
 	System.out.println("dendro de editar");
-p.setRutUsuario(rutUsuario);
+p.setRutUsuario(rutusuario);
 return service.edit(p);
 }
 
+/*
 @PostMapping(path= {"/login"})
 public boolean logIn(@RequestBody Usuario p){
 	
+	return service.logIn(p); */
+
+@PostMapping (path= {"/login"})
+public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
 	return service.logIn(p);
 }
+
 
 }

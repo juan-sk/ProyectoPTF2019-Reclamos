@@ -22,9 +22,10 @@ export class ServiceService {
     return this.http.get<UsuarioRegistrado>(this.url+"/"+id);
   }
   updateUsuario(usuarioregistrado:UsuarioRegistrado){
-    return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.nombreusuario,usuarioregistrado);
+    return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.nombreUsuario,usuarioregistrado);
   }
   logIn(credenciales:UsuarioRegistrado){
+    console.log("email: "+credenciales.emailUsuario+" pass: "+credenciales.passUsuario);
     return this.http.post<UsuarioRegistrado>(this.url+'/login',credenciales);
   }
   

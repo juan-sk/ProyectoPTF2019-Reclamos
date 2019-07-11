@@ -3,8 +3,11 @@ package com.example.proyectoV1.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.proyectoV1.entities.ReclamoSugerencia;
 import com.example.proyectoV1.entities.Usuario;
 import com.example.proyectoV1.repositories.UsuarioRepositorio;
 
@@ -40,20 +43,21 @@ public class UsuarioServiceImp  implements UsuarioService{
 	}
 
 	@Override
-	public boolean logIn(Usuario p) {
-		
-		boolean verificador= false;
+	public ResponseEntity<Usuario> logIn(Usuario p){
 		String emailusuario = p.getEmailUsuario();
 		String pass = p.getPassUsuario();
 		Usuario usuarioAVerificar = repositorio.findByEmailUsuario(emailusuario);
 		
-		if(pass.equals(usuarioAVerificar.getPassUsuario())) {
-			verificador = true;
+		try { 
+			
+			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
+			}
+			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
+			
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); 
 		}
 		
-		return verificador;
 	}
-
-
 
 }

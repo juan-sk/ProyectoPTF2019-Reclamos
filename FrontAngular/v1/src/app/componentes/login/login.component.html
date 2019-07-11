@@ -29,10 +29,10 @@
                                 <button type="button" onclick="location.href='MainEmpresas.html'" class="btn btn-dark" style="margin-left: 800px; margin-right: 0px">Empresas</button>
                               </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                            </form>
+                            <div style="margin-left: 400px; margin-right: 200px">
+                                  <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
+                                      <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                                </div>
                             </div>
                     </nav>
                 </div>
@@ -55,17 +55,19 @@
                             <div>
                                 <div class="form-group">
                                     <label style="color: #dddddd;">Correo Electrónico</label>
-                                    <input type="text" class="form-control" id="Nombres" placeholder="JuanPerez@ejemplo.com">
+                                    <input [(ngModel)]="correo" type="text" class="form-control" id="Nombres" placeholder="JuanPerez@ejemplo.com">
                                 </div>
                                 <div class="form-group">
                                     <label style="color: #dddddd;">Contraseña</label>
-                                    <input type="password" class="form-control" id="Apellidos" placeholder="*********">
+                                    <input [(ngModel)]="pass" type="password" class="form-control" id="Apellidos" placeholder="*********">
                                 </div>
                                 
                                 <br><button type="button" (click)="enviarCredenciales()" class="btn btn-primary btn-lg btn-block">Ingresar</button><br>
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de Privacidad</small></a>
+                                  <p>{{si}}</p>
+                                <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de privacidad</small>
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿Olvidaste tu contraseña?</small></a>
-                                <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
+                                <a (click)="registrar()"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
                             </div>
                         
                     </div>
