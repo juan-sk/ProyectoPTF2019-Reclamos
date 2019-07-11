@@ -44,6 +44,7 @@ public class UsuarioServiceImp  implements UsuarioService{
 		return null;  
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public ResponseEntity<Usuario> logIn(Usuario p){
 		Usuario usuarioAVerificar=p;

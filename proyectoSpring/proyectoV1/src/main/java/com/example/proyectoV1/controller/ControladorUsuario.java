@@ -59,6 +59,7 @@ public boolean logIn(@RequestBody Usuario p){
 
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
+	
 	return service.logIn(p);
 }
 
