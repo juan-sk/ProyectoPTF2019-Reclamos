@@ -18,10 +18,12 @@ export class RealizarReclamoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   realizarReclamoSugerencia() {
+    this.rs.fechaReclamoSugerencia=new Date();
+
+    this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
   	alert("hola");
-    this.serviceRS.crearReclamo(this.rs);
   }
 
   buscarPorId(){
