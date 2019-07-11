@@ -12,7 +12,6 @@ public interface ReclamoSugerenciaService {
 	ReclamoSugerencia delete(ReclamoSugerencia r);
 
 	
-	
 	/*
 	ResponseEntity<ReclamoSugerencia> listarID(int id);
 	//Crear y guardar un RS

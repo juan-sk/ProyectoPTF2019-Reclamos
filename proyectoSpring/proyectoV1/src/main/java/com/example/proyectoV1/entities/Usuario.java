@@ -1,7 +1,6 @@
 package com.example.proyectoV1.entities;
 import java.sql.Date;
 
-
 import javax.persistence.*;
 @Entity
 @Table(name="usuarior")
@@ -76,9 +75,5 @@ public String getGeneroUsuario() {
 public void setGeneroUsuario(String generoUsuario) {
 	this.generoUsuario = generoUsuario;
 }
- 
-
-
-
  
 }

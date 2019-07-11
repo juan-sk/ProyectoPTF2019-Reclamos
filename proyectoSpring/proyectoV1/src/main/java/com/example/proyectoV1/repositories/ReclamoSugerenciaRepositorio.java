@@ -1,12 +1,14 @@
 package com.example.proyectoV1.repositories;
 
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
-import org.springframework.http.ResponseEntity;
 
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 
 import java.util.List;
+
 public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerencia,Integer>{
+	
 	List<ReclamoSugerencia>findAll();
 	ReclamoSugerencia save(ReclamoSugerencia r);
 	List<ReclamoSugerencia> listar();

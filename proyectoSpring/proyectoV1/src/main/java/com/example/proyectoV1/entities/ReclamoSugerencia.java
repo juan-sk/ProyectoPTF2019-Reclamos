@@ -26,42 +26,41 @@ public class ReclamoSugerencia {
   private String estado; 
   @Column (name = "tipo")
   private String tipo;
-  
 public int getIdReclamo() {
 	return idReclamo;
 }
-public void setIdReclamo(int idreclamo) {
-	this.idReclamo = idreclamo;
+public void setIdReclamo(int idReclamo) {
+	this.idReclamo = idReclamo;
 }
 public int getIdEmpresa() {
 	return idEmpresa;
 }
-public void setIdEmpresa(int idempresa) {
-	this.idEmpresa = idempresa;
+public void setIdEmpresa(int idEmpresa) {
+	this.idEmpresa = idEmpresa;
 }
 public Date getFechaReclamo() {
 	return fechaReclamo;
 }
-public void setFechaReclamo(Date fechareclamo) {
-	this.fechaReclamo = fechareclamo;
+public void setFechaReclamo(Date fechaReclamo) {
+	this.fechaReclamo = fechaReclamo;
 }
 public String getDetalleReclamo() {
 	return detalleReclamo;
 }
-public void setDetalleReclamo(String detallereclamo) {
-	this.detalleReclamo = detallereclamo;
+public void setDetalleReclamo(String detalleReclamo) {
+	this.detalleReclamo = detalleReclamo;
 }
 public int getUsuarioReclamo() {
 	return usuarioReclamo;
 }
-public void setUsuarioReclamo(int usuarioreclamo) {
-	this.usuarioReclamo = usuarioreclamo;
+public void setUsuarioReclamo(int usuarioReclamo) {
+	this.usuarioReclamo = usuarioReclamo;
 }
 public int getIdEmpleado() {
 	return idEmpleado;
 }
-public void setIdEmpleado(int idempleado) {
-	this.idEmpleado = idempleado;
+public void setIdEmpleado(int idEmpleado) {
+	this.idEmpleado = idEmpleado;
 }
 public String getEstado() {
 	return estado;
@@ -74,8 +73,11 @@ public String getTipo() {
 }
 public void setTipo(String tipo) {
 	this.tipo = tipo;
-}  
-   
+}
+  
+public void listar() {
+	System.out.print("parece que funcioan");
+}
   
    
  }
