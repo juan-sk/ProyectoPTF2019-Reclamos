@@ -17,14 +17,14 @@ export class PerfilComponent implements OnInit {
     if(this.nombre=="anonimo"){
       this.router.navigate(["home"]);
     }
-  }
-
+  } 
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);
   }
 
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
+    this.router.navigate(["home"])
   }
 
    buscarPorId(){

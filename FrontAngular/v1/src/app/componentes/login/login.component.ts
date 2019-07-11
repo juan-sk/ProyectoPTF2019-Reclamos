@@ -12,7 +12,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 export class LoginComponent implements OnInit {
   correo:string;
   pass:string;
-  si;
+  
   credenciales=new UsuarioRegistrado();
   errorMsg="";
   idbusqueda:number;
@@ -23,22 +23,29 @@ export class LoginComponent implements OnInit {
   enviarCredenciales(){
     this.credenciales.emailUsuario=this.correo;
     this.credenciales.passUsuario=this.pass;
-    let si2;
+
     console.log("cosa email: "+this.correo)
     let email=this.credenciales.emailUsuario;
+    try {
+      
     let resultado=this.service.logIn(this.credenciales).subscribe(data=>{
-      this.si=data;//this.credenciales=data;
-      si2=data
-      console.log("data: "+data);
-      if(Boolean(data)){
+      this.credenciales=data;
+      
+      console.log("passss: "+this.credenciales.passUsuario);
+
+      if(this.credenciales.passUsuario=="valido"){
         localStorage.setItem("Email", email);
         this.router.navigate(["perfil"]);
       }else {
         this.errorMsg="correo o contraseña incorrectos";
       }
     })
-    console.log("resiltado: "+resultado);
-      console.log("estado de si: "+this.si);
+  } catch (Error ) {
+    console.log("error de server: ");
+    console.log(console.error(Error));
+    
+    this.errorMsg="correo o contraseña incorrectos";
+  }
     
   }
 
