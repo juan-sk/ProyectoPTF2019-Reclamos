@@ -7,15 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.proyectoV1.entities.ReclamoSugerencia;
+
 import com.example.proyectoV1.entities.Usuario;
 import com.example.proyectoV1.repositories.UsuarioRepositorio;
 
 @Service
 public class UsuarioServiceImp  implements UsuarioService{
-	@Autowired
 	
+	@Autowired
 	private UsuarioRepositorio repositorio;
+	
 	@Override
 	public List<Usuario> listar() {
 		return repositorio.findAll();	
@@ -45,18 +46,33 @@ public class UsuarioServiceImp  implements UsuarioService{
 
 	@Override
 	public ResponseEntity<Usuario> logIn(Usuario p){
-		String emailusuario = p.getEmailUsuario();
-		String pass = p.getPassUsuario();
-		Usuario usuarioAVerificar = repositorio.findByEmailUsuario(emailusuario);
+		Usuario usuarioAVerificar=p;
 		
 		try { 
-			
-			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
+			String emailusuario = p.getEmailUsuario();
+			String pass = p.getPassUsuario();
+			usuarioAVerificar = repositorio.findByEmailUsuario(emailusuario);
+			if(usuarioAVerificar==null) {
+				usuarioAVerificar.setPassUsuario("error");
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
 			}
+			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
+			usuarioAVerificar.setPassUsuario("valido");
+			
+			}else {
+				usuarioAVerificar.setPassUsuario("no valido");
+			}
+			
+			
 			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
 			
+		}catch(NullPointerException ex) {
+			usuarioAVerificar.setPassUsuario("error");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
 		}catch(Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); 
+			usuarioAVerificar.setPassUsuario("error");
+		
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
 		}
 		
 	}
