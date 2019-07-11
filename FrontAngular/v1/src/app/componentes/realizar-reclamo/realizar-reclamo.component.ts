@@ -23,7 +23,8 @@ export class RealizarReclamoComponent implements OnInit {
     this.rs.fechaReclamoSugerencia=new Date();
 
     this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
-  	alert("hola");
+    alert("reclamo generado enviado con exito ");
+    this.router.navigate(["perfil"]);
   }
 
   buscarPorId(){
