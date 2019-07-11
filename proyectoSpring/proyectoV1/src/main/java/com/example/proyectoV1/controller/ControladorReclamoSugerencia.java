@@ -28,7 +28,7 @@ ReclamoSugerenciaRepositorio service;
 
 @GetMapping
 public List<ReclamoSugerencia>Listar(){
-	return service.listar();
+	return service.findAll();
 }
 
 @PostMapping

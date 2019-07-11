@@ -14,11 +14,12 @@ import com.example.proyectoV1.repositories.UsuarioRepositorio;
 @Service
 public class UsuarioServiceImp  implements UsuarioService{
 	@Autowired
+	
 	private UsuarioRepositorio repositorio;
 	@Override
 	public List<Usuario> listar() {
-		return repositorio.findAll()
-;	}
+		return repositorio.findAll();	
+	}
 
 	@Override
 	public Usuario listarId_RutUsuario(int id_rutUsuario) {
