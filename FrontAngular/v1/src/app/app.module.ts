@@ -12,6 +12,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { RealizarReclamoComponent } from './componentes/realizar-reclamo/realizar-reclamo.component';
+import { ReclamoEnviadoComponent } from './componentes/reclamo-enviado/reclamo-enviado.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RealizarReclamoComponent } from './componentes/realizar-reclamo/realiza
     LoginComponent,
     RegistroUsuarioComponent,
     PerfilComponent,
-    RealizarReclamoComponent
+    RealizarReclamoComponent,
+    ReclamoEnviadoComponent
 
   ],
   imports: [

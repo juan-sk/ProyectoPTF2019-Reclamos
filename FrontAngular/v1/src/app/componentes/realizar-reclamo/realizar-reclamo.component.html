@@ -1,3 +1,7 @@
+<!----------------------------------------------------->
+<!-- REALIZAR-RECLAMO COMPONENT : INGRESO DE RECLAMO -->
+<!----------------------------------------------------->
+
 	<!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
@@ -18,7 +22,7 @@
 					    	  	<button type="button" class="btn btn-danger" style="margin-left: 950px; margin-right: 10px" onclick="location.href='MainUsuarios.html'">Cerrar sesión</button>	
 					    	  </li>
 	    					</ul>
-	    					<div style="margin-left: 400px; margin-right: 200px">
+	    					<div style="margin-left: 10px; margin-right: 0px">
                                   <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
                                       <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                                 </div>
@@ -68,6 +72,7 @@
 					    <label for="inputlg" style="color: #eeeeee">Usuario Reclamo</label>
 					    <input [(ngModel)]="rs.usuarioReclamoSugerencia" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Usuario">
 					</div>
+<<<<<<< HEAD
 					<div class="form-group">
 					    <label for="inputlg" style="color: #eeeeee">ID Empleado</label>
 					    <input [(ngModel)]="rs.idEmpleado" class="form-control" id="inputlg" type="text" placeholder="Ingresa el ID Empleado">
@@ -80,6 +85,8 @@
 					    <label for="inputlg" style="color: #eeeeee">Tipo</label>
 					    <input [(ngModel)]="rs.tipo" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Tipo">
 					</div>
+=======
+>>>>>>> 1bdf0ca1ed66c3d644e70bb547ad263d66407c34
 					<br><hr style="border: 1px solid #dddddd">
 					<br>
 					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>

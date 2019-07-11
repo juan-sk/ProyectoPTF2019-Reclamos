@@ -1,3 +1,7 @@
+<!-------------------------------------------------------->
+<!-- LOGIN COMPONENT : COMPONENTE PARA INICIO DE SESIÓN -->
+<!-------------------------------------------------------->
+
     <!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
@@ -25,7 +29,7 @@
                                 <button type="button" onclick="location.href='MainEmpresas.html'" class="btn btn-dark" style="margin-left: 800px; margin-right: 0px">Empresas</button>
                               </li>
                             </ul>
-                            <div style="margin-left: 400px; margin-right: 200px">
+                            <div style="margin-left: 10px; margin-right: 0px">
                                   <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
                                       <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                                       <p>{{errorMsg}}</p>
@@ -62,7 +66,6 @@
                                 <br><button type="button" (click)="enviarCredenciales()" class="btn btn-primary btn-lg btn-block">Ingresar</button><br>
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de Privacidad</small></a>
                                   <p>{{si}}</p>
-                                <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de privacidad</small>
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿Olvidaste tu contraseña?</small></a>
                                 <a (click)="registrar()"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
                             </div>
