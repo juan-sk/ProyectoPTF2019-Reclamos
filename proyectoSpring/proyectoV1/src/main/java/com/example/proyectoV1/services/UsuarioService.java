@@ -3,7 +3,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import com.example.proyectoV1.entities.ReclamoSugerencia;
+
 import com.example.proyectoV1.entities.Usuario;
 
 public interface UsuarioService {
