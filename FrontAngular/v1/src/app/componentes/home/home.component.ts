@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
   buscarPorId(){
     this.service.getReclamo(this.idbusqueda).subscribe(data=>{
       this.rs=data;
-      console.log("estado: "+this.rs.estado);});
+      console.log("estado: "+this.rs.estado);
+
+    });
     
   }
 }
