@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 export class HomeComponent implements OnInit {
 
   idbusqueda:number;
-
+  rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }
   nombre:string = localStorage.getItem('Email');
 
@@ -27,6 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   buscarPorId(){
-    this.service.getReclamo(this.idbusqueda);
+    this.service.getReclamo(this.idbusqueda).subscribe(data=>{
+      this.rs=data;
+      console.log("estado: "+this.rs.estado);});
+    
   }
 }

@@ -25,6 +25,9 @@ export class RealizarReclamoComponent implements OnInit {
   realizarReclamoSugerencia() {
     this.rs.idEmpresa=1;
     this.rs.idReclamoSugerencia=0;
+    this.rs.idEmpleado=0;
+    this.rs.estado="en proseso";
+    this.rs.usuarioReclamoSugerencia=0;
     
     this.rs.fechaReclamoSugerencia=new Date();
 

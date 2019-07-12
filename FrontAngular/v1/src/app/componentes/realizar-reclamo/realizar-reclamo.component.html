@@ -58,35 +58,23 @@
 </div>
 					<div class="form-group">
 						<label for="inputlg" style="color: #eeeeee">Empresa</label>
-	
+						<br>
 					<select name="empresas">
-						<option  *ngFor="let empresa of empresas" value="empresa">{{empresa}}</option> 
+						<option *ngFor="let empresa of empresas" value="empresa">{{empresa}}</option> 
 						
 					</select>
 
 					</div>
-					
+					<div class="form-group">
+							<label for="inputlg" style="color: #eeeeee">Tipo</label>
+							<input [(ngModel)]="rs.tipo" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Tipo">
+						</div>
 
 					<div class="form-group">
 					    <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
 					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
 					</div>
-					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">Usuario Reclamo</label>
-					    <input [(ngModel)]="rs.usuarioReclamoSugerencia" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Usuario">
-					</div>
-					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">ID Empleado</label>
-					    <input [(ngModel)]="rs.idEmpleado" class="form-control" id="inputlg" type="text" placeholder="Ingresa el ID Empleado">
-					</div>
-					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">Estado</label>
-					    <input [(ngModel)]="rs.estado"  class="form-control" id="inputlg" type="text" placeholder="Ingresa el Estado">
-					</div>
-					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">Tipo</label>
-					    <input [(ngModel)]="rs.tipo" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Tipo">
-					</div>
+					
 					<br><hr style="border: 1px solid #dddddd">
 					<br>
 					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>
