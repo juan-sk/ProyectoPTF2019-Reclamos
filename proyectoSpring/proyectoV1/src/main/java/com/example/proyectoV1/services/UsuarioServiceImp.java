@@ -68,12 +68,11 @@ public class UsuarioServiceImp  implements UsuarioService{
 			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
 			
 		}catch(NullPointerException ex) {
+			usuarioAVerificar=new Usuario();
 			usuarioAVerificar.setPassUsuario("error");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
-		}catch(Exception e) {
-			usuarioAVerificar.setPassUsuario("error");
 		
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
+		
 		}
 		
 	}

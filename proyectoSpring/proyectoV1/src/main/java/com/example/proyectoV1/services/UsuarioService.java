@@ -14,6 +14,5 @@ public interface UsuarioService {
 	Usuario delete(Usuario p);
 	/* boolean logIn(Usuario p); */
 	ResponseEntity<Usuario> logIn(Usuario p);
-	
 }
   
