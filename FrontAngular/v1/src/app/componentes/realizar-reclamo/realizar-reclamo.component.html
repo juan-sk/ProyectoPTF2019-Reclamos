@@ -55,12 +55,15 @@
 					<br>
 					<br>
 					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">ID Reclamo</label>
-					    <input [(ngModel)]="rs.idReclamoSugerencia"class="form-control" id="inputlg" type="text" placeholder="Ingresa el ID de reclamo">
-					</div>
+</div>
 					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">ID Empresa</label>
-					    <input [(ngModel)]="rs.idEmpresa"class="form-control" id="inputlg" type="text" placeholder="Ingresa el ID de Empresa">
+						<label for="inputlg" style="color: #eeeeee">Empresa</label>
+	
+					<select name="empresas">
+						<option  *ngFor="let empresa of empresas" value="empresa">{{empresa}}</option> 
+						
+					</select>
+
 					</div>
 					
 
