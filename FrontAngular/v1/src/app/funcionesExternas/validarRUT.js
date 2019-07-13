@@ -2,16 +2,16 @@
 class ValidarRut{
     
     constructor(){
-        this.msg="hola";
+      
     }
     esValido(rut) {
     // Despejar Puntos
-    var valor = rut.value.replace('.','');
+    let valor = rut.value.replace('.','');
     // Despejar Gui�n
     valor = valor.replace('-','');
     
     // Aislar Cuerpo y D�gito Verificador
-    cuerpo = valor.slice(0,-1);
+    let cuerpo = valor.slice(0,-1);
     dv = valor.slice(-1).toUpperCase();
     
     // Formatear RUN
@@ -25,7 +25,7 @@ class ValidarRut{
     multiplo = 2;
     
     // Para cada d�gito del Cuerpo
-    for(i=1;i<=cuerpo.length;i++) {
+    for(let i=1;i<=cuerpo.length;i++) {
     
         // Obtener su Producto con el M�ltiplo Correspondiente
         index = multiplo * valor.charAt(cuerpo.length - i);
