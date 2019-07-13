@@ -13,15 +13,27 @@ export class RealizarReclamoComponent implements OnInit {
 
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
     idbusqueda:number;
+  empresas:string[]=["aguas andinas","enel","gasco","vtr"];
+  empresa:string;
 
   constructor(private router:Router, private serviceRS:RsServiceService) { }
 
   ngOnInit() {
+    this.rs.idReclamoSugerencia=0;
   }
-
+  
   realizarReclamoSugerencia() {
-  	alert("hola");
-    this.serviceRS.crearReclamo(this.rs);
+    this.rs.idEmpresa=1;
+    this.rs.idReclamoSugerencia=0;
+    this.rs.idEmpleado=0;
+    this.rs.estado="en proseso";
+    this.rs.usuarioReclamoSugerencia=0;
+    
+    this.rs.fechaReclamoSugerencia=new Date();
+
+    this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
+    alert("reclamo generado enviado con exito ");
+    this.router.navigate(["perfil"]);
   }
 
   buscarPorId(){

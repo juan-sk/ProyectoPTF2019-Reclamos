@@ -50,28 +50,33 @@
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:730px; "><br>
+				<div class="col-9" style="height:1100px; "><br>
 					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar reclamo</h1>
 					<br>
-					<div>
-						<br><label style="color: #eeeeee;">Empresa</label><br>
-						<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Seleccione
-					  </button>
-					</div><br>
+					<br>
 					<div class="form-group">
-					    <label for="inputlg" style="color: #eeeeee">Título</label>
-					    <input class="form-control" id="inputlg" type="text" placeholder="Recuerda utilizar un título preciso y explicativo">
+</div>
+					<div class="form-group">
+						<label for="inputlg" style="color: #eeeeee">Empresa</label>
+						<br>
+					<select class="browser-default custom-select" name="empresas">
+						<option *ngFor="let empresa of empresas" value="empresa">{{empresa}}</option> 
+						
+					</select>
+
 					</div>
+					<div class="form-group">
+							<label for="inputlg" style="color: #eeeeee">Tipo</label>
+							<input [(ngModel)]="rs.tipo" class="form-control" id="inputlg" type="text" placeholder="Ingresa el Tipo">
+						</div>
+
 					<div class="form-group">
 					    <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
-					    <textarea [(ngModel)]="rs.detalle_reclamo" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
 					</div>
+					
 					<br><hr style="border: 1px solid #dddddd">
-					<div class="form-group">
-					    <label for="exampleFormControlFile1" style="color: #eeeeee">Adjuntar archivo (opcional)</label>
-					    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-					</div><br>
+					<br>
 					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>
 				</div>
 			</div>
