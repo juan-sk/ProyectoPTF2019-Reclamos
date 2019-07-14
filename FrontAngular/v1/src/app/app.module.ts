@@ -13,6 +13,7 @@ import { RegistroUsuarioComponent } from './componentes/registro-usuario/registr
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { RealizarReclamoComponent } from './componentes/realizar-reclamo/realizar-reclamo.component';
 import { ReclamoEnviadoComponent } from './componentes/reclamo-enviado/reclamo-enviado.component';
+import { HomeEmpresaComponent } from './componentes/home-empresa/home-empresa.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReclamoEnviadoComponent } from './componentes/reclamo-enviado/reclamo-e
     RegistroUsuarioComponent,
     PerfilComponent,
     RealizarReclamoComponent,
-    ReclamoEnviadoComponent
+    ReclamoEnviadoComponent,
+    HomeEmpresaComponent
 
   ],
   imports: [
