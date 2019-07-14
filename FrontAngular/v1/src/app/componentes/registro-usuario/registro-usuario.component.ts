@@ -25,6 +25,11 @@ export class RegistroUsuarioComponent implements OnInit {
     console.log(this.esValido(cosa));
   }
 
+  //Redirreciona a la vista de login
+  login(){
+    this.router.navigate(['login']);
+  }
+
 
   //noNulo(): vacio ->boolean
   //debuelve true en el caso que ninguna de las variables no tenga el estado null
