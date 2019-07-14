@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+
   enviarCredenciales(){
     this.credenciales.emailUsuario=this.correo;
     this.credenciales.passUsuario=this.pass;
