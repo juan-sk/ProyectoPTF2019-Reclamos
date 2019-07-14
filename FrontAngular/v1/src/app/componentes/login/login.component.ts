@@ -27,25 +27,20 @@ export class LoginComponent implements OnInit {
     console.log("cosa email: "+this.correo)
     let email=this.credenciales.emailUsuario;
     try {
-      
-    let resultado=this.service.logIn(this.credenciales).subscribe(data=>{
-      this.credenciales=data;
-      
-      console.log("passss: "+this.credenciales.passUsuario);
-
-      if(this.credenciales.passUsuario=="valido"){
-        localStorage.setItem("Email", email);
-        this.router.navigate(["perfil"]);
-      }else {
-        this.errorMsg="correo o contraseña incorrectos";
-      }
-    })
-  } catch (Error ) {
-    console.log("error de server: ");
-    console.log(console.error(Error));
-    
-    this.errorMsg="correo o contraseña incorrectos";
-  }
+      this.service.logIn(this.credenciales).subscribe(data=>{
+        this.credenciales=data;
+        if(this.credenciales.passUsuario=="valido"){
+          localStorage.setItem("Email", email);
+          this.router.navigate(["perfil"]);
+        }else {
+          this.errorMsg="Correo o Contraseña incorrectos";
+        }
+      })
+    } catch (e) {
+      this.errorMsg="Correo o Contraseña incorrectos";
+    }finally{
+      this.errorMsg="Correo o Contraseña incorrectos";
+    }
     
   }
 
