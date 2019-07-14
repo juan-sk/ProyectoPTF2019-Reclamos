@@ -16,7 +16,8 @@ const routes: Routes = [
   {path:"perfil",component:PerfilComponent},
   {path:"realizar_reclamo",component:RealizarReclamoComponent},
   {path:"reclamo_enviado",component:ReclamoEnviadoComponent},
-  {path:"realizar_reclamo/:id",component:RealizarReclamoEmbebidaComponent}
+  {path:"realizar_reclamo/:id",component:RealizarReclamoEmbebidaComponent},
+  {path:"rs_enviado",component:ReclamoEnviadoComponent}
 ];
 
 @NgModule({
