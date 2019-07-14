@@ -23,6 +23,7 @@ export class RealizarReclamoComponent implements OnInit {
   }
   
   realizarReclamoSugerencia() {
+    this.rs.tipo="Reclamo";
     this.rs.idEmpresa=1;
     this.rs.idReclamoSugerencia=0;
     this.rs.idEmpleado=0;
