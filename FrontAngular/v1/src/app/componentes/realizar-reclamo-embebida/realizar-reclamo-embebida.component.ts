@@ -12,14 +12,14 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
   rs:ReclamoSugerencia=new ReclamoSugerencia();
   empresas:string[]=["aguas andinas","enel","gasco","vtr"];
   tipos:string[]=["Reclamo","Sugerencia"];
-  tipo:string="hola";
+  tipo:string="";
   empresa:string;
   sesion:boolean=false;
   idEmpresa;
   constructor(private router:Router,private serviceRS:RsServiceService,private pathVariavles:ActivatedRoute) { }
 
   ngOnInit() {
-    if (localStorage.getItem('Email')!='anomino'){
+    if (localStorage.getItem('Email')!='anonimo'){
       this.sesion=true;
     }
     this.pathVariavles.params.subscribe(params=> this.idEmpresa=params['id']);
@@ -31,6 +31,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
     this.rs.idEmpleado=0;
     this.rs.estado="en proseso";
     this.rs.usuarioReclamoSugerencia=0;
+    this.rs.tipo=this.tipo
     
     this.rs.fechaReclamoSugerencia=new Date();
 

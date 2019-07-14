@@ -14,8 +14,8 @@
         
         <label style="color: #eeeeee">Tipo</label>
       
-        <select class="browser-default custom-select" name="tipos">
-            <option *ngFor="let tipo of tipos" value="{{tipo}}">{{tipo}}</option>  
+        <select class="browser-default custom-select "[(ngModel)]="tipo" name="tipos">
+            <option *ngFor="let tipo of tipos" ng-value="tipo" value="{{tipo}}">{{tipo}}</option>  
         </select>
     </div>
     <div class="row" style="background-color: #355C7D;padding-left: 50px;padding-right: 50px">
