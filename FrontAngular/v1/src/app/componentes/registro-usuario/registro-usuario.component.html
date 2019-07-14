@@ -121,7 +121,8 @@
                             <div class="form-group">
 
                                 <label for="" style="color: #dddddd">Rut</label>
-                                <input [(ngModel)]="usuarioARegistrar.rutUsuario" type="number" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5">
+                                <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5">
+                                <p style="color: white; background-color: red">{{errRut}}</p>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
@@ -139,10 +140,10 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Género</label><br>
-                               <input  [(ngModel)]="usuarioARegistrar.generoUsuario"type="text" name="" id="">
-                                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Seleccione
-                              </button>
+                                <select class="browser-default custom-select "[(ngModel)]="genero" >
+                                        <option *ngFor="let genero of generos"  value="{{genero}}">{{genero}}</option>  
+                                    </select>
+                                    <p style="color: white; background-color: red">{{errGenero}}</p>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
