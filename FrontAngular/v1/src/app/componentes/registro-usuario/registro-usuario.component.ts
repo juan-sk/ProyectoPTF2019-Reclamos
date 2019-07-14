@@ -17,23 +17,24 @@ export class RegistroUsuarioComponent implements OnInit {
   correo2:string;
   mensaje:string="";
   idbusqueda:number;
+  generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
+  genero:string;
+  errRut:string;
    
+  errGenero:string;
+  rut:string;
   constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService) { }
   ngOnInit() {
-    let cosa="20046877-5"
-    this.formatRut(cosa);
-    console.log(this.esValido(cosa));
+
   }
 
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
 
-  //Redirreciona a la vista de login
   login(){
     this.router.navigate(['login']);
   }
-
 
   //noNulo(): vacio ->boolean
   //debuelve true en el caso que ninguna de las variables no tenga el estado null
@@ -43,15 +44,35 @@ export class RegistroUsuarioComponent implements OnInit {
     let noNulo:boolean=(this.correo2==null||this.usuarioARegistrar.emailUsuario==null||this.correo2==null||this.usuarioARegistrar.emailUsuario==null);
     return noNulo;
   }
+generoVacio():boolean{
+  if(!(this.genero==null)){
+    this.usuarioARegistrar.generoUsuario=this.genero
+    return true;
+  }else{
+    this.errGenero="este campo no puede estar vacio";
+    return false;
+  }
 
+
+}
+rutVacio(){
+  if(!(this.genero==null)){
+    this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
+    return true;
+  }else{
+    this.errRut="este campo no puede estar vacio";
+    return false;
+  }
+}
   registro(){
-    this.infoUsuario();
-      
-    
-     if (this.noNulo()){
+    if(!(this.rutVacio())){
+
+    }else  if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
+      this.errRut="este campo no puede estar vacio";
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.emailUsuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.passUsuario))){
       this.mensaje="";
+      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
       })
@@ -72,20 +93,13 @@ export class RegistroUsuarioComponent implements OnInit {
   //muestra por la consola del navegador la informacion de registro 
   //esta funcion es de testeo, para comprobar la informacion del formulario 
   //ejemplo: indoUsuario() devuelve -> rut: 12345678 nombre: juan apellido: ramirez correo: juan.ramirez.sk@gmail.com genero: masculino pass: contraseña fecha n: 2019-07-03 telefono: 123456789
-  infoUsuario(){
-    
-    console.log("rut: "+this.usuarioARegistrar.rutUsuario.toString()+" nombre: "+this.usuarioARegistrar.nombreUsuario+
-    " apellido: "+this.usuarioARegistrar.apellidoUsuario+" correo: "+this.usuarioARegistrar.emailUsuario+" genero: "
-    +this.usuarioARegistrar.generoUsuario+" pass: "+this.usuarioARegistrar.passUsuario+" fecha n: "+
-    this.usuarioARegistrar.fechaNacUsuario+" telefono: "+this.usuarioARegistrar.fonoUsuario+"pass2: "+this.pass2+" correo2: "+ this.correo2);
-    
-  }
+
 
   buscarPorId(){
     this.serviceRS.getReclamo(this.idbusqueda);
   }
   
-  formatRut(rut:string){
+  formatRut(rut:string):number{
     let rutNumeros;
     if(rut.length>9){
       rutNumeros= rut.substr(0,8); 
@@ -97,28 +111,23 @@ export class RegistroUsuarioComponent implements OnInit {
     console.log (rutNumeros)
     return Number(rutNumeros);
   }
+
   esValido(rut:any) {
     console.log("este valor es el del tur: "+rut);
     // Despejar Puntos
-    
     let valor = rut.replace('.','');
     // Despejar Gui�n
     valor = valor.replace('-','');
-    
     // Aislar Cuerpo y D�gito Verificador
     let cuerpo = valor.slice(0,-1);
     let dv = valor.slice(-1).toUpperCase();
-    
     // Formatear RUN
-    rut.value = cuerpo + '-'+ dv
-    
+    rut = cuerpo + '-'+ dv
     // Si no cumple con el m�nimo ej. (n.nnn.nnn)
     if(cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false;}
-    
     // Calcular D�gito Verificador
     let suma = 0;
     let multiplo = 2;
-    
     // Para cada d�gito del Cuerpo
     for(let i=1;i<=cuerpo.length;i++) {
     
@@ -144,7 +153,14 @@ export class RegistroUsuarioComponent implements OnInit {
     if(dvEsperado != dv) {
       return false; 
     }
-    
+    else {return true}
 }
-
+infoUsuario(){
+    
+  console.log("rut: "+this.usuarioARegistrar.rutUsuario.toString()+" nombre: "+this.usuarioARegistrar.nombreUsuario+
+  " apellido: "+this.usuarioARegistrar.apellidoUsuario+" correo: "+this.usuarioARegistrar.emailUsuario+" genero: "
+  +this.usuarioARegistrar.generoUsuario+" pass: "+this.usuarioARegistrar.passUsuario+" fecha n: "+
+  this.usuarioARegistrar.fechaNacUsuario+" telefono: "+this.usuarioARegistrar.fonoUsuario+"pass2: "+this.pass2+" correo2: "+ this.correo2);
+  
+}
 }
