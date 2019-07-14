@@ -1,0 +1,35 @@
+<div style="transform: translateY(-170px)">
+        <div *ngIf="sesion"class="row" style="background-color: #355C7D; padding-left: 50px">
+            <p style="padding-top: 10px">,</p>
+
+        <button (click)="login()" class="btn btn-primary btn-lg btn-block" > inicia sesion </button>
+        </div>
+                    
+        <div class="row" style="background-color: #355C7D; padding-left: 50px">
+            
+        <h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar Reclamo/ Sugerencia</h1><br>
+    </div>
+
+    <div class="row" style="background-color: #355C7D; padding-left: 50px;padding-right: 50px">
+        
+        <label style="color: #eeeeee">Tipo</label>
+      
+        <select class="browser-default custom-select" name="tipos">
+            <option *ngFor="let tipo of tipos" value="{{tipo}}">{{tipo}}</option>  
+        </select>
+    </div>
+    <div class="row" style="background-color: #355C7D;padding-left: 50px;padding-right: 50px">
+        <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
+        <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+       
+        
+    </div>
+    <div class="row" style="background-color: #355C7D;padding-left: 50px;padding-right: 50px">
+        <p><br></p>
+        <button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>
+    
+    </div>
+</div>
+         
+             
+        
