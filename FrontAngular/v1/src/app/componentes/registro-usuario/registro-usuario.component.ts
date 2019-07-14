@@ -25,6 +25,10 @@ export class RegistroUsuarioComponent implements OnInit {
     console.log(this.esValido(cosa));
   }
 
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+
   //Redirreciona a la vista de login
   login(){
     this.router.navigate(['login']);
