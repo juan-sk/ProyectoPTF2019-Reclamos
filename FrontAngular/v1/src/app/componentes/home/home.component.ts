@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+
   buscarPorId(){
     this.service.getReclamo(this.idbusqueda).subscribe(data=>{
       this.rs=data;
