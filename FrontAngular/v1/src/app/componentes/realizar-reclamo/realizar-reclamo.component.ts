@@ -23,6 +23,7 @@ export class RealizarReclamoComponent implements OnInit {
   }
   
   realizarReclamoSugerencia() {
+    this.rs.tipo="Reclamo";
     this.rs.idEmpresa=1;
     this.rs.idReclamoSugerencia=0;
     this.rs.idEmpleado=0;
@@ -32,8 +33,8 @@ export class RealizarReclamoComponent implements OnInit {
     this.rs.fechaReclamoSugerencia=new Date();
 
     this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
-    alert("reclamo generado enviado con exito ");
-    this.router.navigate(["perfil"]);
+    //alert("reclamo generado enviado con exito ");
+    this.router.navigate(["rs_enviado"]);
   }
 
   buscarPorId(){

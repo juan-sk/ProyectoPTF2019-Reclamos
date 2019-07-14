@@ -14,6 +14,8 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { RealizarReclamoComponent } from './componentes/realizar-reclamo/realizar-reclamo.component';
 import { ReclamoEnviadoComponent } from './componentes/reclamo-enviado/reclamo-enviado.component';
 import { HomeEmpresaComponent } from './componentes/home-empresa/home-empresa.component';
+import { RealizarReclamoEmbebidaComponent } from './componentes/realizar-reclamo-embebida/realizar-reclamo-embebida.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HomeEmpresaComponent } from './componentes/home-empresa/home-empresa.co
     PerfilComponent,
     RealizarReclamoComponent,
     ReclamoEnviadoComponent,
-    HomeEmpresaComponent
+    HomeEmpresaComponent,
+    RealizarReclamoEmbebidaComponent
 
   ],
   imports: [
