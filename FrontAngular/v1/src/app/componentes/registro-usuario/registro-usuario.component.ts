@@ -31,8 +31,9 @@ export class RegistroUsuarioComponent implements OnInit {
   genero:string;
   errRut:string;
   errGenero:string;
-  errorTel:String;
+  errorTel:string;
   errorEmail:string;
+  sexo:string;
 
   formRegistro :FormGroup;
   
@@ -61,7 +62,7 @@ ngOnInit() {
       this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
       this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
       this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
-      this.usuarioARegistrar.generoUsuario="mono";
+      this.usuarioARegistrar.generoUsuario=this.genero;
       this.usuarioARegistrar.emailUsuario=this.correo;
       this.usuarioARegistrar.passUsuario=this.pass;  
 
@@ -71,6 +72,9 @@ ngOnInit() {
       console.log(this.fono);
       console.log(this.correo);
       console.log(this.pass);
+      console.log(this.sexo);
+      console.log(this.genero);
+      debugger
 
 
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{

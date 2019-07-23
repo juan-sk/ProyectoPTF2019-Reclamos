@@ -142,7 +142,7 @@
                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
                                 <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
+                                        <option ng-selected="data.unit == item.id" *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p> 
                             </div> 
