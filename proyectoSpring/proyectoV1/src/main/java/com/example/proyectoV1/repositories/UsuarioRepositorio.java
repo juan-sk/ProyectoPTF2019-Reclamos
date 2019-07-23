@@ -21,5 +21,5 @@ public interface UsuarioRepositorio  extends Repository<Usuario,Integer>{
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Encontrar un Usuario por su Email y Contraseña
 	Usuario findByEmailUsuarioAndPassUsuario(String emailUsuario, String passUsuario);  
-}
+}   
   
