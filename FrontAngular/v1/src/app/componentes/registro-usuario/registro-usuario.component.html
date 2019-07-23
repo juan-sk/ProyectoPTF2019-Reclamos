@@ -110,12 +110,12 @@
 <!-- ###############################   NOMBRE    ##################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="nombre" type="text" class="form-control" id="Nombre" name="Nombre" formControlName="Nombre"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
+                                <input [(ngModel)]="nombre" type="text" class="form-control" id="Nombre" name="Nombre" formControlName="Nombre"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) if(event.keyCode == 8) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
 <!-- ##############################   APELLIDO  ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
+                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) if(event.keyCode == 8) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
 <!-- ##############################   RUT   ###################################################################################################################-->
                             <div class="form-group form-reg">
@@ -129,20 +129,19 @@
                                 <input [(ngModel)]="fecha" type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >                             
                             </div>
 <!-- ##############################  TELEFONO ###################################################################################################################-->
-                       
                             <label style="color: #dddddd;">Telefono</label><br>
                             <div class="btn-group">
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="fono" type="text" class="form-control" id="Fono" name="Fono" formControlName="Fono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required >
+                            <input [(ngModel)]="fono" type="text" class="form-control" id="Fono" name="Fono" formControlName="Fono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"  maxlength="9" required >
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
 <!-- ##############################   GENERO   ###################################################################################################################-->
                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
                                 <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
+                                        <option ng-selected="data.unit == item.id" *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p> 
                             </div> 
@@ -175,7 +174,7 @@
 <!-- ############################# BOTON PARA CONFIRMAR REGISTRO  ####################################################################################################################-->
                             <br><br><button type="button" (click)="registro()"  id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
-                        </div>
+                        </div> 
                     <br>
                     <br><br>
                     <br>

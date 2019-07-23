@@ -31,8 +31,9 @@ export class RegistroUsuarioComponent implements OnInit {
   genero:string;
   errRut:string;
   errGenero:string;
-  errorTel:String;
+  errorTel:string;
   errorEmail:string;
+  sexo:string;
 
   formRegistro :FormGroup;
   
@@ -55,30 +56,33 @@ ngOnInit() {
       Pass2:['',Validators.required]});
     }
 
-  registro(){
-    this.usuarioARegistrar.nombreUsuario=this.nombre;
-    this.usuarioARegistrar.apellidoUsuario=this.apellido;
-    this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-    this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
-    this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
-    this.usuarioARegistrar.generoUsuario="mono";
-    this.usuarioARegistrar.emailUsuario=this.correo;
-    this.usuarioARegistrar.passUsuario=this.pass;  
+    registro(){
+      this.usuarioARegistrar.nombreUsuario=this.nombre;
+      this.usuarioARegistrar.apellidoUsuario=this.apellido;
+      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
+      this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
+      this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
+      this.usuarioARegistrar.generoUsuario=this.genero;
+      this.usuarioARegistrar.emailUsuario=this.correo;
+      this.usuarioARegistrar.passUsuario=this.pass;  
 
-    console.log(this.nombre);
-    console.log(this.apellido);
-    console.log(this.rut);
-    console.log(this.fono);
-    console.log(this.correo);
-    console.log(this.pass);
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.rut);
+      console.log(this.fono);
+      console.log(this.correo);
+      console.log(this.pass);
+      console.log(this.sexo);
+      console.log(this.genero);
+      debugger
 
 
-    this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
-      alert("se agrego correctamente");
-    })
-    this.router.navigate(["perfil"]); 
-    localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
-  }
+      this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
+        alert("se agrego correctamente");
+      })
+      this.router.navigate(["perfil"]); 
+      localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
+    }
   
   //boton redirecciona a empresa
   homeEmpresa(){
@@ -103,7 +107,7 @@ ngOnInit() {
 
   formatFono(fono:string):number{
     let numFono;
-    numFono = fono.substr(0,6);
+    numFono = fono.substr(0,9);
     return Number(numFono);
   }
 
@@ -126,7 +130,6 @@ ngOnInit() {
   }else{
     this.errorTel=resultado.message;
   }
-  } 
-  
+ } 
 }
 
