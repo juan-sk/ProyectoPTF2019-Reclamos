@@ -78,7 +78,7 @@ ngOnInit() {
 
   formatFono(fono:string):number{
     let numFono;
-    numFono = fono.substr(0,6);
+    numFono = fono.substr(0,9);
     return Number(numFono);
   }
 
@@ -103,7 +103,7 @@ ngOnInit() {
   }
 } 
 
-  registro(){
+    registro(){
       this.usuarioARegistrar.nombreUsuario=this.nombre;
       this.usuarioARegistrar.apellidoUsuario=this.apellido;
       this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
