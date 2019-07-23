@@ -21,25 +21,18 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
       this.administrador=true;
     }
   }
-  irPerfil(){
-    this.router.navigate(["empresa/perfil"]);
-  }
+  
   irSugerencia(){
     this.router.navigate(["empresa/listaSugerencias"]);
   }
-  irReclamo(){
-    this.router.navigate(["empresa/listaReclamos"]);
-  }
+  
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
   trabajadores(){
 
   }
-  cerrarSesion(){
-    localStorage.clear();
-    this.router.navigate(['home_empresa']);
-  }
+  
   responderSugerencia(){
     this.rs.estado="resuelto";
     this.rs.fechaResuelto=new Date();
@@ -50,5 +43,24 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
   
   irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
+  }
+  //irPerfil(): vavio->vacio (redireccion a componente perfil empresa)
+  //al llamar el metodo se realida el redireccionamiento al componente perfil-empresa
+  //a travez del path empreza/perfil, este componente es parte de la vista de trabajador de la empresa
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+  //irReclamo(): vavio->vacio (redireccion a componente listar reclmaos)
+  //al llamar el metodo se realida el redireccionamiento al componente listar reclamo
+  //a travez del path empreza/listaReclamos, este componente es parte de la vista de trabajador de la empresa
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
   }
 }

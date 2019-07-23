@@ -55,30 +55,30 @@ ngOnInit() {
       Pass2:['',Validators.required]});
     }
 
-    registro(){
-      this.usuarioARegistrar.nombreUsuario=this.nombre;
-      this.usuarioARegistrar.apellidoUsuario=this.apellido;
-      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-      this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
-      this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
-      this.usuarioARegistrar.generoUsuario="mono";
-      this.usuarioARegistrar.emailUsuario=this.correo;
-      this.usuarioARegistrar.passUsuario=this.pass;  
+  registro(){
+    this.usuarioARegistrar.nombreUsuario=this.nombre;
+    this.usuarioARegistrar.apellidoUsuario=this.apellido;
+    this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
+    this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
+    this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
+    this.usuarioARegistrar.generoUsuario="mono";
+    this.usuarioARegistrar.emailUsuario=this.correo;
+    this.usuarioARegistrar.passUsuario=this.pass;  
 
-      console.log(this.nombre);
-      console.log(this.apellido);
-      console.log(this.rut);
-      console.log(this.fono);
-      console.log(this.correo);
-      console.log(this.pass);
+    console.log(this.nombre);
+    console.log(this.apellido);
+    console.log(this.rut);
+    console.log(this.fono);
+    console.log(this.correo);
+    console.log(this.pass);
 
 
-      this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
-        alert("se agrego correctamente");
-      })
-      this.router.navigate(["perfil"]); 
-      localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
-    }
+    this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
+      alert("se agrego correctamente");
+    })
+    this.router.navigate(["perfil"]); 
+    localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
+  }
   
   //boton redirecciona a empresa
   homeEmpresa(){
@@ -127,5 +127,6 @@ ngOnInit() {
     this.errorTel=resultado.message;
   }
   } 
+  
 }
 
