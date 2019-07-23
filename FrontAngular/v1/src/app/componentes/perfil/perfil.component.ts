@@ -21,13 +21,12 @@ export class PerfilComponent implements OnInit {
   mensaje:string="";
   mostrarMensaje:boolean=false;
   nombresEmpresas:string[]=[];
-  @ViewChild('botonEstado') botonEstado: ElementRef;
   botonEstadoEnProceso:boolean[]=[];
-  botonEstadoResuelto:boolean[]=[];
+  botonEstadoResuelto:boolean[]=[];  
   ngOnInit() {
       if(this.nombre=="anonimo"){
         this.router.navigate(["home"]);
-      }
+      }  
       this.nombreUsuario=localStorage.getItem("nombre");
       this.apellidoUsuario=localStorage.getItem("apellido");
       this.servicioRS.getRSUsuario(+localStorage.getItem("idUsuario")).subscribe(data=>{
