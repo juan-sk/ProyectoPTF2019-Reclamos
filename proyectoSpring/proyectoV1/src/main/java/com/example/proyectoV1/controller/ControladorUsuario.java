@@ -33,14 +33,14 @@ public class ControladorUsuario {
 	public String editarUsuario (@RequestBody Usuario x) {
 		service.add(x);  
 		return "Usuario Editado";
-	}
+	} 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
 	@RequestMapping(value = "/delete/{rutUsuario}", method=RequestMethod.GET)
 	public String deleteUser(@PathVariable ("rutUsuario") int rutUsuario) {
 		service.delete(service.listarId_RutUsuario(rutUsuario));
 		return "Usuario Eliminado";
-	}
+	} 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de Todos los Usuarios
 	@RequestMapping(value="/all", method = RequestMethod.GET)
