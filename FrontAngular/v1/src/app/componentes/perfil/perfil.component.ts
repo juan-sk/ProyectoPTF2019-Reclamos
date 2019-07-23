@@ -22,7 +22,7 @@ export class PerfilComponent implements OnInit {
   mostrarMensaje:boolean=false;
   nombresEmpresas:string[]=[];
   botonEstadoEnProceso:boolean[]=[];
-  botonEstadoResuelto:boolean[]=[];
+  botonEstadoResuelto:boolean[]=[];  
   ngOnInit() {
       if(this.nombre=="anonimo"){
         this.router.navigate(["home"]);
