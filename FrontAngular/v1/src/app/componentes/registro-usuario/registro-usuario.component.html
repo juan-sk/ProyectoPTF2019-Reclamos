@@ -79,7 +79,7 @@
                           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         <div class="col-8 padding-0" style="text-align: right">
-                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search" (click)="buscarPorId()">
                              
                         </div>
                         <div class="col padding-0">
@@ -141,7 +141,7 @@
                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
                                 <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
+                                        <option ng-selected="data.unit == item.id" *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p> 
                             </div> 
