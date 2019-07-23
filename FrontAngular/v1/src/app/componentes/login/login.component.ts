@@ -12,6 +12,8 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 export class LoginComponent implements OnInit {
   correo:string;
   pass:string;
+
+  idBusqueda:number;
   
   credenciales=new UsuarioRegistrado();
   errorMsg="";
@@ -33,12 +35,22 @@ export class LoginComponent implements OnInit {
     let email=this.credenciales.emailUsuario;
     try {
       this.service.logIn(this.credenciales).subscribe(data=>{
-        this.credenciales=data;
-        if(this.credenciales.passUsuario=="valido"){
-          localStorage.setItem("Email", email);
-          this.router.navigate(["perfil"]);
-        }else {
+        let credenciales=data;
+        if(credenciales == null){
           this.errorMsg="Correo o Contraseña incorrectos";
+        }else {
+          this.errorMsg = "";
+          this.credenciales=credenciales;
+          localStorage.setItem("nombre",this.credenciales.nombreUsuario);
+          localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
+          localStorage.setItem("Email", email);
+          localStorage.setItem("idUsuario",""+this.credenciales.rutUsuario);
+          localStorage.setItem("fonoUsuario",""+this.credenciales.fonoUsuario);
+          localStorage.setItem("generoUsuario", this.credenciales.generoUsuario);
+          localStorage.setItem("fechaNacUsuario",""+this.credenciales.fechaNacUsuario); 
+
+          this.router.navigate(["perfil"]);
+
         }
       })
     } catch (e) {
@@ -52,11 +64,6 @@ export class LoginComponent implements OnInit {
   registrar(){
     this.router.navigate(["registrar"]);
   }
-
-   buscarPorId(){
-    this.serviceRS.getReclamo(this.idbusqueda);
-  }
-
    checkRut(rut) {
     // Despejar Puntos
     var valor = rut.value.replace('.','');
@@ -104,4 +111,20 @@ export class LoginComponent implements OnInit {
     // Si todo sale bien, eliminar errores (decretar que es v�lido)
     rut.setCustomValidity('');
 }
+reclamo(){
+  if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+    this.router.navigate(["anonimo/realizar_reclamo"]);
+  }else{
+    this.router.navigate(["realizar_reclamo"]);
+
+  }
+}
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
 }

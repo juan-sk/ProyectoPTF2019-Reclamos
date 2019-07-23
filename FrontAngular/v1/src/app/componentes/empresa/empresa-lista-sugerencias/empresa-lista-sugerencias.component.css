@@ -1,0 +1,63 @@
+#navbar {
+	background-color: #F8F9FB;
+}
+
+#navbarseccion1 {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#btn_home_navbar {
+	margin-top: 0px;
+}
+
+.padding-0 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+#navbarseccion2 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+
+#navbarseccion3 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+}
+
+#BotonCerrarSesion {
+	background-color: #303536;
+	color: white;
+}
+#BotonTodo {
+	background-color: #adafc2;
+	color: white;
+	border-color: white;
+}
+#BotonListaReclamos {
+	background-color: #7e848d;
+	color: white;
+	border-color: white;
+}
+#BotonListaSugerencias {
+	background-color: #61676d;
+	color: white;
+	border-color: white;
+}
+#BotonVerEstadisticas {
+	background-color: #313436;
+	color: white;
+	border-color: white;
+}
+#BotonTrabajadores {
+	background-color: #252729;
+	color: white;
+	border-color: white;
+}
+#BotonOrdenarFecha {
+	background-color: #252729;
+	color: white;
+	border-color: white;
+}

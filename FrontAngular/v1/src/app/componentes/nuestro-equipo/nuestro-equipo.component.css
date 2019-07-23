@@ -1,0 +1,49 @@
+#titulo {
+	margin-top: 32px;
+	color: white;
+	text-align: center;
+	margin-bottom: 25px;
+	text-shadow: 2px 2px 5px #000000;
+	font-size: 90px;
+	overflow: hidden;
+}
+
+#img-ourteam1 {
+	border-radius: 120px;
+	box-shadow: 2px 2px 5px #333333;
+}
+
+#ot-header {
+	background-image: url('/../assets/fondousuario2.jpg');
+	background-size: 100%;
+	height: 200px;
+	border-radius: 60px;
+	border: 2px solid #0071A4;
+}
+
+#ot-header2 {
+	background-image: url('/../assets/fotoprofesional2.jpg');
+	background-size: 100%;
+	height: 200px;
+	border-radius: 60px;
+	border: 2px solid #0071A4;
+}
+
+#ourteamcontainer {
+	background-image: url('/../assets/ourteamcontainer.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#textoempresa {
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 30px;
+}
+
+#botonInicio {
+	margin-top: 5px;
+	text-align: center;
+	background-color: #003053;
+	color: white; 
+}

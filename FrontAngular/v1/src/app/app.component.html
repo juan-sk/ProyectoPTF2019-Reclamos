@@ -4,22 +4,22 @@
 
 	<!-- HEADER -->
     <div id="mainheader" class="row">
-				<div id="mainheadercol" class="col bg-primary">
-					<h1 style="color: white; text-align: right; margin-top: 50px; margin-right: 5px; text-shadow: 2px 2px 5px black">Sitio de Reclamos G3</h1>
-				</div>
+			<div id="mainheadercol" class="col bg-primary">
+				<p style="color: white; text-align:left; margin-left: 50px; margin-top: 50px; text-shadow: 2px 2px 5px black">Tu empresa en las mejores manos.</p>
 			</div>
-	<router-outlet></router-outlet>
+		</div>
+<router-outlet></router-outlet>
 
 	<!-- FOOTER -->
 			<div class="row" style="background-color: #222222; box-sizing: border-box;">
-				<div class="col-6">
+				<div class="col-5">
 					<p style="color: #bbbbbb; text-align: center; margin-top: 20px">- REDES SOCIALES -</p>
 					<div class="container" style="text-align: center; transform: translate(0px, 20px)">
 						<img src="../../assets/iconfacebook2.png" style="margin-right: 30px">
 						<img src="../../assets/iconinstagram2.png" style="margin-right: 30px">
 						<img src="../../assets/icontwitter2.png" style="margin-right: 30px">
 						<img src="../../assets/iconlinkedin2.png" style="margin-right: 30px">
-						<img src="../../assets/iconwhatsapp2.png" style="">
+						<img src="../../assets/iconwhatsapp2.png">
 					</div>
 				</div>
 				<div class="col" style="color: #bbbbbb">
@@ -33,14 +33,16 @@
 							Teléfono: +56 9 1234 5678
 						</li>
 						<li>
-							<p>Correo: contacto@grupo3.cl<p>
+							<p>Correo: soporte@g3chile.com<p>
 						</li>
 					</ul>
 				</div>
 				<div class="col" style="text-align: center">
 					<p style="color: #bbbbbb; text-align: center; margin-top: 20px">- NUESTRO EQUIPO -</p>
 					<hr style="border: 1px solid #888888">
-					<a href="#" style="color: #bbbbbb;">Conoce a nuestro equipo</a><br>	
-					<a href="#" style="color: #bbbbbb">Trabaja con nosotros</a>			
+					<div style="transform: translate(-3px, 0px)">
+						<a (click)="nuestroEquipo()" style="color: #bbbbbb;">Conoce a nuestro equipo</a><br>	
+						<a href="#" style="color: #bbbbbb">Trabaja con nosotros</a>			
+					</div>
 				</div>
 			</div>

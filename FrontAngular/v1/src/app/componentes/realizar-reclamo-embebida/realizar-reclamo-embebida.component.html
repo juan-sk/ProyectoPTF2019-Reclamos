@@ -1,5 +1,5 @@
 <div style="transform: translateY(-170px)">
-        <div *ngIf="sesion"class="row" style="background-color: #355C7D; padding-left: 50px">
+        <div *ngIf="!sesion"class="row" style="background-color: #355C7D; padding-left: 50px">
             <p style="padding-top: 10px">,</p>
 
         <button (click)="login()" class="btn btn-primary btn-lg btn-block" > inicia sesion </button>
@@ -17,6 +17,13 @@
         <select class="browser-default custom-select "[(ngModel)]="tipo" name="tipos">
             <option *ngFor="let tipo of tipos" ng-value="tipo" value="{{tipo}}">{{tipo}}</option>  
         </select>
+    </div>
+    <div class="row" style="background-color: #355C7D; padding-left: 50px;padding-right: 50px">
+            <div class="form-group">
+                    <label  style="color: #eeeeee" for="">Titulo</label>
+                    <input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="">
+            </div>
+    
     </div>
     <div class="row" style="background-color: #355C7D;padding-left: 50px;padding-right: 50px">
         <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>

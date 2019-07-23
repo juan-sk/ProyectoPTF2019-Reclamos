@@ -19,6 +19,5 @@ export class UsuarioRegistrado{
         this.fonoUsuario=0;
         this.generoUsuario="";
     }
-  
     
 }

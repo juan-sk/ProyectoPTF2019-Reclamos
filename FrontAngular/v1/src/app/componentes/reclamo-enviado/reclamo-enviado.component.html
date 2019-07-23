@@ -1,32 +1,105 @@
+<!----------------------------------------------------->
+<!-- SUGERENCIA Y RECLAMO ENVIADO -->
+<!----------------------------------------------------->
+
+<!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO Y SUGERENCIA -->
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" href="/home">
+                                <img src="../../assets/homeiconmini.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/anonimo/realizar_reclamo">
+                                <img src="../../assets/reclamoiconmini.png" alt="">
+                                <br>
+                                RECLAMO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/anonimo/realizar_sugerencia">
+                                <img src="../../assets/sugerenciaiconmini.png" alt="">
+                                <br>
+                                SUGERENCIA
+                            </a>
+                        </div> 
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconmini.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 3: BUSCAR POR ID -->
+
+        <div class="col padding-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+            </div>
+        <router-outlet></router-outlet>
+    </div>  
 <!-- CONTENIDO -->
-			<div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
-				<div class="col-3" style="background-color: #dddddd">
-					<div>
-						<br>
-						<img src="photo-placeholder.jpeg">
-						<div style="background-color: darkgray; height:10px; width: 200px; transform: translate(150px, -100px);"></div>
-						<div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
-						<button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
-						<br><br><br><br>
-						<button class="btn btn-info btn-lg btn-block">Historial de Reclamos</button>
-						<br>
-						<button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
-						<br>
-						<button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
-						<br>
-					</div>
+			<div class="row" id=FondoEnviadoConExito>
+				<div class="col-2">
+					
 				</div>
-				<div class="col-9" style="height:730px; "><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar reclamo</h1>
+				<img src="" alt="">
+				<div class="col-8" style="height:730px; "><br>
+					<br><br><br>
 					<br><br><br>
 					<div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px; padding-top: 20px; padding-bottom: 20px">
-						<h2 style="color:white; text-align: center; text-shadow: 2px 2px 5px #222222">¡Su Reclamo se ha enviado con éxito!</h2>
+						<h2 style="color:white; text-align: center; text-shadow: 2px 2px 5px #222222">¡Tu opinión se ha enviado con éxito!</h2>
 						<br>
 						<div style="text-align: center">
-							<a href="" style="color: #eeeeee;">¿Deseas realizar otro reclamo?</a>
-						</div>
-						<div style="text-align: center">
-							<a href="InterfazUR-Historial.html" style="color: #eeeeee;">Ir a Historial de Reclamos</a>
+							<a href="/home" style="color: #eeeeee;">Volver a la pantalla principal</a>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+						<button (click)="generarPdf()"class="btn btn-lg btn-block" id=BotonDescargarPDF>Descargar PDF</button>
 						</div>
 					</div>
 				</div>

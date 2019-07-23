@@ -26,3 +26,41 @@
 	padding-top: 23px;
 	padding-bottom: 0px;
 }
+
+#idBotonIngresar {
+	background-color: #01b2aa;
+	color: white; 
+}
+#idBotonRegistrar {
+	background-color: #51bfe2;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #0184c8;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #00546c;
+	color: white;
+}
+#idBotonBuscar {
+	color: #00546c; 
+}
+#Imagen{
+	height: 730px;
+	background-color: #000000; 
+	background-image: url('/../../assets/fondousuario.png');
+	background-repeat: no-repeat;
+}
+#contenido2{
+	height: 730px; 
+	background-image: linear-gradient(#00546c, #0184c8); 	
+}
+#BotonRegistrarse{
+	background-color: #60afc7;
+	color: #F8F9FB; 
+}
+#BotonAnon{
+	background-color: #0d5f75;
+	color: #F8F9FB; 
+}

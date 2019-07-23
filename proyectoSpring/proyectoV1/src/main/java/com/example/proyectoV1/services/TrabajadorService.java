@@ -1,16 +1,23 @@
 package com.example.proyectoV1.services;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 import com.example.proyectoV1.entities.Trabajador;
-import com.example.proyectoV1.repositories.TrabajadorRepositorio;
-@Service
-public class TrabajadorService {
+import com.example.proyectoV1.exceptions.LoginException;
 
-	@Autowired
-	private TrabajadorRepositorio repositorio;
-	
-	public Trabajador add(Trabajador t) {
-		return repositorio.save(t);
-	}
-	
+public interface TrabajadorService {
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
+	Trabajador add(Trabajador t);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
+	Trabajador delete(Trabajador p);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Listar todos los Trabajadores
+	List<Trabajador>listar();
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Encontrar un trabajador por id
+	Trabajador buscarUno(int idTrabajador);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//LogIn Trabajador
+	public Trabajador logIn(Trabajador t) throws LoginException;
+	List<Trabajador> empleadosPorEmpresa(String empresa);
 }

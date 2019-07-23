@@ -6,18 +6,23 @@ public class Trabajador {
 		   
 	 @Id
 	 @Column (name= "idtrabajador")
+	 @GeneratedValue(strategy= GenerationType.AUTO)
 	 private int idTrabajador;
 	 @Column (name= "nombretrabajador")
 	 private String nombreTrabajador;
-	 @Column  (name= "apellidoTrabajador")
+	 @Column  (name= "apellidotrabajador")
 	 private String apellidoTrabajador;
 	 @Column  (name= "tipotrabajador")    
 	 private String tipoTrabajador;
-	 @Column  (name= "passTrabajador")
+	 @Column  (name= "passtrabajador")
 	 private String passTrabajador;
+	 @Column (name= "empresa")
+	 private String empresa;
 	 
+
 //========================================================================
 //Getters & Setters
+	 
 	public int getIdTrabajador() {
 		return idTrabajador;
 	}
@@ -48,6 +53,11 @@ public class Trabajador {
 	public void setPassTrabajador(String passTrabajador) {
 		this.passTrabajador = passTrabajador;
 	}
-
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
 
 }

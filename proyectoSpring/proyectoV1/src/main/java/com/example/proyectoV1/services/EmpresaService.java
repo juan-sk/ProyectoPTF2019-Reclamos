@@ -1,15 +1,21 @@
 package com.example.proyectoV1.services;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.example.proyectoV1.entities.Empresa;
-import com.example.proyectoV1.repositories.EmpresaRepositorio;
-@Service
-public class EmpresaService {
+import java.util.List;
 
-	@Autowired
-	private EmpresaRepositorio repositorio;
-	
-	public Empresa add(Empresa e) {
-		return repositorio.save(e);
-	}
+import com.example.proyectoV1.entities.Empresa;
+public interface EmpresaService {
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
+	Empresa add(Empresa e);
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
+	void delete(int rutEmpresa);
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de todas las Empresas
+	List<Empresa> listarEmpresa();
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Buscar una Empresa por su ID
+	Empresa idEmpresa(int idEmpresa);
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Buscar una Empresa por su Nombre
+	Empresa nombreEmpresa(String nombreEmpresa);
 }

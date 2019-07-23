@@ -19,5 +19,10 @@ export class AppComponent implements OnInit{
   registrar(){
     this.router.navigate(['registrar']);
   }
+
+  nuestroEquipo(){
+    this.router.navigate(['nuestro_equipo']);
+  }
+
   title = 'v1';
 }

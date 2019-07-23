@@ -1,0 +1,130 @@
+<!----------------------------------------------------->
+<!-- REALIZAR-RECLAMO COMPONENT : INGRESO DE RECLAMO -->
+<!----------------------------------------------------->
+
+	 <!-- SECCIÓN 1: BOTON HOME-->
+     <div class="row" id="navbar">
+		<div id="navbarseccion1" class="col-5">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+					  <li class="nav-item active" id="btn_home_navbar">
+						<div class="col">
+							<a class="nav-link" href="/home">
+								<img src="../../assets/homeiconmini.png" alt="">
+								<br>
+								INICIO
+							</a>
+						</div>
+					</li>
+					<li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconmini.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+					</ul>
+				</div>            
+			</nav>
+		</div>
+
+		<!--- SECIÓN 2: Botón cerrar Sesión-->
+		<div class="col-2 padding-0">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li>
+							<button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn">Cerrar Sesión</button> 	
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	
+			<!-- SECCIÓN 3: BUSCAR POR ID -->
+	
+	<div class="col padding-0">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							
+				<div class="col-8 padding-0" style="text-align: right">
+					<input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+								 
+				</div>
+				<div class="col padding-0">
+					<button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+						Buscar
+					</button>
+				</div>
+								  
+			</div>
+			</nav>
+	</div>
+	<router-outlet></router-outlet>
+</div>  
+
+<!-- CONTENIDO -->
+<div class="row" id=FondoReclamo>
+	<div class="col-3" style="background-color: #dddddd; padding-left: 20px">
+		<div>
+			<br>
+			<img src="../../assets/photo-placeholder.jpeg">
+			
+			<div id=NombreUsuario>{{nombreUsuario}}</div>	
+			<br>
+			<div id=ApellidoUsuario>{{apellidoUsuario}}</div>						
+			<button id="BotonMiPerfil" class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
+			<br><br><br><br>
+			<button id="BotonHistorial" class="btn btn-lg btn-block" (click)="iraPerfil()">Historial de Reclamos</button>
+			<br>
+			<button id="BotonRealizarSugerencia" class="btn btn-lg btn-block"(click)="realizarSugerencia()" >Realizar Sugerencia</button>
+			<br>
+			<button id="BotonRealizarReclamo" class="btn btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
+			<br>
+		</div>
+	</div>
+	<div class="col-9" style="height:700px; "><br>
+		<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar Sugerencia</h1>
+		<br>
+		<br> 
+		<div class="form-group">
+</div>
+		<div class="form-group">
+			<label for="inputlg" style="color: #eeeeee">Empresa</label>
+			<br>
+		<select class="browser-default custom-select" [(ngModel)]="empresa"name="empresas">
+			<option *ngFor="let empresa of empresas" [ngValue]="empresa" >{{empresa}}</option> 
+			
+		</select>
+
+		</div>
+		<div class="form-group">
+			<label  style="color: #eeeeee" for="">Titulo</label>
+			<input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="" maxlength="45" required>
+		</div>
+
+		<label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
+		<div class="form-group">
+			<textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu sugerencia" maxlength="265" ></textarea>
+			<p style="color: #eeeeee">Máximo 265 caracteres </p>
+		</div>
+		
+		<br><hr style="border: 1px solid #dddddd">
+		<br>
+		<button id=BotonEnviarReclamo class="btn btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Sugerencia</button>
+	</div>
+</div>

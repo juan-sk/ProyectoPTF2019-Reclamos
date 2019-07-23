@@ -5,52 +5,148 @@
 	<!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
-<div class="row">
-				<div class="col" style="background-color: #eeeeee">
-					<!-- style="transform: scaleX(1.03);" -->
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    						<span class="navbar-toggler-icon"></span>
-	  						</button>
 
-		  					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					    	<ul class="navbar-nav mr-auto">
-					    	  <li class="nav-item active">	
-					    	    <a class="nav-link" href="#">¡Bienvenido! <span class="sr-only">(current)</span></a>
-					    	  </li>
-					    	  <li>
-					    	  	<button (click)="cerrarSesion()"type="button" class="btn btn-danger" style="margin-left: 950px; margin-right: 10px" >Cerrar sesión</button>	
-					    	  </li>
-	    					</ul>
-	    					<div style="margin-left: 10px; margin-right: 0px">
-                                  <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar por #ID..." aria-label="Search">
-                                      <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                                </div>
-			  				</div>
-					</nav>
+ <!-- SECCIÓN 1: BOTON HOME-->
+ <div class="row" id="navbar">
+    <div id="navbarseccion1" class="col-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+ 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active" id="btn_home_navbar">
+                    <div class="col">
+                        <a class="nav-link" href="/home">
+                            <img src="../../assets/homeiconmini.png" alt="">
+                            <br>
+                            INICIO
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="col">
+                        <a class="nav-link" href="/nuestro_equipo">
+                            <img src="../../assets/usiconmini.png" alt="">
+                            <br>
+                            NOSOTROS
+                        </a>
+                    </div> 
+                  </li>
+                </ul>
+            </div>            
+        </nav>
+    </div>
+    
+            <!--- SECIÓN 2: Botón cerrar Sesión-->
+		<div class="col-2 padding-0">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li>
+							<button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn">Cerrar Sesión</button> 	
+						</li>
+					</ul>
 				</div>
-			</div>
+			</nav>
+		</div>
+    
+            <!-- SECCIÓN 3: BUSCAR POR ID -->
+    
+            <div class="col padding-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+            </div>
+            <router-outlet></router-outlet>
+        </div>  
 
 
 <!-- CONTENIDO -->
-			<div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
-				<div class="col-3" style="background-color: #dddddd">
+			<div class="row" id=idFondo>
+				<div class="col-3" Id=PerfilUsuario>
 					<div>
 						<br>
 						<img src="../../assets/photo-placeholder.jpeg">
-						<div style="background-color: darkgray; height:10px; width: 200px; transform: translate(150px, -100px);"></div>
-						<div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
-						<button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
+                        <div id=NombreUsuario>{{nombreUsuario}}</div>
+                        <br>
+						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
+						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
 						<br><br><br><br>
-						<button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+						<button id= BotonHistorial class="btn btn-lg btn-block" (click)="iraPerfil()">Historial de Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
+						<button id= BotonRealizarSugerencia class="btn btn-lg btn-block" (click)="realizarSugerencia()">Realizar Sugerencia</button>
 						<br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
+						<button id= BotonRealizarReclamo class="btn btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:730px; ">
-
-				</div>
+				<div class="col-9">
+                        <div *ngFor="let rs of reclamosSugerencias;let i = index">
+                                <br>
+                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 25px; padding-bottom: 25px; background-color:white;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3" style="padding-top: 3px">
+                                                <h2>ID#{{rs.idReclamoSugerencia}}</h2>
+                                                <!-- Tengo que cambiar esto -->
+                                                <!-- Necesito que el warning pase a primary cuando el rs.estado
+                                                     sea resuelto -->
+                                                <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
+                                                <button *ngIf="botonEstadoEnProceso[i]" class="btn btn-warning">{{rs.estado}}</button>
+                                                <button *ngIf="botonEstadoResuelto[i]" class="btn btn-success">{{rs.estado}}</button>
+                                                
+                                            </div>
+                                            <div class="col-7">
+                                                <h6 style="text-align:left">Titulo: {{rs.tituloRS}}</h6>
+                                                <h6>Detalle: {{rs.detalleReclamoSugerencia}}</h6>
+                                                <h6>Empresa: {{nombresEmpresas[i]}}</h6>
+                                                <p>Respuesta: {{rs.respuestaRS}}</p>
+                                            </div>
+                                            <div class="col-2" style="text-align: center">
+                                                {{rs.fechaReclamoSugerencia}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div> 
 			</div>
+<!-- Esta es la funcion de prueba para cambiar el boton de estado, de color. -->
+<!-- Sorpresa! angular no deja que funcione.
+<script type="text/javascript">
+    var botonEstado = document.getElementById("botonEstado").innerText;
+
+    function botonEstadoColor() {
+        console.log("botonEstadoColor() on process...");
+
+        if (botonEstado = "en proceso") {
+            document.getElementById("botonEstado").setAttribute("class", "btn btn-warning");
+        }
+
+        else if (botonEstado = "resuelto") {
+            document.getElementById("botonEstado").setAttribute("class", "btn btn-success");
+        }
+    }
+</script> -->

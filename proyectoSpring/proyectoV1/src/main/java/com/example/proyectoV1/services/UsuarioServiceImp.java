@@ -1,80 +1,53 @@
 package com.example.proyectoV1.services;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-
 import com.example.proyectoV1.entities.Usuario;
+import com.example.proyectoV1.exceptions.LoginException;
 import com.example.proyectoV1.repositories.UsuarioRepositorio;
-
 @Service
 public class UsuarioServiceImp  implements UsuarioService{
-	
 	@Autowired
 	private UsuarioRepositorio repositorio;
-	
-	@Override
-	public List<Usuario> listar() {
-		return repositorio.findAll();	
-	}
-
-	@Override
-	public Usuario listarId_RutUsuario(int id_rutUsuario) {
-		return repositorio.findOne(id_rutUsuario);
-	}
- 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
 	@Override
 	public Usuario add(Usuario p) {
-		
 		return repositorio.save(p);
-	} 
-
+	}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Editar
 	@Override
 	public Usuario edit(Usuario p) {
 		return repositorio.save(p);
 	}
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
 	@Override
-	public Usuario delete(Usuario p) {
-		// TODO Auto-generated method stub
-		return null;  
+	public void delete(Usuario p) {
+		repositorio.delete(p);
 	}
-
-	@SuppressWarnings("null")
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de Todos los Usuarios
 	@Override
-	public ResponseEntity<Usuario> logIn(Usuario p){
+	public List<Usuario> listar() {
+		return repositorio.findAll();	
+	}
+	//Buscar un Usuario por su Rut
+	public Usuario listarId_RutUsuario(int id_rutUsuario) {
+		return repositorio.findOne(id_rutUsuario);
+	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//LogIn Usuario
+	@Override
+	public Usuario logIn(Usuario p) throws LoginException{
 		Usuario usuarioAVerificar=p;
-		
-		try { 
-			String emailusuario = p.getEmailUsuario();
-			String pass = p.getPassUsuario();
-			usuarioAVerificar = repositorio.findByEmailUsuario(emailusuario);
-			if(usuarioAVerificar==null) {
-				usuarioAVerificar.setPassUsuario("error");
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
-			}
-			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
-			usuarioAVerificar.setPassUsuario("valido");
-			
-			}else {
-				usuarioAVerificar.setPassUsuario("no valido");
-			}
-			
-			
-			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
-			
-		}catch(NullPointerException ex) {
-			usuarioAVerificar=new Usuario();
-			usuarioAVerificar.setPassUsuario("error");
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
-		
-		
-		}
-		
+		String emailusuario = p.getEmailUsuario();
+		String pass = p.getPassUsuario();
+		usuarioAVerificar = repositorio.findByEmailUsuarioAndPassUsuario(emailusuario, pass);	
+		if(usuarioAVerificar==null) {
+			throw new LoginException();
+		}	
+		return usuarioAVerificar;
 	}
-
 }

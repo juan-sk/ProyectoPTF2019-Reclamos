@@ -1,0 +1,46 @@
+#navbar {
+	background-color: #F8F9FB;
+}
+
+#navbarseccion1 {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#btn_home_navbar {
+	margin-top: 0px;
+}
+
+.padding-0 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+#navbarseccion2 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+#navbarseccion3 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+}
+#idBotonRegistrar {
+	background-color: #83888f;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #6e787e;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #4f595c;
+	color: white;
+}
+#RegistroFondo {
+	background-image: linear-gradient(rgb(180, 187, 194),rgb(115, 122, 126), rgb(83, 90, 95));
+}
+#BotonConfirmarRegistro {
+	background-color: #2e3233;
+	color: white;
+}

@@ -18,8 +18,7 @@ import javax.persistence.Table;
 		 private String tipoEmpresa;
 		 @Column  (name= "tagempresa")
 		 private String tagEmpresa;
-		 //deberia tener contraseña
-		 
+
 		//Setters & Getters 
 		public int getRutEmpresa() {
 			return rutEmpresa;
@@ -51,4 +50,5 @@ import javax.persistence.Table;
 		public void setTagEmpresa(String tagEmpresa) {
 			this.tagEmpresa = tagEmpresa;
 		}
+		
 }

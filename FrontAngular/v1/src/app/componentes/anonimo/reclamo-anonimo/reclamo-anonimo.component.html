@@ -1,0 +1,129 @@
+<!----------------------------------------------------->
+<!-- REALIZAR-RECLAMO COMPONENT : INGRESO DE RECLAMO ANONIMO-->
+<!----------------------------------------------------->
+
+	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO Y SUGERENCIA -->
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" href="/home">
+                                <img src="../../assets/homeiconmini.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                    
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/anonimo/realizar_sugerencia">
+                                <img src="../../assets/sugerenciaiconmini.png" alt="">
+                                <br>
+                                SUGERENCIA
+                            </a>
+                        </div> 
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconmini.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+        <div class="col-4 padding-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regí­strate!</button>   
+                        </li>
+                        <li>
+                            <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" >Login</button>  
+                        </li>
+                        <li>
+                            <button type="button" id= "idBotonEmpresa" (click)="homeEmpresa()" class="btn" style="margin-left: 10px; margin-right: 0px">Empresas</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 3: BUSCAR POR ID -->
+
+        <div class="col padding-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+            </div>
+        <router-outlet></router-outlet>
+    </div>  
+        
+        <!-- CONTENIDO -->
+    <div class="row" id=idFondoReclamoAnon>
+        <div class="col-2" style="padding-left: 20px">
+            
+        </div>
+            <div class="col-8">
+                <br>
+                <br>
+                <h1 id=h1>Realizar reclamo</h1>
+                <br>
+                <br>
+               
+                <div class="form-group">
+                    <label for="inputlg" style="color: #eeeeee">Empresa</label>
+                    <br>
+                <select class="browser-default custom-select" [(ngModel)]="empresa" name="empresas">
+                    <option *ngFor="let empresa of empresas"[ngValue]="empresa" >{{empresa}}</option> 
+                </select>
+                </div>
+                            <div class="form-group">
+                                <label  style="color: #eeeeee" for="">Titulo</label>
+                                <input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id=""  minlength="4" maxlength="45" required >
+                            </div>
+        
+                            <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
+                            <div class="form-group">
+                                <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo" minlength="4" maxlength="265" required></textarea>
+                                <p style="color:white">maximo 265 caracteres </p>
+                            </div>
+                            
+                            <button class="btn btn-lg btn-block" id=idBotonRealizarReclamo (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+        

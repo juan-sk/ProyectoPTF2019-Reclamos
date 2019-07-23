@@ -6,6 +6,7 @@
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
 
+    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
     <div class="row" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,7 +18,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/home">
                                 <img src="../../assets/homeiconmini.png" alt="">
                                 <br>
                                 INICIO
@@ -26,7 +27,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" (click)="reclamo()">
                                 <img src="../../assets/reclamoiconmini.png" alt="">
                                 <br>
                                 RECLAMO
@@ -35,12 +36,12 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/historialiconmini.png" alt="">
+                            <a class="nav-link" href="/historial">
+                                <img src="../../assets/sugerenciaiconmini.png" alt="">
                                 <br>
-                                HISTORIAL
+                                SUGERENCIA
                             </a>
-                        </div>
+                        </div> 
                       </li>
                     </ul>
                 </div>            
@@ -50,42 +51,39 @@
         <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
         <div class="col-4 padding-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px" disabled>¡Regístrate!</button>   
+                            <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regí­strate!</button>   
                         </li>
                         <li>
-                            <button type="button" class="btn btn-success" style="margin-left: 10px; margin-right: 10px" (click)="login()">Login</button>  
+                            <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" >Login</button>  
                         </li>
                         <li>
-                            <button type="button" (click)="homeEmpresa()" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px">Empresas</button>
+                            <button type="button" id= "idBotonEmpresa" (click)="homeEmpresa()" class="btn" style="margin-left: 10px; margin-right: 0px">Empresas</button>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-        <!-- SECCIÓN 3: BUSCAR POR ID -->
+        <!-- SECCIÃ“N 3: BUSCAR POR ID -->
 
-            <div class="col padding-0">
+        <div class="col padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                           </button>
-
+    
                           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         <div class="col-8 padding-0" style="text-align: right">
-                          <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
                              
                         </div>
                         <div class="col padding-0">
-                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
                                 Buscar
                             </button>
                         </div>
@@ -96,76 +94,86 @@
         <router-outlet></router-outlet>
     </div>  
 
-
 <!-- CONTENIDO -->
-            <div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+<form name="formRegistro" [formGroup]="formRegistro" class="testsss">
+            <div class="row" id=idFondoRegistro>
                 <div class="col-4"></div>
                 <div class="col-4" style="height:1530px; ">
-                
-                        <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
-                            Registro de Nuevo Usuario
-                        </h4><br>
+                    <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
+                        Registro de Nuevo Usuario 
+                    </h4><br>
 
-                        <p style="color: #eeeeee; text-align: center">
-                            Ingresa tu información para crear tu usuario:
-                        </p>
-                        <div>
-                            <div class="form-group">
+                    <p style="color: #eeeeee; text-align: center">
+                        Ingresa tu información para crear tu usuario:
+                    </p>
+                    <div>
+<!-- ###############################   NOMBRE    ##################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre...">
+                                <input [(ngModel)]="nombre" type="text" class="form-control" id="Nombre" name="Nombre" formControlName="Nombre"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
-                            <div class="form-group">
+<!-- ##############################   APELLIDO  ###################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
-                            <div class="form-group">
-
+<!-- ##############################   RUT   ###################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <label for="" style="color: #dddddd">Rut</label>
-                                <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5">
-                                <p style="color: white; background-color: red">{{errRut}}</p>
+                                <input [(ngModel)]="rut" type="text" (keyup)="validateRut()" class="form-control"  id="" name="Rut" formControlName="Rut" placeholder="Ejemplo: 19.315.750-5" minlength="8" maxlength="10" required >
+                                <p style="color: white;">{{errRut}}</p>
                             </div>
-                            <div class="form-group">
+<!-- ##############################  FECHA DE NACIMIENTO ###################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Apellidos" placeholder="MM/DD/YYYY">
-
-                            
+                                <input [(ngModel)]="fecha" type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >                             
                             </div>
-                           
+<!-- ##############################  TELEFONO ###################################################################################################################-->
+                       
                             <label style="color: #dddddd;">Telefono</label><br>
                             <div class="btn-group">
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
+                            <input [(ngModel)]="fono" type="text" class="form-control" id="Fono" name="Fono" formControlName="Fono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required >
                             </div>
-                            <div>
+                            <p style="color: white;">{{errorTel}}</p>
+<!-- ##############################   GENERO   ###################################################################################################################-->
+                           <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
-                                <select class="browser-default custom-select "[(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  value="{{genero}}">{{genero}}</option>  
+                                <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
+                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
-                                    <p style="color: white; background-color: red">{{errGenero}}</p>
-                            </div>
-                            <div>
+                                    <p style="color: white; background-color: red">{{errGenero}}</p> 
+                            </div> 
+<!-- #############################  CORREO ELECTRONICO ####################################################################################################################-->
+
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="correo"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
-                            <div>
+<!-- #############################  CONFIRMAR CORREO ELECTRONICO  ####################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input [(ngModel)]="correo2" type="text" class="form-control" id="Apellidos" placeholder="JuanPerez@ejemplo.com">
+                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
-                            <div>
+<!-- ##############################  CONTRASEÑA  ###################################################################################################################-->
+
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="Apellidos" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="pass" type="password" class="form-control" id="Pass" name="Pass" formControlName="Pass" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
-                            <div>
+<!-- ##############################  CONFIRMAR CONTRASEÑA  ###################################################################################################################-->
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="Apellidos" placeholder="********************">
+                                <input [(ngModel)]="pass2"type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" placeholder="********************">
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
                                  </div>
-                            </div>
-                            <br><br><button type="button" (click)="registro()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button><br>
+                            </div>       
+<!-- ############################# BOTON PARA CONFIRMAR REGISTRO  ####################################################################################################################-->
+                            <br><br><button type="button" (click)="registro()"  id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
                         </div>
                     <br>
@@ -178,4 +186,5 @@
                     <br><br>
                 </div>
                 <div class="col-4"></div>
-            </div>
+            </div> 
+        </form>  

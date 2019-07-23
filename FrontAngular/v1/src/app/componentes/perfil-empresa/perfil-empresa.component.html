@@ -1,0 +1,140 @@
+<!--------------------------------------------------------------------->
+<!-- PERFIL COMPONENT : INTERFAZ DE BIENVENIDA TRAS INICIO DE SESIÓN -->
+<!--------------------------------------------------------------------->
+
+	       <!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" (click)="irPerfil()">
+                                <img src="../../assets/homeiconminiEmpresa.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconminiEmpresa.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 2: VACIO EXISTENCIAL -->
+        <div class="col-2 padding-0">
+           
+        </div>
+
+        <!-- SECCIÓN 3: BOTON CERRAR SESION-->
+
+        <div class="col-2 padding-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+					    	 <button (click)="cerrarSesion()"type="button" class="btn" id=BotonCerrarSesion >Cerrar sesión</button>	
+					   	</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <router-outlet></router-outlet>
+    </div>  
+
+
+<!-- CONTENIDO -->
+<!--SIDEBAR-->
+			<div class="row" style="background-color: rgba(255, 255, 255, 0.4)">
+				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
+					<div>
+						<br> 
+                        
+                        <div class="container"></div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="../../assets/photo-placeholder.jpeg">
+                                </div>
+                                <div class="col">
+                                    <h4 style="color: #ffffff">{{infoTrabajador.nombreTrabajador}}</h4>
+                                    <h6 style="color: #ffffff"><i>{{infoTrabajador.tipoTrabajador}}</i></h6>
+                                </div>
+                            </div>
+                        <br><br><br><br>
+                        <button class="btn btn-lg btn-block" (click)="irPerfil()" id=BotonTodo >Todo</button>
+                        <br>
+						<button class="btn btn-lg btn-block" (click)="irReclamo()" id=BotonListaReclamos>Lista Reclamos</button>
+						<br>
+						<button class="btn btn-lg btn-block" (click)="irSugerencia()" id=BotonListaSugerencias>Lista Sugerencias</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-lg btn-block" (click)="verEstadisticas()" id=BotonVerEstadisticas>Ver Estadisticas</button>
+						<br> 
+						<br>
+						<button *ngIf="administrador"class="btn btn-lg btn-block" (click)="irTrabajadores()" id=BotonTrabajadores>Trabajadores</button>
+						<br>
+
+                    </div>
+                </div>
+<!-- CONTENIDO -->
+                <div class="col-9" ><br>
+                    <h1 style="text-align: center; color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes</h1>
+                    <br><br>
+                    <div style="text-align: right">
+                        <button class="btn" id=BotonSoloEnProceso>Ver Solo en proceso</button>
+						<button (click)="reclamosPrimero()"class="btn"id=BotonReclamosPrimero>Ver Reclamos Primero</button>	
+						<button (click)="ordenarPorFecha()"class="btn"id=BotonPorFecha> Ordenar por Fecha</button>
+					</div>
+					<br><br>
+					<br>
+					<div *ngFor="let rs of reclamosSugerencias;let i=index " >
+						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
+						<div [style.background-color]="colores[i]" style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
+							<br>
+							<div class="container">
+								<div class="row">
+                                    <div class="col-3" style="padding-top: 3px">
+                                        <h1>ID#{{rs.idReclamoSugerencia}}</h1>
+                                        <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
+										<button class="btn btn-warning" >{{rs.estado}}</button>
+										
+									</div>
+									<div class="col-7">
+										<br><p>Titulo: {{rs.tituloRS}}</p>
+										<p>Detalle: {{rs.detalleReclamoSugerencia}}</p>
+										<p>Respuesta: {{rs.respuestaRS}}</p>
+									</div>
+									<div class="col-2" style="text-align: center">
+										{{rs.fechaReclamoSugerencia}}
+										<button (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+					</div>
+					<h1 style="color: white; text-shadow: 2px 2px 5px black">{{mensaje}}</h1>
+				</div>
+			</div>

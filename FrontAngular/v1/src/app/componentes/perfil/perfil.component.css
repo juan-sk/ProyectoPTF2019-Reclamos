@@ -1,0 +1,73 @@
+#navbar {
+	background-color: #F8F9FB;
+}
+
+#navbarseccion1 {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#btn_home_navbar {
+	margin-top: 0px;
+}
+
+.padding-0 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+#navbarseccion2 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+
+#navbarseccion3 {
+	padding-top: 23px;
+	padding-bottom: 0px;
+}
+
+#idBotonCerrarSesion{
+	background-color: #00546c;
+	color: white;
+}
+#idBotonBuscar {
+	color: #00546c; 
+}
+#idFondo{
+	background-image: linear-gradient(#34627a, #043947);
+}
+#PerfilUsuario {
+	background-color: #dddddd; 
+	padding-left: 20px;
+}
+#NombreUsuario {
+	color: #00546c;
+	height:20px; 
+	transform: translate(140px, -100px);
+	font-size: 25px; 
+	text-transform: capitalize;
+}
+#ApellidoUsuario {
+	color: #00546c;
+	height:20px; 
+	transform: translate(140px, -100px);
+	font-size: 25px;
+	text-transform: capitalize;
+}
+#BotonMiPerfil {
+	background-color: #00546c;
+	color: white;
+}
+#BotonHistorial {
+	background-color: #51bfe2;
+	color: white;
+}
+#BotonRealizarSugerencia {
+	background-color: #0184c8;
+	color: white;
+}
+#BotonRealizarReclamo {
+	background-color: #00546c;
+	color: white;
+} 

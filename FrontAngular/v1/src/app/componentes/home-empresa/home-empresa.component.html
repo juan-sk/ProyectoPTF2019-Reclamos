@@ -18,8 +18,8 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/homeiconmini.png" alt="">
+                            <a class="nav-link" (click)="homeEmpresa()">
+                                <img src="../../assets/homeiconminiEmpresa.png" alt="">
                                 <br>
                                 INICIO
                             </a>
@@ -27,88 +27,60 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/reclamoiconmini.png" alt="">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconminiEmpresa.png" alt="">
                                 <br>
-                                RECLAMO
+                                NOSOTROS
                             </a>
-                        </div>
-                      </li>
-                      <li class="nav-item">
-                        <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/historialiconmini.png" alt="">
-                                <br>
-                                HISTORIAL
-                            </a>
-                        </div>
+                        </div> 
                       </li>
                     </ul>
                 </div>            
             </nav>
         </div>
 
-        <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+        <!-- SECCIÓN 2: VACIO EXISTENCIAL -->
         <div class="col-4 padding-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li>
-                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px">¡Regístrate!</button>   
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-dark" style="margin-left: 10px; margin-right: 10px" (click)="login()">Login</button>  
-                        </li>
-                        <li>
-                            <button type="button" (click)="homeEmpresa()" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px" disabled>Empresas</button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            
         </div>
 
-        <!-- SECCIÓN 3: BUSCAR POR ID -->
+        <!-- SECCIÓN 3: BOTONES REGISTRAR, LOGIN, EMPRESA-->
 
-            <div class="col padding-0">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div style="margin-bottom: 20px" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <button type="button" id=idBotonRegistrar (click)="registrarEmpresa()" class="btn" style="margin-left: 0px; margin-right: 10px">Registrarse</button>   
+                    </li>
+                    <li> 
                         
-                        <div class="col-8 padding-0" style="text-align: right">
-                          <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
-                             
-                        </div>
-                        <div class="col padding-0">
-                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                                Buscar
-                            </button>
-                        </div>
-                              
-                      </div>
-                </nav>
+                        <button type="button"  id=idBotonLogin (click)="loginEmpresa()" class="btn" style="margin-left: 10px; margin-right: 10px">Login</button>  
+                    </li>
+                    <li>
+                        <button type="button" id= idBotonEmpresa (click)="home()" class="btn" style="margin-left: 10px; margin-right: 0px">Usuarios</button>
+                    </li>
+                </ul>
             </div>
+        </nav>
         <router-outlet></router-outlet>
     </div>  
 
-			<!-- CONTENIDO -->
+<!-- CONTENIDO -->
 			<div class="row">
-				<div class="col-8" style="height:730px; background-color: #000000; background-image: url('../../assets/maincontent2.png'); background-repeat: no-repeat;">
+				<div class="col-8" id=ImagenEmpresa>
 				</div>
-				<div class="col" style="height:730px; background-image: linear-gradient(#403B4A, #C3A577)">
+				<div class="col" id=FondoEmpresa>
 					<form style="margin-right: 8px">
 						<h4 style="color: #eeeeee; text-align: center; margin-top: 250px; text-shadow: 2px 2px 5px black">
 							Contrata nuestros servicios
 						</h4><br>
 						<div class="form-group" style="text-align: center">
 						    <label for="exampleInputEmail1" style="color: #eeeeee;">Ingresa tu correo electrónico</label>
-						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="JuanPerez@ejemplo.com">
+						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="TuEmpresa@ejemplo.com">
 						    <small id="emailHelp" class="form-text" style="color: #cccccc">Nunca compartiremos tu información.</small><br>
 						    <button class="btn btn-dark btn-lg btn-block">Enviar</button>
   						</div>

@@ -1,0 +1,191 @@
+<!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO Y SUGERENCIA -->
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" href="/home">
+                                <img src="../../assets/homeiconmini.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" (click)="realizarReclamo()">
+                                <img src="../../assets/reclamoiconmini.png" alt="">
+                                <br>
+                                RECLAMO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" (click)="realizarSugerencia()">
+                                <img src="../../assets/sugerenciaiconmini.png" alt="">
+                                <br>
+                                SUGERENCIA
+                            </a>
+                        </div> 
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconmini.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+         <!--- SECIÓN 2: Botón cerrar Sesión-->
+         <div class="col-4 padding-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn" style="margin-left: 100px; margin-right: 0px">Cerrar Sesión</button>   
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 3: BUSCAR POR ID -->
+
+        <div class="col padding-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+        </div>
+
+        <!-- CONTENIDO -->
+        <br>
+        <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="imagenPerfil">
+                            <img src="../../assets/photo-placeholder.jpeg" alt=""/>
+                            <div class="file btn btn-lg">
+                                Cambiar Foto
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="NombreUsuario">
+                                    <h5>
+                                        {{nombreUsuario}}
+                                        {{apellidoUsuario}}
+                                    </h5>
+                                    <br>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Perfil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Actividad</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="perfil-edit-btn" name="btnAddMore" id=EditarPerfil value="Editar Perfil"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Usuario</label>
+                                            </div>
+                                            <div class="col-md-6" style="text-transform: capitalize">
+                                                <p>{{nombreUsuario}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"> 
+                                            <div class="col-md-6" >
+                                                <label>Apellido</label>
+                                            </div>
+                                            <div class="col-md-6" style="text-transform: capitalize">
+                                                <p>{{apellidoUsuario}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" style="text-transform: capitalize">
+                                                <label>RUT</label>
+                                            </div>
+                                           
+
+                                            <div class="col-md-6">
+                                                <p>{{rutUsuario}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{emailUsuario}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Contacto</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{generoUsuario}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                       Aqui datos de cantidad de reclamos y sugerencias... 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+        <router-outlet></router-outlet>
+    </div>  
+
+
+

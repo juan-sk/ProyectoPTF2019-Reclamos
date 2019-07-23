@@ -1,8 +1,9 @@
 #mainheadercol {
 	height: 170px; 
-	background-image: linear-gradient(90deg, #9F5594 5%, #8E9BCF, #453C8B);
+	background-image: url(' /../assets/fondoheader.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center top;
 	max-width: 100%;
+	font-size: 24px;
 }

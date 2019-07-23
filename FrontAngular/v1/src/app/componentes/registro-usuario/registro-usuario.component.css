@@ -5,7 +5,7 @@
 #navbarseccion1 {
 	text-align: center;
 	vertical-align: middle;
-}
+} 
 
 #btn_home_navbar {
 	margin-top: 0px;
@@ -26,3 +26,41 @@
 	padding-top: 23px;
 	padding-bottom: 0px;
 }
+
+#idBotonIngresar {
+	background-color: #01b2aa;
+	color: white; 
+}
+#idBotonRegistrar {
+	background-color: #51bfe2;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #0184c8;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #00546c;
+	color: white;
+}
+#idBotonBuscar {
+	color: #00546c; 
+}
+#idFondoRegistro {
+	background-image: linear-gradient(#205b6b, #5ea2c7); 
+}
+#idBotonConfirmarRegistro{
+	background-color: #00546c;
+	color: white;
+}
+
+.form-reg > input.ng-valid ,input.ng-pending {
+	border:3px solid green;
+
+}
+
+.form-reg > input.ng-invalid{
+	border:2px solid red;
+}
+
+

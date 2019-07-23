@@ -21,8 +21,28 @@
 	padding-bottom: 0px;
 	overflow: hidden;
 }
-
 #navbarseccion3 {
 	padding-top: 23px;
 	padding-bottom: 0px;
+}
+#idBotonRegistrar {
+	background-color: #83888f;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #6e787e;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #4f595c;
+	color: white;
+}
+#FondoEmpresa {
+	height:730px; 
+	background-image: linear-gradient(rgb(59, 61, 74), rgb(174, 185, 194));
+}
+#ImagenEmpresa {
+	height:730px;
+	background-image: url('/../assets/maincontent2.png'); 
+	background-repeat: no-repeat;
 }

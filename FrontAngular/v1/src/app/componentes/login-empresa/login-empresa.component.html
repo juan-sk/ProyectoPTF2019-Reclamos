@@ -1,0 +1,113 @@
+<!-------------------------------------------------------->
+<!-- LOGIN COMPONENT : COMPONENTE PARA INICIO DE SESIÓN -->
+<!-------------------------------------------------------->
+
+       <!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" (click)="homeEmpresa()">
+                                <img src="../../assets/homeiconminiEmpresa.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconminiEmpresa.png" alt="">
+                                <br>
+                                NOSOTROS
+                            </a>
+                        </div> 
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 2: VACIO EXISTENCIAL -->
+        <div class="col-4 padding-0">
+            
+        </div>
+
+        <!-- SECCIÓN 3: BOTONES REGISTRAR, LOGIN, EMPRESA-->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div style="margin-bottom: 20px" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <button type="button" id=idBotonRegistrar (click)="registrarEmpresa()" class="btn" style="margin-left: 0px; margin-right: 10px">Registrarse</button>   
+                    </li>
+                    <li> 
+                        
+                        <button type="button"  id=idBotonLogin (click)="loginEmpresa()" class="btn" style="margin-left: 10px; margin-right: 10px">Login</button>  
+                    </li>
+                    <li>
+                        <button type="button" id= idBotonEmpresa (click)="home()" class="btn" style="margin-left: 10px; margin-right: 0px">Usuarios</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <router-outlet></router-outlet>
+    </div> 
+
+     <!-- CONTENIDO -->
+			<div class="row" id=FondoLoginEmpresa>
+                    <div class="col-4"></div>
+                    <div class="col-4" style="height:730px; ">
+                        
+                            <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
+                                Iniciar Sesión Empresa
+                            </h4><br> 
+    
+                            <p style="color: #eeeeee; text-align: center">
+                                 Ingresa tus datos:
+                            </p>
+                            <div>
+                                <div class="form-group">
+                                	<label style="color: #dddddd;">Nombre de Empresa</label>
+                                	<input [(ngModel)]="trabajador.empresa" type="text" class="form-control" id="nombreEmpresaCampo" placeholder="Ejemplo: Movistar">
+                                </div>
+                                <div class="form-group">
+                                	<label style="color: #dddddd;">Nombre Trabajador</label>
+                                	<input [(ngModel)]="trabajador.nombreTrabajador" type="text" class="form-control" id="nombreEmpresaCampo" placeholder="Ejemplo: Pablo Perez">
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: #dddddd;">Contraseña Trabajador</label>
+                                    <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********">
+                                </div>
+                                
+                                <br><button type="button" (click)="logInEmpresa()" class="btn btn-primary btn-lg btn-block" id=BotonIngresarEmpresa>Ingresar</button><br>
+                                <div id="loginerror">
+                                <p class="text-center">{{errorMsg}}</p>
+                                </div>
+                                <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de Privacidad</small></a>
+                               
+                                <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿Olvidaste tu contraseña?</small></a>
+                                <a (click)="registrar()"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
+                                <div id="loginerror">
+                                        <p class="text-center">{{mensajeError}}</p>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div class="col-4"></div>
+                </div>
