@@ -67,7 +67,7 @@
 
 <!-- CONTENIDO -->
 <!--SIDEBAR-->
-<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
+<div class="row" style="background-color: rgba(255, 255, 255, 0.4)">
     <div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
         <div>
             <br> 
@@ -100,18 +100,18 @@
     </div>
     <!--CONTENIDO-->
 				<div class="col-9" ><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Lista de Trabajadores</h1>
-					<div style="text-align: right"><button (click)="agregarTrabajador()"class="btn btn-light">agregar Trabajador</button>	</div>
+					<h1 style="color: white; text-align: center; text-shadow: 2px 2px 5px #222222">Lista de Trabajadores</h1>
+					<div style="text-align: right"><button (click)="agregarTrabajador()"class="btn" id=BotonAgregarTrabajador>Agregar Trabajador</button>	</div>
 					<br><br>
                     <br>
                     
 					<div *ngFor="let trabajador of trabajadores" >
 						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
-						<div  style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color: bisque">
+						<div  style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color: white">
 							<br>
 							<div class="container">
 								<div class="row">
-									<div class="col-3" style="padding-top: 3px">
+									<div class="col-3" style="padding-top: 3px"> 
                                         <p>Nombre: {{trabajador.nombreTrabajador}}</p>
                                         <p>Apellido: {{trabajador.apellidoTrabajador}}</p>
 									</div>

@@ -119,7 +119,7 @@ ngOnInit() {
 
   formatFono(fono:string):number{
     let numFono;
-    numFono = fono.substr(0,6);
+    numFono = fono.substr(0,9);
     return Number(numFono);
   }
 
@@ -133,15 +133,30 @@ ngOnInit() {
     console.log (rutNumeros)
     return Number(rutNumeros);
   }
-
-  validarTelefono(){
-  let validar:ValidarTelefono = new ValidarTelefono();
-  let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
-  if(resultado.result ){
-    this.errorTel="" ;
-  }else{
-    this.errorTel=resultado.message;
+  reclamo(){
+    this.router.navigate(["anonimo/realizar_sugerencia"]);
   }
+  validarTelefono(){
+    let validar:ValidarTelefono = new ValidarTelefono();
+    let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
+    if(resultado.result ){
+      this.errorTel="" ;
+    }else{
+      this.errorTel=resultado.message;
+    }
+ }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
+  //registrar():vacio->vacio
+  //redirige al componente registrar
+  registrar(){
+    this.router.navigate(['registrar']);
   } 
 }
 

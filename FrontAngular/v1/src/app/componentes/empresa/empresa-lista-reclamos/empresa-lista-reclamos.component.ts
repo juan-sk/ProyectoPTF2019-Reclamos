@@ -70,7 +70,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
          
           this.colores[i]="white";
         }else{
-          this.colores[i]="green";
+          this.colores[i]="#a2ed6b";
         }
         let fechaResuelto=this.reclamos[i].fechaResuelto;
         let fechaReclamo=this.reclamos[i].fechaReclamoSugerencia;
@@ -78,7 +78,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
         let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
         
         if(comparacion>=2 && (this.reclamos[i].estado=="en proceso")){
-          this.colores[i]="red";
+          this.colores[i]="#ed6d60";
         }
       }
     })

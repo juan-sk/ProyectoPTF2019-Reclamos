@@ -127,4 +127,7 @@ reclamo(){
     this.router.navigate(['buscar_id']);
     
   }
+  login(){
+    this.router.navigate(["login"]);
+  }
 }
