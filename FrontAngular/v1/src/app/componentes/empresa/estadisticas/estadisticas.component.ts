@@ -107,6 +107,34 @@ export class EstadisticasComponent implements OnInit {
     },
   ];
   //#########################################################################################
+  //opciones grafico SLAsug (codigo = SLAsug)
+  public SLAsugOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+     position: 'left',
+     labels: {
+        fontColor: 'black',
+     }
+   },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+  public  SLAsugLabels: Label[] = ['SLA OK', 'ATRASO'];
+  public  SLAsugData: number[] = [0, 0];
+  public  SLAsugType: ChartType = 'pie';
+  public  SLAsugLegend = true;
+  public  SLAsugPlugins = 0;//[pluginDataLabels];
+  public  SLAsugColors = [
+    {
+      backgroundColor: ['rgba(255,99,34,1)', 'rgba(150,255,0,1)'],//rgba(red,green,blue,opacidad)
+    },
+  ];
   
   //cantReclamosResueltos(): ReclamoSugerencia[] ->number
   //devuelve la cantidad de reclamos resueltos 
@@ -154,6 +182,9 @@ export class EstadisticasComponent implements OnInit {
     this.servicioRS.getSugerenciaEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
     
       this.sRVSsNrData=this.formatoDatosGrafico(this.cantSugerenciasResueltas(data),data);
+      this.SLAsugData = this.formatoSLA(data);
+
+
     });
     this.servicioRS.getReclamoEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.rRVSrNrData=this.formatoDatosGrafico(this.cantReclamosResueltos(data),data);
@@ -278,5 +309,36 @@ descargarInforme(){
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
+  }
+
+  formatoSLA(rsArreglo:ReclamoSugerencia[]):number[] {
+    let slaGood: number = 0;
+    let slaBad: number = 0;
+    let rsArregloRtn: number[]=[];
+
+    for (let i = 0; i<rsArreglo.length; i++){
+      let fechaResuelto=this.rsArreglo[i].fechaResuelto;
+      let fechaReclamo=this.rsArreglo[i].fechaReclamoSugerencia;
+
+      let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(fechaResuelto)))*-1);
+      
+      if (comparacion <= 2) {
+        slaGood++;
+      } 
+      else {
+        slaBad++;
+      }
+    }
+    rsArregloRtn.put(slaGood);
+    rsArregloRtn.put(slaBad);
+
+    return rsArregloRtn;
+  }
+
+  formoatoNumero(date:string):string{
+    let year=date.substr(0,4);
+    let month=date.substr(5,2)
+    let day=date.substr(8,2); 
+    return year+""+month+""+day;
   }
 }
