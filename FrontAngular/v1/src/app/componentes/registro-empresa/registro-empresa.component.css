@@ -44,3 +44,12 @@
 	background-color: #2e3233;
 	color: white;
 }
+
+.form-reg > input.ng-valid ,input.ng-pending {
+	border:3px solid green;
+
+}
+
+.form-reg > input.ng-invalid{
+	border:2px solid red;
+}

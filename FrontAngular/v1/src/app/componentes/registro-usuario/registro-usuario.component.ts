@@ -179,5 +179,13 @@ ngOnInit() {
   registrar(){
     this.router.navigate(['registrar']);
   } 
+  irSugerencia(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_sugerencia"]);
+    }else{
+      this.router.navigate(["realizar_sugerencia"]);
+
+    }
+  }
 }
 

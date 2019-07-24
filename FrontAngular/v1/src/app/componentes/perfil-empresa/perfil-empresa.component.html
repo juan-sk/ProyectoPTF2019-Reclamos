@@ -7,7 +7,7 @@
     <!------------------------------------------------------------------>
 
 	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
-    <div class="row" id="navbar">
+    <div class="row sticky-top" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,8 +116,9 @@
                                     <div class="col-3" style="padding-top: 3px">
                                         <h1>ID#{{rs.idReclamoSugerencia}}</h1>
                                         <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
-										<button class="btn btn-warning" >{{rs.estado}}</button>
-										
+									       <button *ngIf="botonEstadoEnProceso[i]" class="btn btn-warning">{{rs.estado}}</button>
+                                            <button *ngIf="botonEstadoResuelto[i]" class="btn btn-success">{{rs.estado}}</button>
+									
 									</div>
 									<div class="col-7">
 										<br><p>Titulo: {{rs.tituloRS}}</p>
@@ -126,7 +127,7 @@
 									</div>
 									<div class="col-2" style="text-align: center">
 										{{rs.fechaReclamoSugerencia}}
-										<button (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
+										<button *ngIf="botonResponderHabilitado[i]" (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
 									</div>
 								</div>
 							</div>

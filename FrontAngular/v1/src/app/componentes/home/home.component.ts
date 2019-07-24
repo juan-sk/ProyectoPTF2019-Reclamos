@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
-  reclamo(){
+  irReclamo(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_reclamo"]);
     }else{
@@ -50,9 +50,23 @@ export class HomeComponent implements OnInit {
 
     }
   }
+  irSugerencia(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_sugerencia"]);
+    }else{
+      this.router.navigate(["realizar_sugerencia"]);
+
+    }
+  }
+  reclamoanonimo() {
+    this.router.navigate(['anonimo/realizar_reclamo']);
+  }
   home(){
     this.router.navigate(['home']);
   }
     
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
   
 }

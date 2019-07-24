@@ -3,7 +3,7 @@
 <!----------------------------------------------------->
 
 	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO Y SUGERENCIA -->
-    <div class="row" id="navbar">
+    <div class="row sticky-top" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" href="/home">
+                            <a class="nav-link" (click)="home()">
                                 <img src="../../assets/homeiconmini.png" alt="">
                                 <br>
                                 INICIO
@@ -24,7 +24,7 @@
                     
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="/anonimo/realizar_sugerencia">
+                            <a class="nav-link" (click)="irSugerencia()">
                                 <img src="../../assets/sugerenciaiconmini.png" alt="">
                                 <br>
                                 SUGERENCIA
@@ -33,7 +33,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="/nuestro_equipo">
+                            <a class="nav-link" (click)="irNosotros()">
                                 <img src="../../assets/usiconmini.png" alt="">
                                 <br>
                                 NOSOTROS

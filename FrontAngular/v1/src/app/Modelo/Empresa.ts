@@ -2,18 +2,16 @@ export class Empresa{
     rutEmpresa:number;
     nombreEmpresa:string;
     emailEmpresa:string;
-    tipoEmpresa:string;
-    tagEmpresa:string;
+    tipoEmpresa:number;
+    tagEmpresa:number;
     
     
     constructor(){
-
         this.rutEmpresa=0;
         this.nombreEmpresa="";
         this.emailEmpresa="";
-        this.tipoEmpresa="";
-        this.tagEmpresa="";
-      
+        this.tipoEmpresa=0;
+        this.tagEmpresa=0;
     }
   
     

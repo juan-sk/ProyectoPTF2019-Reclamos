@@ -66,6 +66,9 @@ export class HomeEmpresaComponent implements OnInit {
   home(){
     this.router.navigate(['home']);
   }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
   
 
 }

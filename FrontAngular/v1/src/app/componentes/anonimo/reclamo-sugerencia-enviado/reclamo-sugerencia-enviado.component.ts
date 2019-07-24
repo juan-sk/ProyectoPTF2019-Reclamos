@@ -122,4 +122,26 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   registrar(){
     this.router.navigate(["registrar"]);
   }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
+  home(){
+    this.router.navigate(['home']);
+  }
+  irReclamo(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_reclamo"]);
+    }else{
+      this.router.navigate(["realizar_reclamo"]);
+
+    }
+  }
+
+  realizarSugerencia(){
+    this.router.navigate(['anonimo/realizar_sugerencia']);
+  }
+
+  nosotros(){
+    this.router.navigate(['nuestro_equipo']);
+  }
 } 

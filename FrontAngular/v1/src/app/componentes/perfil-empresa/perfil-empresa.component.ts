@@ -21,6 +21,9 @@ export class PerfilEmpresaComponent implements OnInit {
   idBusqueda:number;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioRS:RsServiceService,private router:Router) { }
+  botonEstadoEnProceso:boolean[]=[];
+  botonEstadoResuelto:boolean[]=[]; 
+  botonResponderHabilitado:boolean[]=[];
   formatoDate(date:string):string{
     let year=date.substr(6,10);
     let month=date.substr(3,2)
@@ -64,6 +67,18 @@ export class PerfilEmpresaComponent implements OnInit {
         if(comparacion>=2 && (this.reclamosSugerencias[i].estado=="en proceso")){
           this.colores[i]="#ed6d60";
         }
+
+        //botones de estado
+          if (this.reclamosSugerencias[i].estado == "en proceso") {
+            this.botonEstadoEnProceso[i] = true;
+            this.botonEstadoResuelto[i] = false;
+            this.botonResponderHabilitado[i] = true;
+          }
+          else {
+            this.botonEstadoEnProceso[i] = false;
+            this.botonEstadoResuelto[i] = true;
+            this.botonResponderHabilitado[i] = false;
+          }
     
       }
     });
