@@ -166,5 +166,8 @@ ngOnInit() {
 
     }
   }
+  home() {
+    this.router.navigate(['home']);
+  }
 }
 
