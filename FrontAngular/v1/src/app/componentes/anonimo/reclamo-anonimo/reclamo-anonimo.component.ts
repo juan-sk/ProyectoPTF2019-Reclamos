@@ -105,9 +105,19 @@ export class ReclamoAnonimoComponent implements OnInit {
   login(){
     this.router.navigate(['login']);
   }
+  irSugerencia(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_sugerencia"]);
+    }else{
+      this.router.navigate(["realizar_sugerencia"]);
 
-  home() {
+    }
+  }
+      
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
+  home(){
     this.router.navigate(['home']);
   }
-
 }
