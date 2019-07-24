@@ -58,8 +58,8 @@ export class LoginEmpresaComponent implements OnInit {
             localStorage.setItem("empresa",JSON.stringify(credencialesEmpresa));
             localStorage.setItem("id empresa",""+credencialesEmpresa.rutEmpresa);
           })
-          this.router.navigate(["empresa/perfil"]);
           this.mensajeError="";
+          this.router.navigate(["empresa/perfil"]);
         }
       })  
     } catch (error) {
@@ -79,6 +79,9 @@ export class LoginEmpresaComponent implements OnInit {
   }
   home(){
     this.router.navigate(['home']);
+  }
+  loginEmpresa(){
+    this.router.navigate(["empresa/login"]);
   }
 
 

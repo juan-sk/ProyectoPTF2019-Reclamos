@@ -87,11 +87,19 @@ export class SugerenciaAnonimoComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
- 
+  homeEmpresa(){
+    this.router.navigate(["home_empresa"]);
+  }
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
+  }
+  login(){
+    this.router.navigate(["login"]);
+  }
+  registrar(){
+    this.router.navigate(["registrar"]);
   }
 }

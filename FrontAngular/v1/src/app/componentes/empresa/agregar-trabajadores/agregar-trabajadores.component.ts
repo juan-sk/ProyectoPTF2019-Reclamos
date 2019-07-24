@@ -11,11 +11,13 @@ import { Empresa } from 'src/app/Modelo/Empresa';
 })
 export class AgregarTrabajadoresComponent implements OnInit {
 
-  constructor(private router:Router,private serviciotrabajador:TrabajadorServiceService) { }
+  constructor(private router:Router,private servicioTrabajador:TrabajadorServiceService) { }
   trabajador:Trabajador=new Trabajador();
   infoTrabajador:Trabajador = JSON.parse(localStorage.getItem("trabajador"));
   infoEmrpesa:Empresa=JSON.parse(localStorage.getItem("empresa"));
   administrador:boolean=false;
+  pass2:string="";
+  mensajedeError="";
   ngOnInit() {
     
     if(!(this.infoTrabajador!=null)){
@@ -27,8 +29,15 @@ export class AgregarTrabajadoresComponent implements OnInit {
     this.trabajador.empresa=this.infoEmrpesa.nombreEmpresa;
   }
   agregarTrabajador(){
-    this.serviciotrabajador.agregarTrabajador(this.trabajador).subscribe();
-    this.router.navigate(["empresa/listarTrabajadores"]);
+    if(this.trabajador.passTrabajador==this.pass2){
+
+      this.servicioTrabajador.agregarTrabajador(this.trabajador).subscribe();
+      this.mensajedeError="";
+      this.router.navigate(["empresa/listarTrabajadores"]);
+    }
+    else{
+      this.mensajedeError="las contraseñas no coinciden";
+    }
   }
   //irPerfil(): vavio->vacio (redireccion a componente perfil empresa)
   //al llamar el metodo se realida el redireccionamiento al componente perfil-empresa
