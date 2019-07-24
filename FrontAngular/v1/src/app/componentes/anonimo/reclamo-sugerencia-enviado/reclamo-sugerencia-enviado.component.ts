@@ -122,4 +122,10 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   registrar(){
     this.router.navigate(["registrar"]);
   }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
+  home(){
+    this.router.navigate(['home']);
+  }
 } 
