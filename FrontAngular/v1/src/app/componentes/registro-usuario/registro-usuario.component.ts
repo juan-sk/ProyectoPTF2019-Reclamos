@@ -96,11 +96,12 @@ ngOnInit() {
       return year;
   }
 
+
   validarfecha(){
     let validar:ValidarFecha  = new ValidarFecha();
-    let resultado = validar.esValido(this.formatoDate(this.fecha),this.formatoDate(this.fecha));
+    let resultado = validar.esValido(this.formatoDate(this.fecha),""+new Date().getFullYear());
     if(resultado.result ){
-      this.errorFecha=resultado.message;
+      this.errorFecha="";
     }else{
       this.errorFecha=resultado.message;
     }
@@ -109,7 +110,6 @@ ngOnInit() {
   validarCorreo(){
       let validar:ValidarCorreos  = new ValidarCorreos();
       let resultado = validar.esValido( this.correo,this.correo2);
-      alert(""+(new Date().getFullYear().toLocaleString()));
       if(resultado.result ){
         this.errorEmail="";
       }else{
