@@ -317,8 +317,8 @@ descargarInforme(){
     let rsArregloRtn: number[]=[];
 
     for (let i = 0; i<rsArreglo.length; i++){
-      let fechaResuelto=this.rsArreglo[i].fechaResuelto;
-      let fechaReclamo=this.rsArreglo[i].fechaReclamoSugerencia;
+      let fechaResuelto=""+rsArreglo[i].fechaResuelto;
+      let fechaReclamo=""+rsArreglo[i].fechaReclamoSugerencia;
 
       let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(fechaResuelto)))*-1);
       
@@ -329,8 +329,8 @@ descargarInforme(){
         slaBad++;
       }
     }
-    rsArregloRtn.put(slaGood);
-    rsArregloRtn.put(slaBad);
+    rsArregloRtn.push(slaGood);
+    rsArregloRtn.push(slaBad);
 
     return rsArregloRtn;
   }
@@ -340,5 +340,16 @@ descargarInforme(){
     let month=date.substr(5,2)
     let day=date.substr(8,2); 
     return year+""+month+""+day;
+  }
+  //formatoDate():string->string
+  // este metodo invierte el formato de una fecha 
+  //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
+  //ejemplo: date= 17-07-2019; formatoDate(date) debuelve-> 2019-07-17
+  formatoDate(date:string):string{
+    let year=date.substr(6,10);
+    let month=date.substr(3,2)
+    let day=date.substr(0,2);
+    return year+"-"+month+"-"+day;
+
   }
 }
