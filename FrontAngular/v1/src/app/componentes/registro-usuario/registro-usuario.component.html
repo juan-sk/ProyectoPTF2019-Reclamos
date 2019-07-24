@@ -166,7 +166,7 @@
 <!-- ##############################  CONFIRMAR CONTRASEÑA  ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2" type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" (keyup)="validarPass()" required placeholder="********************">
+                                <input [(ngModel)]="pass2" type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" (keyup)="validarPass()" required placeholder="********************" (keyup.enter)="registro()">
                                 <p style="color: white;">{{errPass}}</p>
                                  <br>       
                                 <div class ="row">
