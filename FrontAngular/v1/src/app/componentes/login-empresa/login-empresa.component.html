@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label style="color: #dddddd;">Contraseña Trabajador</label>
-                                    <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********">
+                                    <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********" (keyup.enter)="logInEmpresa()">
                                 </div>
                                 
                                 <br><button type="button" (click)="logInEmpresa()" class="btn btn-primary btn-lg btn-block" id=BotonIngresarEmpresa>Ingresar</button><br>

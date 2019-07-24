@@ -127,7 +127,7 @@
                     <br>
                     <div class="form-grup"> 
                         <label for="">Confirmar Contraseña trabajador </label>
-                        <input [(ngModel)]="pass2" class="form-control" type="password">            
+                        <input [(ngModel)]="pass2" class="form-control" type="password" (keyup.enter)="registrar()">            
                     </div>
                     <br><br>
                     <button type="button" (click)="registrar()" class="btn btn-lg btn-block" id=BotonConfirmarRegistro >Confirmar registro</button>     

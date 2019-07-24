@@ -1,9 +1,16 @@
 #mainheadercol {
 	height: 170px; 
-	background-image: url(' /../assets/fondoheader.png');
+	/*background-image: url(' /../assets/fondoheader.png');*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center top;
 	max-width: 100%;
 	font-size: 24px;
+}
+
+#imagenheader {
+	position: absolute;
+	text-align: right;
+	top: 17px;
+	right: 17px;
 }
