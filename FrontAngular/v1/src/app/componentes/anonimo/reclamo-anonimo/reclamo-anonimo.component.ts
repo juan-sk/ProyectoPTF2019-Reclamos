@@ -106,4 +106,8 @@ export class ReclamoAnonimoComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  home() {
+    this.router.navigate(['home']);
+  }
+
 }
