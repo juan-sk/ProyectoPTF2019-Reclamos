@@ -57,7 +57,10 @@
 	border-color: white;
 }
 #BotonOrdenarFecha {
-	background-color: #252729;
+	background-color: #61676d;
 	color: white;
 	border-color: white;
+}
+#Fondo {
+	background-color: #252729; 
 }

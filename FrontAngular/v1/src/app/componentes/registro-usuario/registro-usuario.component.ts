@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
 import { ValidarTelefono } from 'src/app/funcionesDeValidacion/validarTELEFONO';
+import { ValidarContrasena } from 'src/app/funcionesDeValidacion/validarContrasena';
+import { ValidarCorreos } from 'src/app/funcionesDeValidacion/validarCorreos';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 
 @Component({
@@ -19,7 +22,7 @@ export class RegistroUsuarioComponent implements OnInit {
   nombre:string;
   apellido:string;
   rut:string;
-  Fecha:Date;
+  fecha:Date;
   fono:string;
   correo:string;
   correo2:string;
@@ -30,6 +33,7 @@ export class RegistroUsuarioComponent implements OnInit {
   generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
+  errPass:string;
   errGenero:string;
   errorTel:string;
   errorEmail:string;
@@ -42,8 +46,7 @@ export class RegistroUsuarioComponent implements OnInit {
 constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
 
 ngOnInit() {
-    this.formRegistro = this.formBuilder.group({
-      
+      this.formRegistro = this.formBuilder.group({ 
       Nombre:[ '', Validators.required ],
       Apellido:[ '', Validators.required ],
       Rut:['',Validators.required],
@@ -54,29 +57,18 @@ ngOnInit() {
       Correo2:['',Validators.required],
       Pass:['',Validators.required],
       Pass2:['',Validators.required]});
+      
     }
 
     registro(){
       this.usuarioARegistrar.nombreUsuario=this.nombre;
       this.usuarioARegistrar.apellidoUsuario=this.apellido;
       this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-      this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
+      this.usuarioARegistrar.fechaNacUsuario= this.fecha;
       this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
       this.usuarioARegistrar.generoUsuario=this.genero;
       this.usuarioARegistrar.emailUsuario=this.correo;
       this.usuarioARegistrar.passUsuario=this.pass;  
-
-      console.log(this.nombre);
-      console.log(this.apellido);
-      console.log(this.rut);
-      console.log(this.fono);
-      console.log(this.correo);
-      console.log(this.pass);
-      console.log(this.sexo);
-      console.log(this.genero);
-      debugger
-
-
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
       })
@@ -93,6 +85,26 @@ ngOnInit() {
   login(){
     this.router.navigate(['login']);
   }
+
+  validarCorreo(){
+      let validar:ValidarCorreos  = new ValidarCorreos();
+      let resultado = validar.esValido( this.correo,this.correo2);
+      if(resultado.result ){
+        this.errorEmail="";
+      }else{
+        this.errorEmail=resultado.message;
+      }
+    }
+
+    validarPass(){
+      let validar:ValidarContrasena  = new ValidarContrasena();
+      let resultado = validar.esValido( this.pass,this.pass2);
+      if(resultado.result ){
+        this.errPass="";
+      }else{
+        this.errPass=resultado.message;
+      }
+    }
 
   validateRut(){
   
@@ -121,15 +133,30 @@ ngOnInit() {
     console.log (rutNumeros)
     return Number(rutNumeros);
   }
-
-  validarTelefono(){
-  let validar:ValidarTelefono = new ValidarTelefono();
-  let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
-  if(resultado.result ){
-    this.errorTel="" ;
-  }else{
-    this.errorTel=resultado.message;
+  reclamo(){
+    this.router.navigate(["anonimo/realizar_sugerencia"]);
   }
- } 
+  validarTelefono(){
+    let validar:ValidarTelefono = new ValidarTelefono();
+    let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
+    if(resultado.result ){
+      this.errorTel="" ;
+    }else{
+      this.errorTel=resultado.message;
+    }
+ }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
+  //registrar():vacio->vacio
+  //redirige al componente registrar
+  registrar(){
+    this.router.navigate(['registrar']);
+  } 
 }
 

@@ -119,4 +119,7 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
      this.empresa.nombreEmpresa="no se puedo ver empresa"
     }
   }
+  registrar(){
+    this.router.navigate(["registrar"]);
+  }
 } 

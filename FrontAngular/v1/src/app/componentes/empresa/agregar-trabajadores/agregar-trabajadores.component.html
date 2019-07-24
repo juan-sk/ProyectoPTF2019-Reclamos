@@ -67,7 +67,7 @@
 
 <!-- CONTENIDO -->
 <!--SIDEBAR-->
-<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
+<div class="row" id=Fondo>
     <div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
         <div>
             <br> 
@@ -99,37 +99,42 @@
         </div>
     </div>
     <!-- CONTENIDO -->
-				<div class="col-9"  ><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Agregar Trabajador</h1>
-            
-                                                          
+                <div class="col-9"  ><br>
+                    <br>
+					<h1 style="color: white; text-shadow: 2px 2px 5px black; text-align">Agregar Trabajador</h1>                    
                         <!-- registro trabajador empresa-->
-                        <h2 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Informacion del usuario</h2>
+                        <h2 style="color: white; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Información del usuario</h2>
                         <div clas="form-grup">  
-                            <label for="">Nombre Trabajador/Username</label>  
+                            <label for=""style="color: white">Nombre Trabajador/Username</label>  
                             <input [(ngModel)]="trabajador.nombreTrabajador"class="form-control" type="text">              
                         </div>
+                        <br>
                         <div clas="form-grup">  
-                            <label for="">Apellido Trabajador</label>  
+                            <label for=""style="color: white">Apellido Trabajador</label>  
                             <input [(ngModel)]="trabajador.apellidoTrabajador"class="form-control" type="text">              
                         </div>
+                        <br>
                         <div class="form-grup">  
-                            <label for="">Tipo trabajador</label> 
+                            <label for=""style="color: white">Tipo trabajador</label> 
                             <select class="browser-default custom-select " [(ngModel)]="trabajador.tipoTrabajador"name="" id="">
                                 <option value="Administrador">Administrador</option>
                                 <option value="Moderador">Moderador</option>
                             </select>          
                         </div>
+                        <br>
                         <div class="form-grup"> 
-                            <label for="">Contraseña trabajador </label>
+                            <label for=""style="color: white">Contraseña trabajador </label>
                             <input [(ngModel)]="trabajador.passTrabajador"class="form-control" type="password">            
                         </div>
+                        <br>
                         <div class="form-grup"> 
-                            <label for="">Confirmar Contraseña trabajador </label>
+                            <label for=""style="color: white">Confirmar Contraseña trabajador </label>
                             <input [(ngModel)]="pass2" class="form-control" type="password">            
                         </div>
+                        <br> <br>
+                        <p>{{mensajedeError}}</p>
                         <br>
-                        <button style="background-color: blueviolet" type="button" (click)="agregarTrabajador()" class="btn btn-lg btn-block" >agregar Trabajador</button>     
+                        <button type="button" (click)="agregarTrabajador()" class="btn btn-lg btn-block" id=BotonAgregarTrabajador>Agregar Trabajador</button>     
                         <br><br><br>
               
 					

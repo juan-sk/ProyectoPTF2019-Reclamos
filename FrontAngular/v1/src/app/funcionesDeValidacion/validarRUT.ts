@@ -47,6 +47,7 @@ export class ValidarRut{
     dv = (dv == 'K')?10:dv;
     dv = (dv == 0)?11:dv;
     
+    debugger;
     // Validar que el Cuerpo coincide con su Digito Verificador
     if(dvEsperado != dv) { 
         return {result: false, message:"* RUT Invalido"}; 

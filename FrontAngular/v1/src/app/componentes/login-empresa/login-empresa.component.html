@@ -92,17 +92,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label style="color: #dddddd;">Contraseña Trabajador</label>
-                                    <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********">
+                                    <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********" (keyup.enter)="logInEmpresa()">
                                 </div>
                                 
                                 <br><button type="button" (click)="logInEmpresa()" class="btn btn-primary btn-lg btn-block" id=BotonIngresarEmpresa>Ingresar</button><br>
                                 <div id="loginerror">
-                                <p class="text-center">{{errorMsg}}</p>
+                                <p class="text-center">{{mensajeError}}</p>
                                 </div>
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Políticas de Privacidad</small></a>
                                
                                 <a href="#"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿Olvidaste tu contraseña?</small></a>
-                                <a (click)="registrar()"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
+                                <a (click)="registrarEmpresa()"><small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">¿No tienes cuenta? ¡Regístrate!</small></a>
                                 <div id="loginerror">
                                         <p class="text-center">{{mensajeError}}</p>
                                 </div>

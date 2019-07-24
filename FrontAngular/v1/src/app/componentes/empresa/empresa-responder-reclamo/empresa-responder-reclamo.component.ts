@@ -53,4 +53,7 @@ export class EmpresaResponderReclamoComponent implements OnInit {
   itTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
 }

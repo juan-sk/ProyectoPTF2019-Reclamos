@@ -117,4 +117,7 @@ export class RegistroEmpresaComponent implements OnInit {
   home(){
     this.router.navigate(['home']);
   }
+  registrarEmpresa(){
+    this.router.navigate(["empresa/registro"]);
+  }
 }

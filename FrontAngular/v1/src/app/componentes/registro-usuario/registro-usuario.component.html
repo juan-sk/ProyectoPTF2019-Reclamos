@@ -154,7 +154,8 @@
 <!-- #############################  CONFIRMAR CORREO ELECTRONICO  ####################################################################################################################-->
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
+                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" (keyup)="validarCorreo()" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
+                                <p style="color: white;">{{errorEmail}}</p>
                             </div>
 <!-- ##############################  CONTRASEÑA  ###################################################################################################################-->
 
@@ -165,14 +166,15 @@
 <!-- ##############################  CONFIRMAR CONTRASEÑA  ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" placeholder="********************">
+                                <input [(ngModel)]="pass2" type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" (keyup)="validarPass()" required placeholder="********************" (keyup.enter)="registro()">
+                                <p style="color: white;">{{errPass}}</p>
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
                                  </div>
                             </div>       
 <!-- ############################# BOTON PARA CONFIRMAR REGISTRO  ####################################################################################################################-->
-                            <br><br><button type="button" (click)="registro()"  id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
+                            <br><br><button type="button" (click)="registro()" [disabled]="!formRegistro.valid" id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
                         </div> 
                     <br>

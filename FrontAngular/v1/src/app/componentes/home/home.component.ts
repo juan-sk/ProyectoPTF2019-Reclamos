@@ -50,6 +50,10 @@ export class HomeComponent implements OnInit {
 
     }
   }
+
+  reclamoanonimo() {
+    this.router.navigate(['anonimo/realizar_reclamo']);
+  }
   home(){
     this.router.navigate(['home']);
   }
