@@ -45,7 +45,7 @@ export class PerfilEmpresaComponent implements OnInit {
     if (this.infoTrabajador.tipoTrabajador=="Administrador"){
       this.administrador=true;
     }
-
+    console.log("rut empresa: "+infoEmpresa.rutEmpresa);
     this.servicioRS.getRSEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamosSugerencias=data;
       let hoy=new Date();
