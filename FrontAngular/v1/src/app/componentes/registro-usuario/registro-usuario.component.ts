@@ -7,8 +7,10 @@ import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
 import { ValidarTelefono } from 'src/app/funcionesDeValidacion/validarTELEFONO';
 import { ValidarContrasena } from 'src/app/funcionesDeValidacion/validarContrasena';
 import { ValidarCorreos } from 'src/app/funcionesDeValidacion/validarCorreos';
+import { ValidarFecha } from 'src/app/funcionesDeValidacion/validarFecha';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { R3DelegatedFnOrClassMetadata } from '@angular/compiler/src/render3/r3_factory';
 
 
 @Component({
@@ -30,14 +32,16 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   mensaje:string="";
   idBusqueda:number;
-  generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
+  generos:string[]=["masculino","femenino","otro","prefiero no decirlo","Dinosaurio"];
   genero:string;
   errRut:string;
   errPass:string;
   errGenero:string;
   errorTel:string;
   errorEmail:string;
+  errorFecha:string;
   sexo:string;
+  formato:DataView
 
   formRegistro :FormGroup;
   
@@ -86,9 +90,26 @@ ngOnInit() {
     this.router.navigate(['login']);
   }
 
+  formatoDate(date:Date):string{
+    let year = date.toLocaleString();
+    year=year.substr(0,4);
+      return year;
+  }
+
+  validarfecha(){
+    let validar:ValidarFecha  = new ValidarFecha();
+    let resultado = validar.esValido(this.formatoDate(this.fecha),this.formatoDate(this.fecha));
+    if(resultado.result ){
+      this.errorFecha=resultado.message;
+    }else{
+      this.errorFecha=resultado.message;
+    }
+  }
+
   validarCorreo(){
       let validar:ValidarCorreos  = new ValidarCorreos();
       let resultado = validar.esValido( this.correo,this.correo2);
+      alert(""+(new Date().getFullYear().toLocaleString()));
       if(resultado.result ){
         this.errorEmail="";
       }else{

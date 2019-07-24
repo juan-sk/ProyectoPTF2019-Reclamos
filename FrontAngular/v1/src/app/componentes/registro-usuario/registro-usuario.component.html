@@ -126,7 +126,8 @@
 <!-- ##############################  FECHA DE NACIMIENTO ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="fecha" type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >                             
+                                <input [(ngModel)]="fecha" type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" (keyup)="validarfecha()" placeholder="MM/DD/YYYY" max="2009-01-01" required >  
+                                <p style="color: white;">{{errorFecha}}</p>                           
                             </div>
 <!-- ##############################  TELEFONO ###################################################################################################################-->
                             <label style="color: #dddddd;">Telefono</label><br>
