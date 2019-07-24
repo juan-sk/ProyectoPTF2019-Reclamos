@@ -136,4 +136,12 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
 
     }
   }
+
+  realizarSugerencia(){
+    this.router.navigate(['anonimo/realizar_sugerencia']);
+  }
+
+  nosotros(){
+    this.router.navigate(['nuestro_equipo']);
+  }
 } 
