@@ -116,8 +116,9 @@
                                     <div class="col-3" style="padding-top: 3px">
                                         <h1>ID#{{rs.idReclamoSugerencia}}</h1>
                                         <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
-										<button class="btn btn-warning" >{{rs.estado}}</button>
-										
+									       <button *ngIf="botonEstadoEnProceso[i]" class="btn btn-warning">{{rs.estado}}</button>
+                                            <button *ngIf="botonEstadoResuelto[i]" class="btn btn-success">{{rs.estado}}</button>
+									
 									</div>
 									<div class="col-7">
 										<br><p>Titulo: {{rs.tituloRS}}</p>
