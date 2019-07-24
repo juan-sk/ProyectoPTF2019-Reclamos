@@ -68,7 +68,7 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
          
           this.colores[i]="white";
         }else{
-          this.colores[i]="green";
+          this.colores[i]="#a2ed6b";
         }
         let fechaResuelto=this.sugerencias[i].fechaResuelto;
         let fechaReclamo=this.sugerencias[i].fechaReclamoSugerencia;
@@ -76,7 +76,7 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
         let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
         
         if(comparacion>=2 && (this.sugerencias[i].estado=="en proceso")){
-          this.colores[i]="red";
+          this.colores[i]="#ed6d60";
         }
       }
     console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);

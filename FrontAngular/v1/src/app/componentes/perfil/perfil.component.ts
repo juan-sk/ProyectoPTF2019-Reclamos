@@ -21,7 +21,7 @@ export class PerfilComponent implements OnInit {
   mensaje:string="";
   mostrarMensaje:boolean=false;
   nombresEmpresas:string[]=[];
-  @ViewChild('botonEstado') botonEstado: ElementRef;
+  
   botonEstadoEnProceso:boolean[]=[];
   botonEstadoResuelto:boolean[]=[];
   ngOnInit() {

@@ -54,7 +54,7 @@ export class PerfilEmpresaComponent implements OnInit {
         if(this.reclamosSugerencias[i].fechaReclamoSugerencia.toLocaleString()<this.formatoDate(hoy.toLocaleDateString())){
           this.colores[i]="white";
         }else{
-          this.colores[i]="green";
+          this.colores[i]="#a2ed6b";
         } 
         let fechaResuelto=this.reclamosSugerencias[i].fechaResuelto;
         let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
@@ -62,7 +62,7 @@ export class PerfilEmpresaComponent implements OnInit {
         let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
         
         if(comparacion>=2 && (this.reclamosSugerencias[i].estado=="en proceso")){
-          this.colores[i]="red";
+          this.colores[i]="#ed6d60";
         }
     
       }

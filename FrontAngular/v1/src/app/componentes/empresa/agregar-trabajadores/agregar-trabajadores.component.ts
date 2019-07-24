@@ -30,4 +30,8 @@ export class AgregarTrabajadoresComponent implements OnInit {
     this.serviciotrabajador.agregarTrabajador(this.trabajador).subscribe();
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
+  }
 }

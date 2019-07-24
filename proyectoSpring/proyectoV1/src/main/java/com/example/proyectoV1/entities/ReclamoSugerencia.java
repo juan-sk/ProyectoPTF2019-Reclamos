@@ -2,6 +2,10 @@ package com.example.proyectoV1.entities;
 import java.sql.Date;
 import javax.persistence.*;
 
+/**
+ * @author Diana
+ *
+ */
 @Entity
 @Table(name="reclamosugerencia")
 public class ReclamoSugerencia {
@@ -91,4 +95,11 @@ public class ReclamoSugerencia {
 	public void setTituloRS(String tituloRS) {
 		this.tituloRS = tituloRS;
 	}
+	public Date getFechaResuelto() {
+		return fechaResuelto;
+	}
+	public void setFechaResuelto(Date fechaResuelto) {
+		this.fechaResuelto = fechaResuelto;
+	}
+	
  }
