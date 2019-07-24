@@ -127,7 +127,7 @@
 									</div>
 									<div class="col-2" style="text-align: center">
 										{{rs.fechaReclamoSugerencia}}
-										<button (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
+										<button *ngIf="botonResponderHabilitado[i]" (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
 									</div>
 								</div>
 							</div>
