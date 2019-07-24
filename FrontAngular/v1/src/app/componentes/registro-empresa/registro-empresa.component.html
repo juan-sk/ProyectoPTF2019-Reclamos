@@ -145,7 +145,7 @@
 
                     <div class="form-grup form-reg"> 
                         <label for="">Confirmar Contraseña trabajador </label>
-                        <input [(ngModel)]="pass2Trabajador" id="Pass2Trabajador" name="Pass2Trabajador" formControlName="Pass2Trabajador" class="form-control" type="password" placeholder="***************" maxlength="45"required>            
+                        <input [(ngModel)]="pass2Trabajador" id="Pass2Trabajador" name="Pass2Trabajador" formControlName="Pass2Trabajador" class="form-control" type="password" placeholder="***************" maxlength="45"required (keyup.enter)="registrar()">            
                     </div>
                     <!-- BOTON REGISTRAR EMPRESA-->
                     <br><br>
