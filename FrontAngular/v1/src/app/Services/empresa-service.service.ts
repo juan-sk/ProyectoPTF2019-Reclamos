@@ -8,7 +8,7 @@ import { Trabajador } from '../Modelo/trabajador';
 })
 export class EmpresaServiceService {
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/Empresa';
+  url='http://35.198.4.197:8080/Empresa';
 
   //crearEmpresa:Empresa->vacio->realiza una pericion post al servicor de back-end
   //envia atravez del metodo post el objeto empresa 
