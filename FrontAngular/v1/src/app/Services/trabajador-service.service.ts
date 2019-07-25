@@ -9,7 +9,7 @@ import { NumberValueAccessor } from '@angular/forms';
 })
 export class TrabajadorServiceService {
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/Trabajador';
+  url='http://35.198.4.197:8080/Trabajador';
 
   //obtenerReclamosSugerencias(): vacio->ReclamoSugerencia[]
   //hace la peticion al back en para que le envie todos los reclamos y digerencia 

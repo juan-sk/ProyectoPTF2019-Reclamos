@@ -7,7 +7,7 @@ import {UsuarioRegistrado} from '../Modelo/UsuarioRegistrado';
 export class ServiceService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/Usuario'
+  url='http://35.198.4.197:8080/Usuario'
   //getUsuario(): vacio->devuelve-> UsuaroRegistrado[] 
   //devuelve todos los usuarios resitrados
   getUsuarios(){
