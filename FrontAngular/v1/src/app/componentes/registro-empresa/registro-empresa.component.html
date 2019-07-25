@@ -87,16 +87,15 @@
 
                     <div class="form-grup form-reg">
                         <label for="">Nombre Empresa</label> 
-                        <input [(ngModel)]="nombreEmpresa" id="NombreEmpresa" name="NombreEmpresa" formControlName="NombreEmpresa" class="form-control" type="text"  placeholder="Ingrese el nombre de la empresa">   
+                        <input [(ngModel)]="nombreEmpresa" id="NombreEmpresa" name="NombreEmpresa" formControlName="NombreEmpresa" class="form-control" type="text"  placeholder="Ingrese el nombre de la empresa" required>   
                     </div>
 
                     <br>
 
                     <div class="form-grup form-reg">
                         <label for="">Email Empresa</label>
-                        <input [(ngModel)]="emailEmpresa" id="EmailEmpresa" name="EmailEmpresa" formControlName="EmailEmpresa" class="form-control" type="email" placeholder="G3@ejemplo.com" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$"> 
+                        <input [(ngModel)]="emailEmpresa" id="EmailEmpresa" name="EmailEmpresa" formControlName="EmailEmpresa" class="form-control" type="email" placeholder="G3@ejemplo.com" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$" required> 
                     </div> 
-                    <br>   
                     
                    <!-- <div class="form-grup form-reg">
                         <label for="">Tipo</label>
@@ -111,45 +110,46 @@
                     </div>  -->
                                                            
 <!-- registro trabajador empresa-->
-                    <h2 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Informacion del usuario</h2>
+                    <h2 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Información del Administrador</h2>
 
                     <div class="form-grup form-reg">  
-                        <label for="">Nombre Trabajador</label>  
-                        <input [(ngModel)]="nombreTrabajador"  id="NombreTrabajador" name="NombreTrabajador" formControlName="NombreTrabajador" class="form-control" placeholder="Ingresa tu nombre..." type="text" maxlength="45" onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) if(event.keyCode == 8) event.returnValue = false;" required>              
+                        <label for="">Primer nombre del administrador</label>  
+                        <input [(ngModel)]="nombreTrabajador"  id="NombreTrabajador" name="NombreTrabajador" formControlName="NombreTrabajador" class="form-control" placeholder="Ingresa tu nombre..." type="text" maxlength="45" onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122)  event.returnValue = false;" required>              
                     </div>
 
                     <br>
 
                     <div class="form-grup form-reg">  
-                        <label for="">Apellido Trabajador</label>  
-                        <input [(ngModel)]="apellidoTrabajador" id="ApellidoTrabajador" name="ApellidoTrabajador" formControlName="ApellidoTrabajador" class="form-control" placeholder="Ingresa tu apellido..." type="text"  maxlength="45" onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) if(event.keyCode == 8) event.returnValue = false;" required>              
+                        <label for="">Primer apellido del administrador</label>  
+                        <input [(ngModel)]="apellidoTrabajador" id="ApellidoTrabajador" name="ApellidoTrabajador" formControlName="ApellidoTrabajador" class="form-control" placeholder="Ingresa tu apellido..." type="text"  maxlength="45" onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122)  event.returnValue = false;" required>              
                     </div>
 
-                    <br>
-
+                    <!--
+                        <br>
                     <div class="form-grup form-reg">  
                         <label for="">Tipo trabajador</label> 
                         <select class="browser-default custom-select " [(ngModel)]="tipoTrabajador" id="TipoTrabajador" name="TipoTrabajador" formControlName="TipoTrabajador" required>
                             <option value="Administrador">Administrador</option>
                         </select>          
-                    </div>
+                    </div> -->
 
                     <br>
 
                     <div class="form-grup form-reg"> 
-                        <label for="">Contraseña trabajador </label>
+                        <label for="">Contraseña  </label>
                         <input [(ngModel)]="passTrabajador" id="PassTrabajador" name="PassTrabajador" formControlName="PassTrabajador" class="form-control"  type="password" placeholder="Recuerda usar letras y números" maxlength="45" required>            
                     </div>
 
                     <br>
 
                     <div class="form-grup form-reg"> 
-                        <label for="">Confirmar Contraseña trabajador </label>
-                        <input [(ngModel)]="pass2Trabajador" id="Pass2Trabajador" name="Pass2Trabajador" formControlName="Pass2Trabajador" class="form-control" type="password" placeholder="***************" maxlength="45"required (keyup.enter)="registrar()">            
+                        <label for="">Confirmar Contraseña  </label>
+                        <input [(ngModel)]="pass2Trabajador" id="Pass2Trabajador" name="Pass2Trabajador" formControlName="Pass2Trabajador" class="form-control" type="password" placeholder="***************" maxlength="45"required (keyup.enter)="registrar()"> 
+                        <p style="color: white;">{{errPass}}</p>           
                     </div>
                     <!-- BOTON REGISTRAR EMPRESA-->
                     <br><br>
-                    <button type="button" (click)="registrar()" class="btn btn-lg btn-block" id=BotonConfirmarRegistro >Confirmar registro</button>     
+                    <button type="button" (click)="registrar()" [disabled]="!formRegistro.valid" class="btn btn-lg btn-block" id=BotonConfirmarRegistro >Confirmar registro</button>     
                     <br><br><br>
                 </div>
                 <div class="col-4"></div>
