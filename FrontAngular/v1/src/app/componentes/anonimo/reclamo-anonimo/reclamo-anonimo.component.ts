@@ -15,7 +15,7 @@ export class ReclamoAnonimoComponent implements OnInit {
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
   empresas:string[]=[];
-  empresa:string;
+  empresa:string; 
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
 
@@ -53,6 +53,7 @@ export class ReclamoAnonimoComponent implements OnInit {
         localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString());
         localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
         localStorage.setItem("tipo",this.rs.tipo);
+          this.rs.fechaResuelto=new Date("2019-01-01");
         this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
   
         try {
@@ -72,6 +73,16 @@ export class ReclamoAnonimoComponent implements OnInit {
             console.log(localStorage.getItem("idRS"));
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
+          });
+        }
+        finally{
+          this.serviceRS.getLastReclamo().subscribe(data=>{
+            let rs:ReclamoSugerencia=data;
+            
+            localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
+            console.log(localStorage.getItem("idRS"));
+            //alert("reclamo generado enviado con exito ");
+            this.router.navigate(["rs_enviado"]);
           });
         }
        
