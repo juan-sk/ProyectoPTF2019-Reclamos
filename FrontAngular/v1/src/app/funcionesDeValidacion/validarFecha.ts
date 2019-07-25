@@ -5,6 +5,7 @@ export class ValidarFecha{
     }
 
     esValido(fecha:string,fechaactual:string){
+        
         if(parseInt(fecha)<parseInt(fechaactual)-10){
             return {result: true, message:"* correo OK"};
         }else{

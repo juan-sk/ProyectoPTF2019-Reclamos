@@ -32,7 +32,7 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   mensaje:string="";
   idBusqueda:number;
-  generos:string[]=["masculino","femenino","otro","prefiero no decirlo","Dinosaurio"];
+  generos:string[]=["masculino","femenino","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
   errPass:string;
@@ -53,7 +53,7 @@ ngOnInit() {
       this.formRegistro = this.formBuilder.group({ 
       Nombre:[ '', Validators.required ],
       Apellido:[ '', Validators.required ],
-      Rut:['',Validators.required],
+      Rut:['',Validators.required,this.validateRut],
       Fecha:['',Validators.required],
       Fono:['',Validators.required],
       Genero:['',Validators.required],
@@ -96,11 +96,12 @@ ngOnInit() {
       return year;
   }
 
+
   validarfecha(){
     let validar:ValidarFecha  = new ValidarFecha();
-    let resultado = validar.esValido(this.formatoDate(this.fecha),this.formatoDate(this.fecha));
+    let resultado = validar.esValido(this.formatoDate(this.fecha),""+new Date().getFullYear());
     if(resultado.result ){
-      this.errorFecha=resultado.message;
+      this.errorFecha="";
     }else{
       this.errorFecha=resultado.message;
     }
@@ -109,7 +110,6 @@ ngOnInit() {
   validarCorreo(){
       let validar:ValidarCorreos  = new ValidarCorreos();
       let resultado = validar.esValido( this.correo,this.correo2);
-      alert(""+(new Date().getFullYear().toLocaleString()));
       if(resultado.result ){
         this.errorEmail="";
       }else{
@@ -146,7 +146,7 @@ ngOnInit() {
 
   formatRut(rut:string):number{
     let rutNumeros;
-    if(rut.length>9){
+    if(rut.length>=9){
       rutNumeros= rut.substr(0,8); 
    }else{
     rutNumeros= rut.substr(0,7); 
@@ -186,6 +186,9 @@ ngOnInit() {
       this.router.navigate(["realizar_sugerencia"]);
 
     }
+  }
+  home() {
+    this.router.navigate(['home']);
   }
 }
 

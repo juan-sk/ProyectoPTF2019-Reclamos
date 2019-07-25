@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class EnviarEmailService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:8080/Email'
+  url='http://35.198.4.197:8080/Email'
   
   sendEmail(id:number){
     console.log(this.url+"/"+id);
