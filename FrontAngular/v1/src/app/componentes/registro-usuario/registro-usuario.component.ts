@@ -53,7 +53,7 @@ ngOnInit() {
       this.formRegistro = this.formBuilder.group({ 
       Nombre:[ '', Validators.required ],
       Apellido:[ '', Validators.required ],
-      Rut:['',Validators.required,this.validateRut],
+      Rut:['',Validators.required],
       Fecha:['',Validators.required],
       Fono:['',Validators.required],
       Genero:['',Validators.required],
@@ -128,9 +128,8 @@ ngOnInit() {
     }
 
   validateRut(){
-  
     let validar:ValidarRut  = new ValidarRut();
-    let resultado = validar.esValido( this.rut);
+    let resultado = validar.esValido(this.rut);
     if(resultado.result ){
       this.errRut="";
     }else{
@@ -146,12 +145,11 @@ ngOnInit() {
 
   formatRut(rut:string):number{
     let rutNumeros;
-    if(rut.length>=9){
+    if(rut.length>9){
       rutNumeros= rut.substr(0,8); 
    }else{
     rutNumeros= rut.substr(0,7); 
    }
-    console.log (rutNumeros)
     return Number(rutNumeros);
   }
   reclamo(){
