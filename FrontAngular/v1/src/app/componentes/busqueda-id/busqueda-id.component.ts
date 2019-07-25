@@ -9,7 +9,6 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
   styleUrls: ['./busqueda-id.component.css']
 })
 export class BusquedaIdComponent implements OnInit {
-
   constructor(private rsService:RsServiceService,private router:Router,private servicioEmpresa:EmpresaServiceService) { }
   rs:ReclamoSugerencia;
   idBusqueda:number;
@@ -53,7 +52,7 @@ export class BusquedaIdComponent implements OnInit {
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
       if(params == null){
-        alert("El ID ingresado no existe");
+        alert("El ID ingresado no existe  ");
       }
     });
   }
