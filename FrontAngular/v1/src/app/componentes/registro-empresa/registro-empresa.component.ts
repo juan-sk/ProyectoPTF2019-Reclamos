@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
+import { ValidarContrasena } from 'src/app/funcionesDeValidacion/validarContrasena';
+
 
 
 @Component({
@@ -27,7 +29,7 @@ export class RegistroEmpresaComponent implements OnInit {
   pass2Trabajador:string;
   idBusqueda:number;
   errRut:string;
-  //errPass:string;
+  errPass:string;
 
   formRegistroEmpresa: FormGroup;
 
@@ -55,7 +57,7 @@ export class RegistroEmpresaComponent implements OnInit {
       this.empresa.emailEmpresa=this.emailEmpresa;
       this.trabajador.nombreTrabajador=this.nombreTrabajador;
       this.trabajador.apellidoTrabajador=this.apellidoTrabajador;
-      this.trabajador.tipoTrabajador=this.tipoTrabajador;
+      this.trabajador.tipoTrabajador= "administrador";
       this.trabajador.passTrabajador=this.passTrabajador;
       this.trabajador.empresa=this.empresa.nombreEmpresa;
       this.empresaService.crearEmpresa(this.empresa).subscribe(params=>{})
@@ -73,19 +75,18 @@ export class RegistroEmpresaComponent implements OnInit {
         this.errRut=resultado.message;
       }
     }
-
+ 
     formatRut(rut:string):number{
       let rutNumeros;
-      if(rut.length>9){
+      if(rut.length>=9){
         rutNumeros= rut.substr(0,8); 
      }else{
       rutNumeros= rut.substr(0,7); 
      }
-      console.log (rutNumeros)
       return Number(rutNumeros);
     }
-
-  /*  validarPass(){
+    
+   validarPass(){
       let validar:ValidarContrasena  = new ValidarContrasena();
       let resultado = validar.esValido( this.passTrabajador,this.pass2Trabajador);
       if(resultado.result ){
@@ -93,14 +94,14 @@ export class RegistroEmpresaComponent implements OnInit {
       }else{
         this.errPass=resultado.message;
       }
-    } */
+    } 
 
   loginEmpresa(){
   	this.router.navigate(['empresa/login']);
   }
-
+ 
   homeEmpresa(){
-  	this.router.navigate(['home_empresa']);
+  	this.router.navigate(['home_empresa']); 
   }
 
   RegistrarEmpresa(){

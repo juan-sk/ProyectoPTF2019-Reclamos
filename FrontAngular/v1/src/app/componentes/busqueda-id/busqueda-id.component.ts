@@ -24,6 +24,7 @@ export class BusquedaIdComponent implements OnInit {
     }else
       this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
+      console.log("algo " + params);
       
       this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
       this.nombreEmpresa=params.nombreEmpresa;
@@ -51,6 +52,9 @@ export class BusquedaIdComponent implements OnInit {
     }else{
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
+      if(params == null){
+        alert("El ID ingresado no existe");
+      }
     });
   }
   }
@@ -72,3 +76,5 @@ export class BusquedaIdComponent implements OnInit {
     this.router.navigate(['login']);
   }
 }
+
+//hola vanne, este comentario es para darte un merge conflict con amor

@@ -95,20 +95,54 @@
 <div class="row" style="background-color: #00546c">
        <div class="col"></div>
     <div class="col-9 lead" style="color: #00546c; background-color:#F8F9FB">
-        <br><br>
-        <b>Id Reclamo: {{rs.idReclamoSugerencia}}  </b>
         <br>
-        <b>Fecha: {{rs.fechaReclamoSugerencia}}</b>
-        <br>
-        <b>Empresa: {{nombreEmpresa}}</b>
-        <br>
-        <b>Detalle:</b>
-        <b>{{rs.detalleReclamoSugerencia}}</b>
-        <br>
-        <b>Estado: {{rs.estado}}</b>
-        <br>
-        <b>Tipo: {{rs.tipo}}</b>
-        <br><br>
+        <h3 style="text-align: center">Resultados de la Búsqueda <br>ID #{{rs.idReclamoSugerencia}}</h3>
+        <hr style="border: 1px solid darkgray">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+
+                <table class="table-sm table-borderless" style="table-layout: fixed;">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="400"><b>Fecha:</b></td>
+                            <td>{{rs.fechaReclamoSugerencia}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Empresa:</b></td>
+                            <td>{{nombreEmpresa}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tipo:</b></td>
+                            <td>{{rs.tipo}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Estado:</b></td>
+                            <td>{{rs.estado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr style="border: 1px solid lightgray">
+                <table class="table-sm table-borderless">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="200"><b>Detalle:</b></td>
+                            <td>{{rs.detalleReclamoSugerencia}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Respuesta:</b></td>
+                            <td>{{rs.respuestaRS}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+            <div class="col"></div>
+        </div>
     </div>
     <div class="col"></div>
 </div>
