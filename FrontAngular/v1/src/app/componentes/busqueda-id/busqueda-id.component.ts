@@ -69,3 +69,5 @@ export class BusquedaIdComponent implements OnInit {
     this.router.navigate(['login']);
   }
 }
+
+//hola vanne, este comentario es para darte un merge conflict con amor
