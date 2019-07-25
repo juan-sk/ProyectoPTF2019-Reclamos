@@ -1,5 +1,5 @@
 
-export class ValidarRut {
+export class ValidarRut{
     //prueba
     constructor(){
       
@@ -19,7 +19,7 @@ export class ValidarRut {
     
     // Si no cumple con el minimo ej. (n.nnn.nnn)
     if(cuerpo.length < 7) { 
-        return {result: false, message:"* RUT Incompleto"}; 
+        return {result: false, message:"* RUT Incompleto "}; 
     }
     
     // Calcular Digito Verificador
@@ -49,7 +49,7 @@ export class ValidarRut {
     
     // Validar que el Cuerpo coincide con su Digito Verificador
     if(dvEsperado != dv) { 
-        return {result: false, message:"* RUT Invalido"}; 
+        return {result: false, message:"* RUT Invalido"+cuerpo+"-"+dv}; 
     }
     
     // Si todo sale bien, eliminar errores (decretar que es valido)

@@ -46,13 +46,16 @@ export class BusquedaIdComponent implements OnInit {
   //de busqueda
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    if (this.rsService.getLastReclamo=null){
+      alert("ÑOOOOOOOOOOOOOOOOO");
+    }else{
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
       if(params == null){
         alert("El ID ingresado no existe  ");
       }
     });
-    
+  }
   }
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);

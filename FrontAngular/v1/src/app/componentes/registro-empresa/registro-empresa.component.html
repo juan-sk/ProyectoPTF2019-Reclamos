@@ -80,8 +80,7 @@
 
                     <div class="form-grup form-reg">
                         <label for="">Rut Empresa</label>
-                        <input [(ngModel)]="rutEmpresa" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" (keyup)="validateRut()" placeholder="Ejemplo: 25.315.750-5" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required> 
-                        <p style="color: white;">{{errRut}}</p>
+                        <input [(ngModel)]="rutEmpresa" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" placeholder="Ejemplo: 763157505" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"> 
                     </div> 
 
                     <br>

@@ -124,27 +124,21 @@
                         </tr>
                     </tbody>
                 </table>
-                <br>
-<!--
-                <p><b>Fecha: {{rs.fechaReclamoSugerencia}}</b>
-                <br>
-
-                <b>Empresa: {{nombreEmpresa}}</b>
-                <br>
-
-                <b>Tipo: {{rs.tipo}}</b>
-                <br>
-
-                <b>Estado: {{rs.estado}}</b>
-                <br><br></p>
--->
-                <p><b>Detalle:</b><br>
-                <b>    {{rs.detalleReclamoSugerencia}}</b>
-                <br>
-
-
-                <b>Respuesta:</b><br>
-                <b>    {{rs.respuestaRS}}</b></p>
+                <hr style="border: 1px solid lightgray">
+                <table class="table-sm table-borderless">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="200"><b>Detalle:</b></td>
+                            <td>{{rs.detalleReclamoSugerencia}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Respuesta:</b></td>
+                            <td>{{rs.respuestaRS}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <br>
             </div>
             <div class="col"></div>
