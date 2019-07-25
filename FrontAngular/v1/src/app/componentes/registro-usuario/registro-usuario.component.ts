@@ -146,7 +146,7 @@ ngOnInit() {
 
   formatRut(rut:string):number{
     let rutNumeros;
-    if(rut.length>9){
+    if(rut.length>=9){
       rutNumeros= rut.substr(0,8); 
    }else{
     rutNumeros= rut.substr(0,7); 

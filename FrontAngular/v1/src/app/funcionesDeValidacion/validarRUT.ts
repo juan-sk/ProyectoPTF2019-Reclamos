@@ -1,5 +1,5 @@
 
-export class ValidarRut{
+export class ValidarRut {
     //prueba
     constructor(){
       
