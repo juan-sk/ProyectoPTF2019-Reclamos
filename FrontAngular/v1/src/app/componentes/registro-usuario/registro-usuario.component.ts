@@ -32,7 +32,7 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   mensaje:string="";
   idBusqueda:number;
-  generos:string[]=["masculino","femenino","otro","prefiero no decirlo","Dinosaurio"];
+  generos:string[]=["masculino","femenino","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
   errPass:string;
@@ -53,7 +53,7 @@ ngOnInit() {
       this.formRegistro = this.formBuilder.group({ 
       Nombre:[ '', Validators.required ],
       Apellido:[ '', Validators.required ],
-      Rut:['',Validators.required],
+      Rut:['',Validators.required,this.validateRut],
       Fecha:['',Validators.required],
       Fono:['',Validators.required],
       Genero:['',Validators.required],
