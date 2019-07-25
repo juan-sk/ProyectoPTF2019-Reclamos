@@ -96,11 +96,36 @@
        <div class="col"></div>
     <div class="col-9 lead" style="color: #00546c; background-color:#F8F9FB">
         <br>
-        <h3 style="text-align: center">Resultados de la Búsqueda <br> - [ ID #{{rs.idReclamoSugerencia}} ] - </h3>
+        <h3 style="text-align: center">Resultados de la Búsqueda <br>ID #{{rs.idReclamoSugerencia}}</h3>
         <hr style="border: 1px solid darkgray">
         <div class="row">
             <div class="col"></div>
             <div class="col-6">
+
+                <table class="table-sm table-borderless" style="table-layout: fixed;">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="400"><b>Fecha:</b></td>
+                            <td>{{rs.fechaReclamoSugerencia}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Empresa:</b></td>
+                            <td>{{nombreEmpresa}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tipo:</b></td>
+                            <td>{{rs.tipo}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Estado:</b></td>
+                            <td>{{rs.estado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+<!--
                 <p><b>Fecha: {{rs.fechaReclamoSugerencia}}</b>
                 <br>
 
@@ -111,11 +136,11 @@
                 <br>
 
                 <b>Estado: {{rs.estado}}</b>
-                <br><br>
-
-                <b>Detalle:</b><br>
+                <br><br></p>
+-->
+                <p><b>Detalle:</b><br>
                 <b>    {{rs.detalleReclamoSugerencia}}</b>
-                <br><br>
+                <br>
 
 
                 <b>Respuesta:</b><br>
