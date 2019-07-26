@@ -80,7 +80,7 @@
 <!-- CONTENIDO -->
 <div class="row" id=FondoReclamo>
 	<div class="col-3" style="background-color: #dddddd; padding-left: 20px">
-		<div>
+		<div class="sticky-top" style="top: 85px">
 			<br>
 			<img src="../../assets/photo-placeholder.jpeg">
 			
@@ -88,7 +88,7 @@
 			<br>
 			<div id=ApellidoUsuario>{{apellidoUsuario}}</div>						
 			<button id="BotonMiPerfil" class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
-			<br><br><br><br>
+			<br><br><br>
 			<button id="BotonHistorial" class="btn btn-lg btn-block" (click)="iraPerfil()">Historial de Reclamos</button>
 			<br>
 			<button id="BotonRealizarSugerencia" class="btn btn-lg btn-block"(click)="realizarSugerencia()" >Realizar Sugerencia</button>
