@@ -79,5 +79,11 @@ export class PerfilComponent implements OnInit {
   iraPerfil() {
     this.router.navigate(['Perfil']);
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
  
 }

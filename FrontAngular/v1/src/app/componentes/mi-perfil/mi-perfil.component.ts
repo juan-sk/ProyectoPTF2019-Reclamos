@@ -48,5 +48,11 @@ export class MiPerfilComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
 
 }

@@ -131,4 +131,10 @@ iraPerfil() {
 enviarEmail(){
   this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
 }
+home(){
+  this.router.navigate(['home']);
+}
+irNosotros(){
+  this.router.navigate(["nuestro_equipo"]);
+}
 }
