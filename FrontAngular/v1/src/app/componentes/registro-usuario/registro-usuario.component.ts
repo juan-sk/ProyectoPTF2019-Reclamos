@@ -50,6 +50,9 @@ export class RegistroUsuarioComponent implements OnInit {
 constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
 
 ngOnInit() {
+      //agrupacion de campos en html para validar con rolores rojo - verde
+      //los nombres aqui usados son de formControlName en html
+      //ademas de desavilitar o habilitar el boton de registro segun se requiera
       this.formRegistro = this.formBuilder.group({ 
       Nombre:[ '', Validators.required ],
       Apellido:[ '', Validators.required ],
@@ -63,7 +66,7 @@ ngOnInit() {
       Pass2:['',Validators.required]});
       
     }
-
+    //metodo de registro con campos validos e implementacion de formato segun lo requiera
     registro(){
       this.usuarioARegistrar.nombreUsuario=this.nombre;
       this.usuarioARegistrar.apellidoUsuario=this.apellido;
@@ -96,7 +99,13 @@ ngOnInit() {
       return year;
   }
 
-
+  //invocacion de metodo validar fecha y seteo de mensaje de error mostrado en pantalla
+  //siendo este el retorno de ValidarFecha(), 
+  //ademas usando this.formatoDate(this.fecha) para sacar el año de la fecha ingresada en html
+  //y convertirla a string
+  //""+new Date().getFullYear() esto es usado para sacar la fecha actual de sistema ya que 
+  //se crea un new Date y usando .getFullYear toma el año de sistema
+  //el poner ""+ es para darle formato string
   validarfecha(){
     let validar:ValidarFecha  = new ValidarFecha();
     let resultado = validar.esValido(this.formatoDate(this.fecha),""+new Date().getFullYear());
@@ -107,6 +116,7 @@ ngOnInit() {
     }
   }
 
+  //invocacion del metodo validar correo y seteando el mensaje de error mostrado en pantalla
   validarCorreo(){
       let validar:ValidarCorreos  = new ValidarCorreos();
       let resultado = validar.esValido( this.correo,this.correo2);
@@ -116,17 +126,28 @@ ngOnInit() {
         this.errorEmail=resultado.message;
       }
     }
-
-    validarPass(){
-      let validar:ValidarContrasena  = new ValidarContrasena();
-      let resultado = validar.esValido( this.pass,this.pass2);
-      if(resultado.result ){
-        this.errPass="";
-      }else{
-        this.errPass=resultado.message;
+    //invocacion del metodo validarPass y seteando el mensaje de error mostrado en pantalla
+  validarPass(){
+    let validar:ValidarContrasena  = new ValidarContrasena();
+    let resultado = validar.esValido( this.pass,this.pass2);
+    if(resultado.result ){
+       this.errPass="";
+    }else{
+       this.errPass=resultado.message;
       }
     }
+    //invocacion del metodo validarTelefono y seteando el mensaje de error mostrado en pantalla
+    validarTelefono(){
+      let validar:ValidarTelefono = new ValidarTelefono();
+      let resultado = validar.checkTelefono( this.fono);
+      if(resultado.result ){
+        this.errorTel="" ;
+      }else{
+        this.errorTel=resultado.message;
+      }
+   }
 
+   //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
   validateRut(){
     let validar:ValidarRut  = new ValidarRut();
     let resultado = validar.esValido(this.rut);
@@ -136,13 +157,15 @@ ngOnInit() {
       this.errRut=resultado.message;
     }
   }
-
+  //metodo formatFono obtiene el telefono ya validado y le da formto number
+  //para asi ser almacenado y mandado a back de manera correcta
   formatFono(fono:string):number{
     let numFono;
     numFono = fono.substr(0,9);
     return Number(numFono);
   }
-
+  //metodo formatRut obtiene el rut ya validado y le da formto number
+  //para asi ser almacenado y mandado a back de manera correcta
   formatRut(rut:string):number{
     let rutNumeros;
     if(rut.length>9){
@@ -155,15 +178,7 @@ ngOnInit() {
   reclamo(){
     this.router.navigate(["anonimo/realizar_sugerencia"]);
   }
-  validarTelefono(){
-    let validar:ValidarTelefono = new ValidarTelefono();
-    let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
-    if(resultado.result ){
-      this.errorTel="" ;
-    }else{
-      this.errorTel=resultado.message;
-    }
- }
+  
   //buscarPorId(): vacio -> vacio
   //guarda el id de busqueda idbusqueda y 
   //redirige al componente buscar_id
