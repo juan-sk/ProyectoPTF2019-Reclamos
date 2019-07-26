@@ -57,7 +57,7 @@ export class PerfilEmpresaComponent implements OnInit {
         if(this.reclamosSugerencias[i].fechaReclamoSugerencia.toLocaleString()<this.formatoDate(hoy.toLocaleDateString())){
           this.colores[i]="white";
         }else{
-          this.colores[i]="#a2ed6b";
+          this.colores[i]="rgba(162, 237, 107, 1)";
         } 
         let fechaResuelto=this.reclamosSugerencias[i].fechaResuelto;
         let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
