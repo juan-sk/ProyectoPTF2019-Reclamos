@@ -46,10 +46,14 @@ export class RegistroEmpresaComponent implements OnInit {
     EmailEmpresa:['', Validators.required],
     NombreTrabajador:['', Validators.required],
     ApellidoTrabajador:['', Validators.required],
-    TipoTrabajador:['', Validators.required],
+    //TipoTrabajador:['', Validators.required],
     PassTrabajador:['', Validators.required],
     Pass2Trabajador:['', Validators.required]});
-    }
+
+    console.log("ssss", this.formRegistroEmpresa);  
+  }
+
+    
 
     registrar(){
       this.empresa.rutEmpresa=this.formatRut(this.rutEmpresa);
@@ -66,7 +70,6 @@ export class RegistroEmpresaComponent implements OnInit {
     } 
 
     validateRut(){
-  
       let validar:ValidarRut  = new ValidarRut();
       let resultado = validar.esValido( this.rutEmpresa);
       if(resultado.result ){
