@@ -74,6 +74,27 @@ export class BusquedaIdComponent implements OnInit {
   login(){
     this.router.navigate(['login']);
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+  irSugerencia(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_sugerencia"]);
+    }else{
+      this.router.navigate(["realizar_sugerencia"]);
+
+    }
+  }
+  irReclamo(){
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_reclamo"]);
+    }else{
+      this.router.navigate(["realizar_reclamo"]);
+
+    }
+  }
+  irNosotros(){
+    this.router.navigate(["nuestro_equipo"]);
+  }
 }
 
-//hola vanne, este comentario es para darte un merge conflict con amor
