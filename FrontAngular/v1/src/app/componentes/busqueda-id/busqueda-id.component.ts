@@ -3,33 +3,37 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { Router } from '@angular/router';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
+
+
 @Component({
   selector: 'app-busqueda-id',
   templateUrl: './busqueda-id.component.html',
   styleUrls: ['./busqueda-id.component.css']
 })
+
+
 export class BusquedaIdComponent implements OnInit {
-  constructor(private rsService:RsServiceService,private router:Router,private servicioEmpresa:EmpresaServiceService) { }
   rs:ReclamoSugerencia;
   idBusqueda:number;
   mostrarPerfil:boolean=false;
   noMostrarPerfil:boolean;
   nombreEmpresa:string;
+
+  constructor(private rsService:RsServiceService,private router:Router,private servicioEmpresa:EmpresaServiceService) { }
+
+  //ngOnInIt(): vacio --> vacio
+  //Muestra los componentes de la vista busqueda por id
   ngOnInit() {
     this.noMostrarPerfil=!this.mostrarPerfil;
-    console.log(localStorage.getItem("Email"))
     if((localStorage.getItem("Email")=="anonimo")){
       this.mostrarPerfil=true;
     }else
       this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
-      this.rs=params;
-      console.log("algo " + params);
-      
+      this.rs=params;      
       this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
       this.nombreEmpresa=params.nombreEmpresa;
       console.log(this.nombreEmpresa);
       })
-
     });
   }
 
@@ -42,13 +46,9 @@ export class BusquedaIdComponent implements OnInit {
   }
   //buscarPorId():vacio -> vacio
   //guarda el valor de la variable idBusqueda
-  //en localStorage y luego redirige al componente
-  //de busqueda
+  //en localStorage y luego redirige al componente de busqueda
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
-    if (this.rsService.getLastReclamo=null){
-      alert("ÑOOOOOOOOOOOOOOOOO");
-    }else{
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
       if(params == null){
@@ -56,16 +56,25 @@ export class BusquedaIdComponent implements OnInit {
       }
     });
   }
-  }
+  //################# BOTONES DISPONIBLES EN LA VISTA  BUSCAR POR ID ######################
+
+  //realizarSugerencia():vacio-> vacio
+  //redirige al componente realizar sugerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
+  //realizarReclamo():vacio-> vacio
+  //redirige al componente realizar reclamo
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  //homeEmpresa():vacio-> vacio
+  //redirige al componente del home empresas
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
+  //registrar():vacio--> vacio
+  //redirige al componente registrar usuario
   registrar(){
     this.router.navigate(['registrar']);
   }
@@ -75,5 +84,3 @@ export class BusquedaIdComponent implements OnInit {
     this.router.navigate(['login']);
   }
 }
-
-//hola vanne, este comentario es para darte un merge conflict con amor
