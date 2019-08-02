@@ -11,6 +11,7 @@ import { Empresa } from 'src/app/Modelo/Empresa';
   styleUrls: ['./sugerencia-anonimo.component.css']
 })
 export class SugerenciaAnonimoComponent implements OnInit {
+  //atributos
   rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
   empresas:string[]=["aguas andinas","enel","gasco","vtr"];
@@ -36,7 +37,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
         let emp:Empresa=data;
         
         this.rs.idEmpresa=emp.rutEmpresa;
-        console.log(this.rs.idEmpresa);
+       
         this.rs.tipo="Sugerencia";
         
         this.rs.idReclamoSugerencia=0;
@@ -59,7 +60,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+            
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
           });
@@ -68,7 +69,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+           
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
           });
@@ -77,7 +78,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+            
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["rs_enviado"]);
           });
