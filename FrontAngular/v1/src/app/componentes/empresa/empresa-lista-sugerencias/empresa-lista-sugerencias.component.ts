@@ -20,7 +20,7 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
 
   constructor(private router:Router,private servicioRS:RsServiceService) { }
-  
+
    //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
   //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
@@ -132,6 +132,8 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
   irReclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
   }
+  //verEstadisticas():vacio->vacio
+  //redirecciona al componente estadisticas de empresa
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
