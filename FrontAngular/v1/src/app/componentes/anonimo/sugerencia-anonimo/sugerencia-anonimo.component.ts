@@ -28,7 +28,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
     
     });
   } 
-  
+  //Método para realizar Reclamo o Sugerencia
   realizarReclamoSugerencia() {
     
     try {
@@ -91,24 +91,29 @@ export class SugerenciaAnonimoComponent implements OnInit {
     }
     
   }
-
+  //Busca reclamo o sugerencia por ID y abre página con información
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
   }
+  //Lleva a pestaña home de empresa
   homeEmpresa(){
     this.router.navigate(["home_empresa"]);
   }
+  //lleva a pestaña Realizar SUgerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
+  //Lleva a pestaña Realizar un reclamo
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  //Lleva a pestaña logIn
   login(){
     this.router.navigate(["login"]);
   }
+  //Lleva a pagina Registrar usuario 
   registrar(){
     this.router.navigate(["registrar"]);
   }

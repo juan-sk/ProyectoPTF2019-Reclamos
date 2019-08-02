@@ -23,7 +23,7 @@ public class ControladorUsuario {
 	UsuarioService service;
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//agregar: Usuario -> Usuario
-	//recive un usuario tipo Usuario, lo guarda en la DB y devuelve el usuario.
+	//recibe un usuario tipo Usuario, lo guarda en la DB y devuelve el usuario.
 	//Ej: agregar(Usuario x) devuelve (Usuario x)
 	@PostMapping
 	public Usuario agregar(@RequestBody Usuario p) {
@@ -31,7 +31,7 @@ public class ControladorUsuario {
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//editarUsuario: Usuario -> String
-	//recive un usuario de tipo Usuario y lo sobre escribe para editarlo, devuelve un mensaje tipo String
+	//recibe un usuario de tipo Usuario y lo sobre escribe para editarlo, devuelve un mensaje tipo String
 	//para validar
 	//Ej: editarUsuario(Usuario x) devuelve "Usuario Editado"
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class ControladorUsuario {
 	} 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//deleteUser: int -> String
-	//recive un rut de usuario de tipo int, busca un Usuario por ese rut y lo elimina. Retorna un mensaje
+	//recibe un rut de usuario de tipo int, busca un Usuario por ese rut y lo elimina. Retorna un mensaje
 	//de tipo String para validar que se elimino.
 	//Ej: deleteUser(int rut) devuelve "Usuario Eliminado"
 	@RequestMapping(value = "/delete/{rutUsuario}", method=RequestMethod.GET)
@@ -59,7 +59,7 @@ public class ControladorUsuario {
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//buscarRutUsuario: int -> Usuario
-	//recive un rut de usuario de tipo int, busca un usuario por ese rut y lo devuelve.
+	//recibe un rut de usuario de tipo int, busca un usuario por ese rut y lo devuelve.
 	//Ej: buscarRutUsuario(int rut) devuelve Usuario
 	@RequestMapping(value="/{rutUsuario}", method=RequestMethod.GET)
 	public Usuario buscarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
@@ -67,7 +67,7 @@ public class ControladorUsuario {
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	//logIn: Usuario -> ResponseEntity<Usuario>
-	//revice un usuario y compara su email y su contraseña con la DB, si es valido, realiza el log in
+	//recibe un usuario y compara su email y su contraseña con la DB, si es valido, realiza el log in
 	//Ej: logIn(Usuario x) devuelve ResponseEntity<Usuario>
 	@PostMapping (path= {"/login"})
 	public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
