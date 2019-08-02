@@ -1,5 +1,5 @@
 export class ValidarCorreos{
-    //prueba
+    
     constructor(){
       
     }
