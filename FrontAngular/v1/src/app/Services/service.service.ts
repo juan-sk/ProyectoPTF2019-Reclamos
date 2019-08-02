@@ -29,6 +29,11 @@ export class ServiceService {
   getUsuarioId(id:number){
     return this.http.get<UsuarioRegistrado>(this.url+"/"+id);
   }
+  //updateUsuario():vacio ->vacio
+  //este metodo recive como parametro un usuario Registrado el cual puede tener valores de atributos diferentes
+  // a los ingresados al momento del regitro 
+  // este metodo se conecta a la url 'http://35.198.4.197:8080/Usuario'+"/"+usuarioRegustrado.nombreUsuairo
+  // ademas es enviado el objeto usuario registrado al back end utilizando el metodo post 
   updateUsuario(usuarioregistrado:UsuarioRegistrado){
     return this.http.put<UsuarioRegistrado>(this.url+"/"+usuarioregistrado.nombreUsuario,usuarioregistrado);
   }
