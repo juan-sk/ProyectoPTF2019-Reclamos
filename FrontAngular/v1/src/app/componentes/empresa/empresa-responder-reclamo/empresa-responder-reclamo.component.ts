@@ -60,7 +60,7 @@ export class EmpresaResponderReclamoComponent implements OnInit {
   //cambia el valor del atributo estado del objeto ReclamoSugerencia llamado rs 
   //al valor de "resuelto"
   //tambien cambia el estado de atributo fecha, asignandole el valor de un nuevo objeto Date
-  //una vez echo esto el objeto "rs" es enviado al back end utilizando el metodo responderRS del servicio rs-service 
+  //una vez hecho esto el objeto "rs" es enviado al back end utilizando el metodo responderRS del servicio rs-service 
   //una vez enviado se redirecciona al componente  perfil empresa 
   enviarRespuesta(){
     this.rs.estado="resuelto";
