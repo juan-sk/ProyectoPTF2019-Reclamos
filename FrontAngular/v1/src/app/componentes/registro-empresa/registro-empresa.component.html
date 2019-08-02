@@ -27,7 +27,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="irNosotros()">
+                         <a class="nav-link" href="irNosotros()">
                                 <img src="../../assets/usiconminiEmpresa.png" alt="">
                                 <br>
                                 NOSOTROS
@@ -80,7 +80,8 @@
 
                     <div class="form-grup form-reg">
                         <label for="">Rut Empresa</label>
-                        <input [(ngModel)]="rutEmpresa" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" placeholder="Ejemplo: 763157505" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"> 
+                        <input [(ngModel)]="rutEmpresa" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" placeholder="Ejemplo: 763157505" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required> 
+                        <p style="color: white;">{{errRut}}</p> 
                     </div> 
 
                     <br>
@@ -101,9 +102,7 @@
                         <label for="">Tipo</label>
                         <input [(ngModel)]="tipoEmpresa" id="TipoEmpresa" name="TipoEmpresa" formControlName="TipoEmpresa" class="form-control" type="number">     
                     </div>
-
                     <br>
-
                     <div class="form-grup form-reg">
                         <label for="">Tag Empresa</label>
                         <input [(ngModel)]="empresa.tagEmpresa"class="form-control" type="number">                 
@@ -149,7 +148,7 @@
                     </div>
                     <!-- BOTON REGISTRAR EMPRESA-->
                     <br><br>
-                    <button type="button" (click)="registrar()" [disabled]="!formRegistroEmpresa.valid" class="btn btn-lg btn-block" id=BotonConfirmarRegistro >Confirmar registro</button>     
+                    <button type="button" (click)="registrar()" [disabled]="!formRegistro.valid" class="btn btn-lg btn-block" id=BotonConfirmarRegistro >Confirmar registro</button>     
                     <br><br><br>
                 </div>
                 <div class="col-4"></div>
