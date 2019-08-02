@@ -83,9 +83,11 @@ export class BusquedaIdComponent implements OnInit {
   login(){
     this.router.navigate(['login']);
   }
+  //redirige al componente home
   home(){
     this.router.navigate(['home']);
   }
+  //redirige al componente sugerencia
   irSugerencia(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_sugerencia"]);
@@ -94,6 +96,7 @@ export class BusquedaIdComponent implements OnInit {
 
     }
   }
+  //redirige al componente reclamo
   irReclamo(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_reclamo"]);
@@ -102,6 +105,7 @@ export class BusquedaIdComponent implements OnInit {
 
     }
   }
+  //redirige al componente sugerencia
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }

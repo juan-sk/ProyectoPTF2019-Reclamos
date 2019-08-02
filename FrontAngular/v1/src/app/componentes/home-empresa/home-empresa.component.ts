@@ -35,26 +35,7 @@ export class HomeEmpresaComponent implements OnInit {
   loginEmpresa(){
   	this.router.navigate(["empresa/login"]);
   }
-
-  perfilEmpresa(){
-    this.router.navigate(["empresa/perfil"]);
-  }
-
-  empresaListaReclamos(){
-    this.router.navigate(["empresa/listaReclamos"]);
-  }
-
-  empresaListaSugerencias(){
-    this.router.navigate(["empresa/listaSugerencias"]);
-  }
-
-  empresaResponderReclamo(){
-    this.router.navigate(["empresa/responderReclamo"]);
-  }
-
-  empresaResponderSugerencia(){
-    this.router.navigate(["empresa/responderSugerencia"]);
-  }
+  
   //buscarPorId(): vacio -> vacio
   //guarda el id de busqueda idbusqueda y 
   //redirige al componente buscar_id
@@ -63,9 +44,12 @@ export class HomeEmpresaComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+
+  //redirige al componente home empresa
   home(){
     this.router.navigate(['home']);
   }
+    //redirige al componente nosotros
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }

@@ -78,21 +78,25 @@ export class ReclamoAnonimoComponent implements OnInit {
     }
   }
 
+  //Busca ID de reclamo o Sugerencia
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
   }
- 
+ //Abre ventana de realizar sugerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
+  //Abre ventana de realizar reclamo
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  //Redirige a pestaña home
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
+  //Abre pestaña registrar usuario
   registrar(){
     this.router.navigate(['registrar']);
   }
@@ -109,10 +113,11 @@ export class ReclamoAnonimoComponent implements OnInit {
 
     }
   }
-      
+  //redirige a pestaña Nuestro Equipo
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }
+  //Redirige a pestaña home
   home(){
     this.router.navigate(['home']);
   }
