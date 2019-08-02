@@ -117,6 +117,7 @@ ngOnInit() {
   }
 
   //invocacion del metodo validar correo y seteando el mensaje de error mostrado en pantalla
+  //no recibe parametros pero internamente requiere 2 strings que representan los correos
   validarCorreo(){
       let validar:ValidarCorreos  = new ValidarCorreos();
       let resultado = validar.esValido( this.correo,this.correo2);
@@ -127,6 +128,7 @@ ngOnInit() {
       }
     }
     //invocacion del metodo validarPass y seteando el mensaje de error mostrado en pantalla
+    //no recibe parametros pero internamente requiere 2 strings que representan ambas contraseñas
   validarPass(){
     let validar:ValidarContrasena  = new ValidarContrasena();
     let resultado = validar.esValido( this.pass,this.pass2);
@@ -137,6 +139,8 @@ ngOnInit() {
       }
     }
     //invocacion del metodo validarTelefono y seteando el mensaje de error mostrado en pantalla
+    //no recibe parametros pero internamente requiere 2 strings que representan los telefonos
+
     validarTelefono(){
       let validar:ValidarTelefono = new ValidarTelefono();
       let resultado = validar.checkTelefono( this.fono);
@@ -148,6 +152,7 @@ ngOnInit() {
    }
 
    //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
+   //no recibe parametros pero internamente recibe un string 
   validateRut(){
     let validar:ValidarRut  = new ValidarRut();
     let resultado = validar.esValido(this.rut);

@@ -80,7 +80,7 @@
 
                     <div class="form-grup form-reg">
                         <label for="">Rut Empresa</label>
-                        <input [(ngModel)]="rutEmpresa" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" placeholder="Ejemplo: 763157505" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required> 
+                        <input [(ngModel)]="rutEmpresa" (keyup)="validateRut()" id="RutEmpresa" name="RutEmpresa" formControlName="RutEmpresa" class="form-control" type="text" placeholder="Ejemplo: 763157505" maxlength="9" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required> 
                         <p style="color: white;">{{errRut}}</p> 
                     </div> 
 
@@ -95,7 +95,8 @@
 
                     <div class="form-grup form-reg">
                         <label for="">Email Empresa</label>
-                        <input [(ngModel)]="emailEmpresa" id="EmailEmpresa" name="EmailEmpresa" formControlName="EmailEmpresa" class="form-control" type="email" placeholder="G3@ejemplo.com" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$" required> 
+                        <input [(ngModel)]="emailEmpresa" id="EmailEmpresa" name="EmailEmpresa" formControlName="EmailEmpresa" class="form-control" type="email" placeholder="G3@ejemplo.com" (keyup)="validarCorreo()" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$" required> 
+                        <p style="color: white;">{{errorEmail}}</p>
                     </div> 
                     
                    <!-- <div class="form-grup form-reg">
@@ -108,9 +109,8 @@
                         <input [(ngModel)]="empresa.tagEmpresa"class="form-control" type="number">                 
                     </div>  -->
                                                            
-<!-- registro trabajador empresa-->
+<!-- registro administrador empresa-->
                     <h2 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Información del Administrador</h2>
-
                     <div class="form-grup form-reg">  
                         <label for="">Primer nombre del administrador</label>  
                         <input [(ngModel)]="nombreTrabajador"  id="NombreTrabajador" name="NombreTrabajador" formControlName="NombreTrabajador" class="form-control" placeholder="Ingresa tu nombre..." type="text" maxlength="45" onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122)  event.returnValue = false;" required>              
