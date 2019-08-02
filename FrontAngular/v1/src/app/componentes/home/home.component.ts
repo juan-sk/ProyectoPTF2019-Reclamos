@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  //redirige al componente reclamo
   irReclamo(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_reclamo"]);
@@ -50,6 +51,7 @@ export class HomeComponent implements OnInit {
 
     }
   }
+  //redirige al componente sugerencia
   irSugerencia(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_sugerencia"]);
@@ -58,13 +60,15 @@ export class HomeComponent implements OnInit {
 
     }
   }
+  //redirige al componente reclamo anonimo
   reclamoanonimo() {
     this.router.navigate(['anonimo/realizar_reclamo']);
   }
+  //redirige al componente home
   home(){
     this.router.navigate(['home']);
   }
-    
+  //redirige al componente nosotros
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }

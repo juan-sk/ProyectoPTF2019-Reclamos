@@ -19,26 +19,34 @@ public class ReclamoSugerenciaControlador {
 	@Autowired
 	ReclamoSugerenciaService service;
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar
+	//agregar: ReclamoSugerencia -> ReclamoSugerencia
+	//recibe un ReclamoSugerencia y lo guarda en la DB, retorna el ReclamoSugerencia
+	//Ej: agregr(ReclamoSugerencia x) devuelve ReclamoSugerencia x
 	@PostMapping
 	public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
 		return service.add(r);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista RS de un Usuario
+	//listarId: int -> ReclamoSugerencia
+	//Recibe un id de tipo int, busca el reclamoSugerencia por id y lo retorna.
+	//Ej: listarId(int id) devuelve ReclamoSugerencia
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agrega una Respuesta al RS
+	//responderRS: ReclamoSugerencia -> ReclamoSugerencia
+	//Recibe un ReclamoSugerencia que tiene datos en el atributo respuesta y lo sobreescribe en la DB, retorna el mismo ReclmoSugerencia
+	//Ej: respoderRS(ReclamoSugerencia x) retorna ReclamoSugerencia x
 	@RequestMapping(value = "/responder", method = RequestMethod.POST)
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x) {
 		return service.add(x);
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca la ID del ultimo RS de un usuario por su Rut
+	//rsByUser: int -> ReclamoSugerencia
+	//busca el ultimo ReclamoSugerencia de un usuario por su Rut, retorna un ReclamoSugerencia. 
+	//Ej: rsByUser(int rut) devuelve ReclamoSugerencia
 	@RequestMapping(value = "/id/{usuarioReclamoSugerencia}",method = RequestMethod.GET)
 	public ReclamoSugerencia rsByUser (@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia) {
 		ArrayList<ReclamoSugerencia> rsUser = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
@@ -47,7 +55,9 @@ public class ReclamoSugerenciaControlador {
 		return xd;
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca la ID del ultimo reclamo de todos
+	//lastRS: void -> ReclamoSugerencia
+	//Retorna un ReclamoSugerencia con el ultimo id registrado en la DB
+	//Ej: lastRS() devuelve ReclamoSugerencia
 	@RequestMapping(value = "/id/last", method = RequestMethod.GET)
 	public ReclamoSugerencia lastRS() {
 		ArrayList<ReclamoSugerencia> ReclamosS = (ArrayList<ReclamoSugerencia>) service.listarTodo();
@@ -56,21 +66,27 @@ public class ReclamoSugerenciaControlador {
 		return lastidrs;
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de Rs por Id Empresa
+	//rsByIdEmpresas: int -> ArrayList<ReclamoSugerencia>
+	//Recibe un id de empresa y devuelve una lista de los ReclamoSugerencia de esa Empresa
+	//Ej: rsByIdEmpresa(int rutEmpresa) devuelve ArrayList>ReclamoSugerencia>
 	@RequestMapping(value="/listar/rs/{idEmpresa}" , method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> rsByIdEmpresas(@PathVariable("idEmpresa") int idEmpresa){
 		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
 		return listaRSByidEmpresa;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de rs por id usuario
+	//rsByUsuario: int -> ArrayList<ReclamoSugerencia>
+	//Recibe un rut de Usuario y devuelve una lista de los ReclamoSugerencia de ese Usuario
+	//Ej: rsByUsuario(int rutUsuario) devuelve ArrayList>ReclamoSugerencia>
 	@RequestMapping(value = "/listar/{usuarioReclamoSugerencia}", method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> rsByUsuario(@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia){
 		ArrayList<ReclamoSugerencia> listaRSUsuario = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
 		return listaRSUsuario;
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de sugerencias por id Empresa
+	//sByEmpresa: int -> ArrayList<ReclamoSugerencia>
+	//Recibe un rut de Empresa y devuelve una lista de las Sugerencias de esa Empresa
+	//Ej: sByEmpresa(int rutEmpresa) devuelve ArrayList>ReclamoSugerencia>
 	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> sugerenciaByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "sugerencia";
@@ -78,7 +94,9 @@ public class ReclamoSugerenciaControlador {
 		return sByEmpresa;	
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de reclamos por id Empresa
+	//rByEmpresa: int -> ArrayList<ReclamoSugerencia>
+	//Recibe un rut de Empresa y devuelve una lista de los Reclamos de esa Empresa
+	//Ej: rByEmpresa(int rutEmpresa) devuelve ArrayList>ReclamoSugerencia>
 	@RequestMapping(value = "/listar/r/{idEmpresa}", method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> reclamoByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "reclamo";
@@ -86,7 +104,10 @@ public class ReclamoSugerenciaControlador {
 		return rByEmpresa;
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Cantidad de Rreclamos y de Sugerencias por id empresa
+	//cantRSByEmpresa: int -> int[]
+	//recibe un rut de empresa de tipo int y devuelve un arreglo de int donde la posicion 0 indicara la cantidad
+	//de sugerencias de la empresa buscada por el rut, y la posicion 1 indica la cantidad de reclamos de la misma
+	//Ej: cantRSByEmpresa(int rut) devuelve int[]
 	@RequestMapping(value = "/Estadistica/{idEmpresa}", method = RequestMethod.GET)
 	public int[] cantRSByIdEmpresa(@PathVariable ("idEmpresa")int idEmpresa) {
 		int [] estadisticas = new int[2];
@@ -95,7 +116,9 @@ public class ReclamoSugerenciaControlador {
 		return estadisticas;
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Setea un Trabajador a un RS
+	//setearTrabajador: int, ReclamoSugerencia -> ReclamoSugerencia
+	//recibe un rut de trabajador, y lo agrega al ReclamoSugerencia que recibe. Retorna el ReclamoSugerencia
+	//Ej: setearTrabajador(ReclamoSugerencia x, int rutTrabajador) retorna ReclamoSugerencia x
 	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.POST)
 	public ReclamoSugerencia setearTrabajador(@RequestBody ReclamoSugerencia x, @PathVariable("idTrabajador") int idTrabajador) {
 		x.setIdEmpleado(idTrabajador);

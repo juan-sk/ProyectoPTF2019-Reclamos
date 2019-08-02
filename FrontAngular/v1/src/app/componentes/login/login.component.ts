@@ -22,16 +22,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //redirige al componente home empresa
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
-
+  //enviarCredenciales void --> void
+  //Toma el correo y pass encapsulados en el Usuario y los envia al back 
   enviarCredenciales(){
     this.credenciales.emailUsuario=this.correo;
     this.credenciales.passUsuario=this.pass;
-
-    console.log("cosa email: "+this.correo)
     let email=this.credenciales.emailUsuario;
     try {
       this.service.logIn(this.credenciales).subscribe(data=>{
@@ -48,11 +47,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("fonoUsuario",""+this.credenciales.fonoUsuario);
           localStorage.setItem("generoUsuario", this.credenciales.generoUsuario);
           localStorage.setItem("fechaNacUsuario",""+this.credenciales.fechaNacUsuario); 
-
           this.router.navigate(["perfil"]);
-
         }
       })
+
     } catch (e) {
       this.errorMsg="Correo o Contraseña incorrectos";
     }finally{
@@ -60,31 +58,31 @@ export class LoginComponent implements OnInit {
     }
     
   }
-
+   //redirige al componente registro
   registrar(){
     this.router.navigate(["registrar"]);
   }
    checkRut(rut) {
     // Despejar Puntos
     var valor = rut.value.replace('.','');
-    // Despejar Gui�n
+    // Despejar Guion
     valor = valor.replace('-','');
     
-    // Aislar Cuerpo y D�gito Verificador
+    // Aislar Cuerpo y Digito Verificador
     let cuerpo = valor.slice(0,-1);
     let dv = valor.slice(-1).toUpperCase();
     
     // Formatear RUN
     rut.value = cuerpo + '-'+ dv
     
-    // Si no cumple con el m�nimo ej. (n.nnn.nnn)
+    // Si no cumple con el minimo ej. (n.nnn.nnn)
     if(cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false;}
     
-    // Calcular D�gito Verificador
+    // Calcular Digito Verificador
     let suma = 0;
     let multiplo = 2;
     
-    // Para cada d�gito del Cuerpo
+    // Para cada digito del Cuerpo
     for(let i=1;i<=cuerpo.length;i++) {
     
         // Obtener su Producto con el M�ltiplo Correspondiente
@@ -93,12 +91,12 @@ export class LoginComponent implements OnInit {
         // Sumar al Contador General
         suma = suma + index;
         
-        // Consolidar M�ltiplo dentro del rango [2,7]
+        // Consolidar Miltiplo dentro del rango [2,7]
         if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
   
     }
     
-    // Calcular D�gito Verificador en base al M�dulo 11
+    // Calcular Digito Verificador en base al Modulo 11
     let dvEsperado = 11 - (suma % 11);
     
     // Casos Especiales (0 y K)
@@ -111,6 +109,7 @@ export class LoginComponent implements OnInit {
     // Si todo sale bien, eliminar errores (decretar que es v�lido)
     rut.setCustomValidity('');
 }
+  //redirige al componente realizar reclamo
 reclamo(){
   if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
     this.router.navigate(["anonimo/realizar_reclamo"]);
@@ -127,9 +126,11 @@ reclamo(){
     this.router.navigate(['buscar_id']);
     
   }
+  //redirige al componente login
   login(){
     this.router.navigate(["login"]);
   }
+    //redirige al componente realizar sugerencia
   irSugerencia(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_sugerencia"]);
@@ -138,9 +139,11 @@ reclamo(){
 
     }
   }
+  //redirige al componente sugerencia
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }
+  //redirige al home usuario
   home(){
     this.router.navigate(['home']);
   }
