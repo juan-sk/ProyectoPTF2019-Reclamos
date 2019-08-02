@@ -74,7 +74,9 @@ export class RsServiceService {
   getEstadistica(id:number){
     return this.http.get<number[]>(this.url+"/Estadistica/"+id);
   }
-
+  //responderRS():vacio -> vacio 
+  // se conecta a la url 'http://35.198.4.197:8080/ReclamoSugerencia'+"/responder"
+  // y se envia a travez del metodo post un objeto reclamo sugerencia con la respuesta al reclamo
   responderRS(rs:ReclamoSugerencia){
     return this.http.post<ReclamoSugerencia>(this.url+"/responder",rs);
   }
