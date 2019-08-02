@@ -32,7 +32,7 @@ export class BusquedaIdComponent implements OnInit {
       this.rs=params;      
       this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
       this.nombreEmpresa=params.nombreEmpresa;
-      console.log(this.nombreEmpresa);
+      
       })
     });
   }
