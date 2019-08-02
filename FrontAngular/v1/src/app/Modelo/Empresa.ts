@@ -1,3 +1,6 @@
+/*----------------*/
+/* MODELO EMPRESA */
+/*----------------*/
 export class Empresa{
     rutEmpresa:number;
     nombreEmpresa:string;

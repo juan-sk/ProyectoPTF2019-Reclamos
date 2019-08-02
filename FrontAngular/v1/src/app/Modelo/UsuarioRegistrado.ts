@@ -1,3 +1,6 @@
+/*---------------------------*/
+/* MODELO USUARIO REGISTRADO */
+/*---------------------------*/
 export class UsuarioRegistrado{
     rutUsuario:number;
     nombreUsuario:string;

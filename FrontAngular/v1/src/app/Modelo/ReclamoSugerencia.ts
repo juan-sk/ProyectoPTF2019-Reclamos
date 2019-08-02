@@ -1,3 +1,6 @@
+/*-----------------------------*/
+/* MODELO RECLAMO / SUGERENCIA */
+/*-----------------------------*/
 export class ReclamoSugerencia{
     idReclamoSugerencia:number;
     idEmpresa:number;
