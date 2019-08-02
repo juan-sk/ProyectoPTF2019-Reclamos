@@ -1,3 +1,6 @@
+/*----------------------------------*/
+/* SERVICIO DE RECLAMO / SUGERENCIA */
+/*----------------------------------*/
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ReclamoSugerencia } from '../Modelo/ReclamoSugerencia';
