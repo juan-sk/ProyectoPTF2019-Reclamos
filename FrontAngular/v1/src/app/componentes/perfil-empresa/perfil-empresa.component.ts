@@ -1,3 +1,8 @@
+/*---------------------------*/
+/* COMPONENTE PERFIL EMPRESA */
+/*---------------------------*/
+
+//imports
 import { Component, OnInit } from '@angular/core';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
@@ -6,11 +11,14 @@ import { Router } from '@angular/router';
 import { Trabajador } from 'src/app/Modelo/trabajador';
 import { ConditionalExpr } from '@angular/compiler';
 
+//Definicion de componente, selector y rutas.
 @Component({
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.component.html',
   styleUrls: ['./perfil-empresa.component.css']
 })
+
+//Clase PerfilEmpresaComponent
 export class PerfilEmpresaComponent implements OnInit {
   reclamosSugerencias:ReclamoSugerencia[]=[];
   administrador:boolean=false;
@@ -24,7 +32,8 @@ export class PerfilEmpresaComponent implements OnInit {
   botonEstadoEnProceso:boolean[]=[];
   botonEstadoResuelto:boolean[]=[]; 
   botonResponderHabilitado:boolean[]=[];
-    //formatoDate():string->string
+
+  //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
   //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
   //ejemplo: date= 17-07-2019; formatoDate(date) debuelve-> 2019-07-17
@@ -52,24 +61,26 @@ export class PerfilEmpresaComponent implements OnInit {
     return fechaCompleta;
 
   }
+
+  //formoatoNumero: string -> string
+  //divide la fecha local en substring
   formoatoNumero(date:string):string{
     let year=date.substr(0,4);
     let month=date.substr(5,2)
     let day=date.substr(8,2); 
     return year+""+month+""+day;
   }
+
+  //ngOnInit: void -> void
+  //Funcion que arranca al cargar el componente
   ngOnInit() {
     
     let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa")); //trae datos (objeto) empresa
     let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador")); //trae datos (objeto) trabajador
-    console.log(infoTrabajador.nombreTrabajador); //imprime en consola
-    console.log(this.infoTrabajador);
 
-    console.log("asdka "+ this.infoTrabajador.tipoTrabajador);
     if (this.infoTrabajador.tipoTrabajador=="Administrador"){
       this.administrador=true;
     }
-    console.log("rut empresa: "+infoEmpresa.rutEmpresa);
     this.servicioRS.getRSEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamosSugerencias=data;
       let hoy=new Date();
@@ -109,6 +120,8 @@ export class PerfilEmpresaComponent implements OnInit {
     }
   }
 
+  //ordenarPorFecha: void -> number
+  //Ordena los reclamos y sugerencia por fecha
   ordenarPorFecha(){
     this.reclamosSugerencias.sort(function(o1,o2){
       if(o1.fechaReclamoSugerencia.toLocaleString()>o2.fechaReclamoSugerencia.toLocaleString()){
@@ -119,6 +132,9 @@ export class PerfilEmpresaComponent implements OnInit {
       return 0;
     });
   }
+
+  //reclamosPrimero: void -> number
+  //Muestra los reclamos primero
   reclamosPrimero(){
     this.reclamosSugerencias.sort(function(o1,o2){
       if(o1.tipo<o2.tipo){
@@ -129,12 +145,13 @@ export class PerfilEmpresaComponent implements OnInit {
       return 0;
     });
     this.reclamosSugerencias.reverse();
-  
   }
+
+  //responderRS: ReclamoSugerencia -> void
+  //Funcion que redirige a la vista de responder reclamo o sugerencia dependiendo del tipo de solicitud.
   responderRS(RSAresolver:ReclamoSugerencia){
     this.servicioRS.setTrabajador(this.infoTrabajador.idTrabajador,RSAresolver).subscribe(data=>{
       RSAresolver=data;
-      console.log(data);
       if(RSAresolver.tipo=="Reclamo"){
 
         localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
@@ -146,45 +163,61 @@ export class PerfilEmpresaComponent implements OnInit {
         this.router.navigate(["empresa/responderSugerencia"]);
       }
     });
-    
-    
   }
+
+  //irPerfil: void -> void
+  //Redirige a la vista Perfil Empresa
   irPerfil(){
     this.router.navigate(["empresa/perfil"]);
   }
 
+  //irSugerencia: void -> void
+  //Redirige a la vista Lista Sugerencias Empresa
   irSugerencia(){
     this.router.navigate(["empresa/listaSugerencias"]);
   }
+
+  //irReclamo: void -> void
+  //Redirige a la vista Lista Reclamos Empresa
   irReclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
   }
+
+  //verEstadisticas: void -> void
+  //Redirige a la vista Estadisticas
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
-  trabajadores(){
 
-  }
   //buscarPorId(): vacio -> vacio
   //guarda el id de busqueda idbusqueda y 
   //redirige al componente buscar_id
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
-    
   }
 
+  //cerrarSesion: void -> void
+  //Vacia el localStorage para cerrar sesion y redirige a la vista Home Empresa
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
+
+  //home: void -> void
+  //Redirige a la vista Home
   home(){
     this.router.navigate(['home']);
   }
 
+  //homeEmpresa: void -> void
+  //Redirige a la vista home empresa
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
+
+  //irTrabajadores: void -> void
+  //Redirige a la vista Lista Trabajadores
   irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }

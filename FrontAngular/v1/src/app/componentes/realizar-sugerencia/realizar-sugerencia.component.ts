@@ -40,7 +40,7 @@ ngOnInit() {
   });
 }
 
-
+//Permite la realización de RS y guarda datos en DB
 realizarReclamoSugerencia() {
   try {
     this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
@@ -107,33 +107,42 @@ realizarReclamoSugerencia() {
   
 }
 
+//Busca RS por ID y redirige a pestaña con información
 buscarPorId(){
   localStorage.setItem("idBusqueda",""+this.idBusqueda);
   this.router.navigate(['buscar_id']);
   
 }
+//Cierra sesión y redirige a Home
 cerrarSesion(){
   localStorage.setItem("Email", "anonimo");
   this.router.navigate(["home"])
 }
+//Abre pestaña de realizar sugerencia
 realizarSugerencia(){
   this.router.navigate(["realizar_sugerencia"]);
 }
+//Abre la pestaña de realizar reclamo
 realizarReclamo(){
   this.router.navigate(["realizar_reclamo"]);
 }
+//Redirige a MiPerfil
 miPerfil() {
   this.router.navigate(['miPerfil']);
 }
+//Redirige a pestaña Home
 iraPerfil() {
   this.router.navigate(['home']);
 }
+//Envía email usando ID usuario de DB (email)
 enviarEmail(){
   this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
 }
+//Redirige a Home
 home(){
   this.router.navigate(['home']);
 }
+//Redirige a pestaña Nuestro Equipo
 irNosotros(){
   this.router.navigate(["nuestro_equipo"]);
 }
