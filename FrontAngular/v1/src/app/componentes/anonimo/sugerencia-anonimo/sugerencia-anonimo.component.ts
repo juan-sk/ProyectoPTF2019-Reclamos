@@ -109,7 +109,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
-  //Lleva apestaña 
+  //Lleva a pestaña logIn
   login(){
     this.router.navigate(["login"]);
   }
