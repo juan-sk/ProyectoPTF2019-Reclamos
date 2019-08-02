@@ -27,6 +27,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
     this.pathVariavles.params.subscribe(params=> this.idEmpresa=params['id']);
   console.log("id_ "+this.idEmpresa);
   }
+  //Permite la realización de sugerencia guardando datos en DB
   realizarReclamoSugerencia() {
     try {
       
@@ -90,6 +91,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
     console.log("error");
     }
   }
+  //Redirige a pestaña LogIn
   login(){
     this.router.navigate(['login']);
   }
