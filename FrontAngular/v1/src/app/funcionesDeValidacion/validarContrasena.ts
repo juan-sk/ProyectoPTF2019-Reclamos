@@ -1,3 +1,6 @@
+/*--------------------------*/
+/* VALIDACION DE CONTRASEÑA */
+/*--------------------------*/
 export class ValidarContrasena{
     //prueba
     constructor(){

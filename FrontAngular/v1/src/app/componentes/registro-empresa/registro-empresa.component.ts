@@ -61,7 +61,7 @@ export class RegistroEmpresaComponent implements OnInit {
       this.empresa.emailEmpresa=this.emailEmpresa;
       this.trabajador.nombreTrabajador=this.nombreTrabajador;
       this.trabajador.apellidoTrabajador=this.apellidoTrabajador;
-      this.trabajador.tipoTrabajador= "administrador";
+      this.trabajador.tipoTrabajador= "Administrador";
       this.trabajador.passTrabajador=this.passTrabajador;
       this.trabajador.empresa=this.empresa.nombreEmpresa;
       this.empresaService.crearEmpresa(this.empresa).subscribe(params=>{})

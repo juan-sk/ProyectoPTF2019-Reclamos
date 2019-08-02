@@ -1,3 +1,6 @@
+/*--------------------------------*/
+/* SERVICIO DE USUARIO TRABAJADOR */
+/*--------------------------------*/
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Empresa } from '../Modelo/Empresa';

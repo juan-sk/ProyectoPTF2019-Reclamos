@@ -1,3 +1,6 @@
+/*----------------------------*/
+/* SERVICIO DE ENVIO DE EMAIL */
+/*----------------------------*/
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
