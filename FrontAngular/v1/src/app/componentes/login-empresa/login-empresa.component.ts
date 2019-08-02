@@ -40,7 +40,8 @@ export class LoginEmpresaComponent implements OnInit {
   registrarEmpresa(){
     this.router.navigate(["empresa/registro"]);
   } 
-
+  //logInEmpresa void --> void
+  //Toma el nombre de la empresa, nombre del trabajador y pass encapsulados en trabajador y los envia al back 
   logInEmpresa(){
     try {
       console.log(this.trabajador);
@@ -77,9 +78,11 @@ export class LoginEmpresaComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+   //redirige al componente home empresa
   home(){
     this.router.navigate(['home']);
   }
+    //redirige al componente login empresa
   loginEmpresa(){
     this.router.navigate(["empresa/login"]);
   }
