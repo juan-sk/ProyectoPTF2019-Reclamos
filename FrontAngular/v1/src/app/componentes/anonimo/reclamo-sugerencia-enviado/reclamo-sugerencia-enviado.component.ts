@@ -10,12 +10,13 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
   styleUrls: ['./reclamo-sugerencia-enviado.component.css']
 })
 export class ReclamoSugerenciaEnviadoComponent implements OnInit {
+  //atributos
   idBusqueda:number;
   rs:ReclamoSugerencia;
+  empresa:Empresa=new Empresa();
 
   constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
-
-  empresa:Empresa=new Empresa();
+  
   ngOnInit() {
   }
   //Abre pestaña Registrar Usuario
