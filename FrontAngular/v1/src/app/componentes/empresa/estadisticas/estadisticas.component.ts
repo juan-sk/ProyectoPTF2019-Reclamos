@@ -44,7 +44,7 @@ export class EstadisticasComponent implements OnInit {
  public rVSsPlugins = 0;//[pluginDataLabels];
  public rVSsColors = [
    {
-     backgroundColor: ['rgba(255,0,0,0.6)', 'rgba(0,255,0,0.6)'],//rgba(red,green,blue,opacidad)
+     backgroundColor: ['rgba(199,229,255,0.6)', 'rgba(25,95,150,0.6)'],//rgba(red,green,blue,opacidad)
    },
  ];
  //#########################################################################################
@@ -103,7 +103,7 @@ export class EstadisticasComponent implements OnInit {
   public  sRVSsNrPlugins = 0;//[pluginDataLabels];
   public  sRVSsNrColors = [
     {
-      backgroundColor: ['rgba(255,99,34,1)', 'rgba(150,255,0,1)'],//rgba(red,green,blue,opacidad)
+      backgroundColor: ['rgba(199,229,255,0.6)', 'rgba(25,95,150,0.6)'],//rgba(red,green,blue,opacidad)
     },
   ];
   //#########################################################################################
@@ -132,7 +132,7 @@ export class EstadisticasComponent implements OnInit {
   public  SLAsugPlugins = 0;//[pluginDataLabels];
   public  SLAsugColors = [
     {
-      backgroundColor: ['rgba(255,99,34,1)', 'rgba(150,255,0,1)'],//rgba(red,green,blue,opacidad)
+      backgroundColor: ['rgba(255,199,200,0.6)', 'rgba(150,25,70,0.6)'],//rgba(red,green,blue,opacidad)
     },
   ];
   
