@@ -1,3 +1,10 @@
+/*------------*/
+/* APP MODULE */
+/*------------*/
+// Aqui se importan todos los componentes utilizados en el proyecto angular,
+// Además de sus referencias en @NgModule.
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
