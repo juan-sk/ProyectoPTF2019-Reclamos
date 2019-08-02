@@ -28,39 +28,51 @@ public class TrabajadorControlador {
 	@Autowired
 	EmpresaService serviceE;
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar
+	//agregar: Trabajador -> Trabajador
+	//recibe un trabajador y lo guarda en la DB, devuelve el Trabajador
+	//Ej: agregar(Trabajador x) devuelve Trabajador x
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public Trabajador agregar(@RequestBody Trabajador t) {
 		return service.add(t);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Editar
+	//editarTrabajador: Trabajador -> String
+	//recibe un trabajador editado y lo sobreescribe en la DB, retorna un mensaje de tipo String
+	//Ej: editarTrabajador(Trabajador x) devuelve String "Trabajador Editado"
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
 	public String editarTrabajador(@RequestBody Trabajador x) {
 		service.add(x);
 		return "Trabajador Editado";
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Eliminar
+	//deleteTrabajador: int -> void
+	//recibe un rut de tipo int, busca el trabajador por el rut y lo elimina.
+	//Ej: deleteTrabajador(int rut) 
 	@RequestMapping(value = "/delete/{idTrabajador}", method = RequestMethod.GET)
 	public void deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
 		service.delete(service.buscarUno(idTrabajador));
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de todos los trabajadores
+	//listar: void -> List<Trabajador>
+	//Retorna una lista de todos los trabajadores de la DB
+	//Ej: listar() retorna List<Trabajador>
 	@GetMapping
 	public List<Trabajador> listar(){
 		return service.listar();
 	} 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Listar trabajadores por empresa
+	//trabajadoresByEmpresa: int -> ArrayList<Trabajador>
+	//recibe un rut de empresa de tipo int y devuelve un ArrayList de los trabajadores de esa empresa
+	//Ej: trabajadoresByEmpresa(int rutEmpresa) devuelve ArrayList<Trabajador>
 	@RequestMapping (value = "/{idEmpresa}", method=RequestMethod.GET)
 	public ArrayList<Trabajador> trabajadoresByEmpresa(@PathVariable("idEmpresa")int idEmpresa){
 		ArrayList<Trabajador> trabajadores = (ArrayList<Trabajador>) service.empleadosPorEmpresa(serviceE.idEmpresa(idEmpresa).getNombreEmpresa());
 		return trabajadores;
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//LogIn de Trabajador
+	//logIn: Trabajador -> ResponseEntity<Trabajador>
+	//recibe un Trabajador y compara su nombre, el nombre de la Empresa y su contraseña con la DB, si es valido, realiza el log in
+	//Ej: logIn(Trabajador x) devuelve ResponseEntity<Trabajador>
 	@PostMapping (path= {"/login"})
 	public ResponseEntity<Trabajador> logIn(@RequestBody Trabajador t){
 		 try {
