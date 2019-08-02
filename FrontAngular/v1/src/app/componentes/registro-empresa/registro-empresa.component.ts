@@ -9,7 +9,6 @@ import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
 import { ValidarContrasena } from 'src/app/funcionesDeValidacion/validarContrasena';
 
 
-
 @Component({
   selector: 'app-registro-empresa',
   templateUrl: './registro-empresa.component.html',
@@ -30,6 +29,7 @@ export class RegistroEmpresaComponent implements OnInit {
   idBusqueda:number;
   errRut:string;
   errPass:string;
+  errorEmail:string;
 
   formRegistroEmpresa: FormGroup;
 
@@ -49,12 +49,9 @@ export class RegistroEmpresaComponent implements OnInit {
     //TipoTrabajador:['', Validators.required],
     PassTrabajador:['', Validators.required],
     Pass2Trabajador:['', Validators.required]});
-
-    console.log("ssss", this.formRegistroEmpresa);  
   }
 
-    
-
+    //metodo de registro con campos validos e implementacion de formato segun lo requiera
     registrar(){
       this.empresa.rutEmpresa=this.formatRut(this.rutEmpresa);
       this.empresa.nombreEmpresa=this.nombreEmpresa;
@@ -69,6 +66,7 @@ export class RegistroEmpresaComponent implements OnInit {
       this.router.navigate(['empresa/login']);
     } 
 
+    //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
     validateRut(){
       let validar:ValidarRut  = new ValidarRut();
       let resultado = validar.esValido( this.rutEmpresa);
@@ -78,7 +76,9 @@ export class RegistroEmpresaComponent implements OnInit {
         this.errRut=resultado.message;
       }
     }
- 
+
+    //metodo formatRut obtiene el rut ya validado y le da formto number
+    //para asi ser almacenado y mandado a back de manera correcta
     formatRut(rut:string):number{
       let rutNumeros;
       if(rut.length>=9){
@@ -88,7 +88,8 @@ export class RegistroEmpresaComponent implements OnInit {
      }
       return Number(rutNumeros);
     }
-    
+
+   //invocacion del metodo validarPass y seteando el mensaje de error mostrado en pantalla
    validarPass(){
       let validar:ValidarContrasena  = new ValidarContrasena();
       let resultado = validar.esValido( this.passTrabajador,this.pass2Trabajador);
@@ -98,15 +99,15 @@ export class RegistroEmpresaComponent implements OnInit {
         this.errPass=resultado.message;
       }
     } 
-
+  //boton log in empresa
   loginEmpresa(){
   	this.router.navigate(['empresa/login']);
   }
- 
+   //boton redirecciona a inicio de empresa
   homeEmpresa(){
   	this.router.navigate(['home_empresa']); 
   }
-
+  //boton redirecciona a empresa
   RegistrarEmpresa(){
     this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe();
     this.empresaService.crearEmpresa(this.empresa);
@@ -118,12 +119,15 @@ export class RegistroEmpresaComponent implements OnInit {
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
   }
+  //redirige al inicio empresa
   home(){
     this.router.navigate(['home']);
   }
+  //redirige al registro de empresa
   registrarEmpresa(){
     this.router.navigate(["empresa/registro"]);
   }
+  //redirige a la pestaña nosotros   
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }
