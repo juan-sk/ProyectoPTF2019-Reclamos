@@ -7,10 +7,13 @@ import com.example.proyectoV1.entities.Trabajador;
 
 public interface TrabajadorRepositorio extends Repository<Trabajador,Integer>{
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar
+	//save: Trabajador -> Trabajador
+	//Recibe un Trabajador y lo guarda en la DB, retorna el Trabajador
+	//Ej: save(Trabajador x) devuelve Trabajador x
 	Trabajador save(Trabajador t);
     ////////////////////////////////////////////////////////////////////////////////////////////////
-	//Eliminar
+	//delete: Trabajador -> Trabajador
+	//
 	Trabajador delete(Trabajador t);
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Encontrar un Trabajador por ID
