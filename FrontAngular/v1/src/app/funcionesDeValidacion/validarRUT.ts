@@ -1,4 +1,6 @@
-
+/*-------------------*/
+/* VALIDACION DE RUT */
+/*-------------------*/
 export class ValidarRut{
     //prueba
     constructor(){

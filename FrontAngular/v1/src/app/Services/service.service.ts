@@ -1,3 +1,6 @@
+/*---------------------*/
+/* SERVICIO DE USUARIO */
+/*---------------------*/
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {UsuarioRegistrado} from '../Modelo/UsuarioRegistrado';

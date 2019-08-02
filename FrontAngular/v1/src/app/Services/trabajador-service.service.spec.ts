@@ -1,3 +1,6 @@
+/*--------------------------------*/
+/* SERVICIO DE USUARIO TRABAJADOR */
+/*--------------------------------*/
 import { TestBed } from '@angular/core/testing';
 
 import { TrabajadorServiceService } from './trabajador-service.service';
