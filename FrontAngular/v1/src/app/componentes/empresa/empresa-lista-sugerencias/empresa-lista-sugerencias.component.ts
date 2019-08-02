@@ -13,12 +13,14 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
 })
 export class EmpresaListaSugerenciasComponent implements OnInit {
 
-  
+  //atrubutos
   sugerencias:ReclamoSugerencia[]=[];
   colores:string[]=[];
   administrador:boolean=false;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
+
   constructor(private router:Router,private servicioRS:RsServiceService) { }
+  
    //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
   //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
@@ -47,8 +49,9 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
     return fechaCompleta;
 
   }
-
-  formoatoNumero(date:string):string{
+  //formatoNumero(string):string ->string
+  //cambia el formato del de la fecha en string que resibe como parametro 
+  formatoNumero(date:string):string{
     let year=date.substr(0,4);
     let month=date.substr(5,2)
     let day=date.substr(8,2); 
@@ -90,17 +93,13 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
         let fechaResuelto=this.sugerencias[i].fechaResuelto;
         let fechaReclamo=this.sugerencias[i].fechaReclamoSugerencia;
 
-        let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
+        let comparacion:number=((+this.formatoNumero(""+fechaReclamo))-(+this.formatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
         
         if(comparacion>=2 && (this.sugerencias[i].estado=="en proceso")){
           this.colores[i]="#ed6d60";
         }
       }
-    console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);
-    let idEmpresa:number=Number(infoEmpresa.rutEmpresa);
-    
-      console.log(this.sugerencias.length);
-      console.log(this.sugerencias);
+  
     })
   }
 
@@ -136,14 +135,14 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
-  trabajadores(){
-
-  }
+  //cerrarSesion():vavio-> vacio
+  //al ejecutar el metodo se borra la informacion de el localstorage y rediririge al componente home_empresa
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
-  
+  //irTrabajadores():vacio->vacio
+  //redirige al componente trabajadores de empresa
   irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
