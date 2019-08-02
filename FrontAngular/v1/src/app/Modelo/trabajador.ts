@@ -1,3 +1,6 @@
+/*-------------------*/
+/* MODELO TRABAJADOR */
+/*-------------------*/
 export class Trabajador{
     idTrabajador:number;
     nombreTrabajador:string;
