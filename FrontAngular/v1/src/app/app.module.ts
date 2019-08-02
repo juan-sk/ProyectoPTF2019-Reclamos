@@ -1,3 +1,10 @@
+/*------------*/
+/* APP MODULE */
+/*------------*/
+// Aqui se importan todos los componentes utilizados en el proyecto angular,
+// Además de sus referencias en @NgModule.
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -24,7 +31,6 @@ import { LoginEmpresaComponent } from './componentes/login-empresa/login-empresa
 import { PerfilEmpresaComponent } from './componentes/perfil-empresa/perfil-empresa.component';
 import { ReclamoAnonimoComponent } from './componentes/anonimo/reclamo-anonimo/reclamo-anonimo.component';
 import { SugerenciaAnonimoComponent } from './componentes/anonimo/sugerencia-anonimo/sugerencia-anonimo.component';
-import { BusquedaAnonimoComponent } from './componentes/anonimo/busqueda-anonimo/busqueda-anonimo.component';
 import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
 import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lista-reclamos/empresa-lista-reclamos.component';
 import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
@@ -57,7 +63,6 @@ import { AgregarTrabajadoresComponent } from './componentes/empresa/agregar-trab
     PerfilEmpresaComponent,
     ReclamoAnonimoComponent,
     SugerenciaAnonimoComponent,
-    BusquedaAnonimoComponent,
     ReclamoSugerenciaEnviadoComponent,
     EmpresaListaReclamosComponent,
     EmpresaListaSugerenciasComponent,
