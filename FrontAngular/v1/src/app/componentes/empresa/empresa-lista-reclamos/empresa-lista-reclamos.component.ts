@@ -21,21 +21,42 @@ export class EmpresaListaReclamosComponent implements OnInit {
   administrador:boolean=false;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
+ 
   //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
   //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
   //ejemplo: date= 17-07-2019; formatoDate(date) debuelve-> 2019-07-17
   formatoDate(date:string):string{
-    let year=date.substr(6,10);
-    let month=date.substr(3,2)
-    let day=date.substr(0,2);
-    return year+"-"+month+"-"+day;
+    let fechaSeparada=date.split("/");
+    let fechaFinal:string[]=[]
+    if(+fechaSeparada[0]<10){
+      fechaFinal.push("0"+fechaSeparada[0]);
+    }
+    else{
+      fechaFinal.push(fechaSeparada[0]);
+    }
+
+    if(+fechaSeparada[1]<10){
+      fechaFinal.push("0"+fechaSeparada[1]);
+    }else{
+      fechaFinal.push(fechaSeparada[1]);
+    }
+
+    fechaFinal.push(fechaSeparada[2]);
+    let year=fechaFinal[2];
+    let month=fechaFinal[1];
+    let day=fechaFinal[0];
+    let fechaCompleta=year+"-"+month+"-"+day;
+    return fechaCompleta;
 
   }
-  formoatoNumero(date:string):string{
+  formatoNumero(date:string):string{
+    
     let year=date.substr(0,4);
+ 
     let month=date.substr(5,2)
     let day=date.substr(8,2); 
+
     return year+""+month+""+day;
   }
   // este metodo es ejecutato al momento de iniciar el componente 
@@ -74,9 +95,9 @@ export class EmpresaListaReclamosComponent implements OnInit {
         }
         let fechaResuelto=this.reclamos[i].fechaResuelto;
         let fechaReclamo=this.reclamos[i].fechaReclamoSugerencia;
-
-        let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
         
+        let comparacion:number=((+this.formatoNumero(""+fechaReclamo))-(+this.formatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
+        console.log(this.formatoNumero(""+fechaReclamo)+" asdasd "+this.formatoNumero(""+this.formatoDate(hoy.toLocaleDateString())));
         if(comparacion>=2 && (this.reclamos[i].estado=="en proceso")){
           this.colores[i]="#ed6d60";
         }
