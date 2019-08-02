@@ -44,7 +44,7 @@ export class RealizarReclamoComponent implements OnInit {
   });
 
   }
-  
+  //Toma datos de Sugerencia y las guarda en DB
   realizarReclamoSugerencia() {
     try {
       this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
@@ -101,27 +101,34 @@ export class RealizarReclamoComponent implements OnInit {
     }
     
   }
+  //Abre pestaña Buscar ID
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
   }
+  //Cierra sesión y reenvía a pestaña Home
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
+  //Abre pestaña Realizar Sugerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
+  //Abre pestaña Realizar Reclamo
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  //Redirige a pestaña Mi Perfil
   miPerfil() {
     this.router.navigate(['miPerfil']);
   }
+  //Redirige a pestaña Home
   iraPerfil() {
     this.router.navigate(['home']);
   }
+  //Permite el envío de un objeto a mail tomando id de usuario (mail de usuario)
   enviarEmail(){
     this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
   }
