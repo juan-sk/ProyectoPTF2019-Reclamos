@@ -40,7 +40,7 @@ export class RealizarSugerenciaComponent implements OnInit {
     });
   }
 
-//Permite la realización de RS y guarda datos en DB
+  //Permite la realización de RS y guarda datos en DB
   realizarReclamoSugerencia() {
     try {
       this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
