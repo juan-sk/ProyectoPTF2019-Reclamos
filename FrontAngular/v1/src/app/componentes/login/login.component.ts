@@ -10,16 +10,16 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  //atributos 
   correo:string;
   pass:string;
-
   idBusqueda:number;
-  
   credenciales=new UsuarioRegistrado();
   errorMsg="";
   idbusqueda:number;
-  constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
 
+  constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
+  //este metodo se ejecuta al momento de iniciar el componente
   ngOnInit() {
   }
   //redirige al componente home empresa
@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
         }else {
           this.errorMsg = "";
           this.credenciales=credenciales;
+          //se guarda la infomraion del usuario en el localstorage para que pueda ser usada 
+          //en otros componentes
           localStorage.setItem("nombre",this.credenciales.nombreUsuario);
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
           localStorage.setItem("Email", email);

@@ -11,9 +11,11 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
   styleUrls: ['./home-empresa.component.css']
 })
 export class HomeEmpresaComponent implements OnInit {
+  //atributos
+  idBusqueda:number;
 
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
-  idBusqueda:number;
+  //este metodo se ejecuta al momento de iniciar el componente
   ngOnInit() {
   }
   //HomeEmpresa():vacio->vacio
@@ -49,7 +51,7 @@ export class HomeEmpresaComponent implements OnInit {
   home(){
     this.router.navigate(['home']);
   }
-    //redirige al componente nosotros
+  //redirige al componente nosotros
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }

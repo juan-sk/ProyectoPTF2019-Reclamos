@@ -14,15 +14,16 @@ import { Empresa } from 'src/app/Modelo/Empresa';
   styleUrls: ['./login-empresa.component.css']
 })
 export class LoginEmpresaComponent implements OnInit {
-
-  constructor(private router:Router,private service:ServiceService,
-     private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService,
-     private servicioEmpresa:EmpresaServiceService) { }
-
+  //atributos
   trabajador:Trabajador=new Trabajador(); 
   mensajeError:string;
   idBusqueda:number;
-  
+
+  constructor(private router:Router,private service:ServiceService,
+    private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService,
+    private servicioEmpresa:EmpresaServiceService) { }
+
+  //este metodo se ejecuta al mometo de iniciar el componente 
   ngOnInit() {
     
     this.trabajador.idTrabajador=0;
@@ -44,10 +45,10 @@ export class LoginEmpresaComponent implements OnInit {
   //Toma el nombre de la empresa, nombre del trabajador y pass encapsulados en trabajador y los envia al back 
   logInEmpresa(){
     try {
-      console.log(this.trabajador);
+      
       this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
         let credencialesTrabajador= data;
-        console.log("tipo de trabajador: "+credencialesTrabajador.tipoTrabajador);
+        
         if(credencialesTrabajador==null){
           this.mensajeError="el correo o la contraseña no coinciden ";  
         }else{

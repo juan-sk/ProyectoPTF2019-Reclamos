@@ -8,8 +8,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
   styleUrls: ['./mi-perfil.component.css']
 })
 export class MiPerfilComponent implements OnInit {
-
-  constructor(private router:Router, private serviceRS:RsServiceService) { }
+  //atributos
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
@@ -19,8 +18,10 @@ export class MiPerfilComponent implements OnInit {
   fonoUsuario: string; 
   generoUsuario: string;
   fechaNacUsuario: string; 
- 
 
+  constructor(private router:Router, private serviceRS:RsServiceService) { }
+ 
+  //este metoso se ejecuta al momento de iniciar el componente
   ngOnInit() {
     this.nombreUsuario=localStorage.getItem("nombre");
     this.apellidoUsuario=localStorage.getItem("apellido");

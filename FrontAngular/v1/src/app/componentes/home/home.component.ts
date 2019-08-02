@@ -9,10 +9,11 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  //atributos 
   idBusqueda:number;
   rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }
-  
+  //este metodo se ejecuta al momento de iniciar el componente
   ngOnInit() {
     let nombre:string = localStorage.getItem('Email');
     if(nombre!="anonimo"&& nombre!=null){
