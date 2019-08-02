@@ -35,7 +35,10 @@ public class SendMailController {
 	 public String index() {
 		return "send_mail_view";
 	}
-	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//sendMail: int -> void
+	//recibe un rut de usuario de tipo int, por el rut busca al usuario y envia al mail del usuario un mensaje de tipo String
+	//Ej: sendMail(int rutUsuario) -> void
 	@RequestMapping (value="/{usuarioReclamoSugerencia}", method=RequestMethod.GET)
 	public void sendMail(@PathVariable ("usuarioReclamoSugerencia")int usuarioReclamoSugerencia ) {
 		System.out.println(usuarioReclamoSugerencia);
