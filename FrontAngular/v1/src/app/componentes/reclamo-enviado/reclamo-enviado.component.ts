@@ -13,22 +13,31 @@ import { EnviarEmailService } from 'src/app/Services/enviar-email.service';
   styleUrls: ['./reclamo-enviado.component.css']
 })
 export class ReclamoEnviadoComponent implements OnInit {
+  //atributos
   idBusqueda:number;
   nombreEmpresa:string;
   empresa:Empresa=new Empresa();
   nombreUsuario:String;
   apellidoUsuario:String;
   rutUsuario:number;
-  constructor(private router:Router,private servicioEmpresa:EmpresaServiceService, private servicioMail:EnviarEmailService) { }
 
+  constructor(private router:Router,private servicioEmpresa:EmpresaServiceService, private servicioMail:EnviarEmailService) { }
+  //este metodo se ejecuta al iniciar el componente
   ngOnInit() {
     this.nombreUsuario=localStorage.getItem("nombre");
     this.apellidoUsuario=localStorage.getItem("apellido");
   }
+
+  //cerrarSesion: void -> void
+  //Muta el email activo a anonimo (para cerrar sesion) y redirige a la vista home.
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
+  
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
   buscarPorId(){
 
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
@@ -60,6 +69,8 @@ export class ReclamoEnviadoComponent implements OnInit {
     }
     return parafo;
   }
+  //generarPdf():vacio->vacio
+  //genera el comprobante en pdf de el reclamo o sugerencia
   generarPdf(){
     
     //informacion del reclamo o sujerencia
@@ -69,11 +80,8 @@ export class ReclamoEnviadoComponent implements OnInit {
     let fecha=localStorage.getItem("fecha");
     let detalle=localStorage.getItem("detalleRS");
     let tipo=localStorage.getItem("tipo");
-    //fecha.toDateString().replace(" ","_")// convertir objeto Date a string
-
     try {
-      console.log(localStorage.getItem("empresa"));
-      console.log(this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{
+      this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{
         this.empresa=data;
         let doc = new jsPDF();
         //añadir imagen (logo superior)
@@ -110,23 +118,29 @@ export class ReclamoEnviadoComponent implements OnInit {
         let nombreArchivo:string="G3_"+fecha+"_"+id+".pdf";
         //metodo para generar el pdf
         doc.save(nombreArchivo);
-      }));
+      });
       
     } catch (error) {
      this.empresa.nombreEmpresa="no se puedo ver empresa"
     }
-
-   
   }
+  //realizarSugerencia: void -> void
+  //Redirige a vista Realizar Sugerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
+  //realizarReclamo: void -> void
+  //Redirige a vista Realizar Reclamo
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  //irNosotros: void -> void
+  //Redirige a vista Nosotros
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }
+  //irSugerencia: void -> void
+  //Redirige a vista Realizar Sugerencia
   irSugerencia(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_sugerencia"]);
@@ -135,6 +149,8 @@ export class ReclamoEnviadoComponent implements OnInit {
 
     }
   }
+  //irReclamo: void -> void
+  //Redirige a vista Realizar Reclamo
   irReclamo(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_reclamo"]);
@@ -143,6 +159,8 @@ export class ReclamoEnviadoComponent implements OnInit {
 
     }
   }
+  //home: void -> void
+  //Redirige a vista Home
   home(){
     this.router.navigate(['home']);
   }

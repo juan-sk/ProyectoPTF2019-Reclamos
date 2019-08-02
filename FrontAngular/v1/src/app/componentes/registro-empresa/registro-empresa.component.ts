@@ -16,6 +16,7 @@ import { ValidarContrasena } from 'src/app/funcionesDeValidacion/validarContrase
 
 
 export class RegistroEmpresaComponent implements OnInit {
+  //atributos
   empresa:Empresa=new Empresa();
   trabajador:Trabajador=new Trabajador();
   rutEmpresa:string;
@@ -30,14 +31,12 @@ export class RegistroEmpresaComponent implements OnInit {
   errRut:string;
   errPass:string;
   errorEmail:string;
-
   formRegistroEmpresa: FormGroup;
-
   regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
   constructor(private router:Router, private empresaService:EmpresaServiceService,private trabajadorServicio:TrabajadorServiceService, private formBuilder:FormBuilder) { }
 
-
+  //este metodo se ejecuta al iniciar el componente
   ngOnInit() {
     this.formRegistroEmpresa = this.formBuilder.group({
   
@@ -51,59 +50,59 @@ export class RegistroEmpresaComponent implements OnInit {
     Pass2Trabajador:['', Validators.required]});
   }
 
-    //metodo de registro con campos validos e implementacion de formato segun lo requiera
-    registrar(){
-      this.empresa.rutEmpresa=this.formatRut(this.rutEmpresa);
-      this.empresa.nombreEmpresa=this.nombreEmpresa;
-      this.empresa.emailEmpresa=this.emailEmpresa;
-      this.trabajador.nombreTrabajador=this.nombreTrabajador;
-      this.trabajador.apellidoTrabajador=this.apellidoTrabajador;
-      this.trabajador.tipoTrabajador= "Administrador";
-      this.trabajador.passTrabajador=this.passTrabajador;
-      this.trabajador.empresa=this.empresa.nombreEmpresa;
-      this.empresaService.crearEmpresa(this.empresa).subscribe(params=>{})
-      this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe(data=>{})
-      this.router.navigate(['empresa/login']);
-    } 
+  //metodo de registro con campos validos e implementacion de formato segun lo requiera
+  registrar(){
+    this.empresa.rutEmpresa=this.formatRut(this.rutEmpresa);
+    this.empresa.nombreEmpresa=this.nombreEmpresa;
+    this.empresa.emailEmpresa=this.emailEmpresa;
+    this.trabajador.nombreTrabajador=this.nombreTrabajador;
+    this.trabajador.apellidoTrabajador=this.apellidoTrabajador;
+    this.trabajador.tipoTrabajador= "Administrador";
+    this.trabajador.passTrabajador=this.passTrabajador;
+    this.trabajador.empresa=this.empresa.nombreEmpresa;
+    this.empresaService.crearEmpresa(this.empresa).subscribe(params=>{})
+    this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe(data=>{})
+    this.router.navigate(['empresa/login']);
+  } 
 
-    //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
-    validateRut(){
-      let validar:ValidarRut  = new ValidarRut();
-      let resultado = validar.esValido( this.rutEmpresa);
-      if(resultado.result ){
-        this.errRut="";
-      }else{
-        this.errRut=resultado.message;
-      }
+  //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
+  validateRut(){
+    let validar:ValidarRut  = new ValidarRut();
+    let resultado = validar.esValido( this.rutEmpresa);
+    if(resultado.result ){
+      this.errRut="";
+    }else{
+      this.errRut=resultado.message;
     }
+  }
 
-    //metodo formatRut obtiene el rut ya validado y le da formto number
-    //para asi ser almacenado y mandado a back de manera correcta
-    formatRut(rut:string):number{
-      let rutNumeros;
-      if(rut.length>=9){
-        rutNumeros= rut.substr(0,8); 
-     }else{
-      rutNumeros= rut.substr(0,7); 
-     }
-      return Number(rutNumeros);
+  //metodo formatRut obtiene el rut ya validado y le da formto number
+  //para asi ser almacenado y mandado a back de manera correcta
+  formatRut(rut:string):number{
+    let rutNumeros;
+    if(rut.length>=9){
+      rutNumeros= rut.substr(0,8); 
+    }else{
+    rutNumeros= rut.substr(0,7); 
     }
+    return Number(rutNumeros);
+  }
 
-   //invocacion del metodo validarPass y seteando el mensaje de error mostrado en pantalla
-   validarPass(){
-      let validar:ValidarContrasena  = new ValidarContrasena();
-      let resultado = validar.esValido( this.passTrabajador,this.pass2Trabajador);
-      if(resultado.result ){
-        this.errPass="";
-      }else{
-        this.errPass=resultado.message;
-      }
-    } 
+  //invocacion del metodo validarPass y seteando el mensaje de error mostrado en pantalla
+  validarPass(){
+    let validar:ValidarContrasena  = new ValidarContrasena();
+    let resultado = validar.esValido( this.passTrabajador,this.pass2Trabajador);
+    if(resultado.result ){
+      this.errPass="";
+    }else{
+      this.errPass=resultado.message;
+    }
+  } 
   //boton log in empresa
   loginEmpresa(){
   	this.router.navigate(['empresa/login']);
   }
-   //boton redirecciona a inicio de empresa
+  //boton redirecciona a inicio de empresa
   homeEmpresa(){
   	this.router.navigate(['home_empresa']); 
   }

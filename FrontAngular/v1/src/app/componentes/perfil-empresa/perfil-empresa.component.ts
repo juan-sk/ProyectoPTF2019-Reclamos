@@ -20,6 +20,7 @@ import { ConditionalExpr } from '@angular/compiler';
 
 //Clase PerfilEmpresaComponent
 export class PerfilEmpresaComponent implements OnInit {
+  //atributos
   reclamosSugerencias:ReclamoSugerencia[]=[];
   administrador:boolean=false;
   colores:string[]=[];
@@ -28,10 +29,11 @@ export class PerfilEmpresaComponent implements OnInit {
   idEmpresa:number;
   idBusqueda:number;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
-  constructor(private servicioRS:RsServiceService,private router:Router) { }
   botonEstadoEnProceso:boolean[]=[];
   botonEstadoResuelto:boolean[]=[]; 
   botonResponderHabilitado:boolean[]=[];
+  
+  constructor(private servicioRS:RsServiceService,private router:Router) { }
 
   //formatoDate():string->string
   // este metodo invierte el formato de una fecha 

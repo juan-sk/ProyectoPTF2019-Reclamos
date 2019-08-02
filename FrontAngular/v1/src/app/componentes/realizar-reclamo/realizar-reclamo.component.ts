@@ -15,6 +15,7 @@ import { EnviarEmailService } from 'src/app/Services/enviar-email.service';
 })
 
 export class RealizarReclamoComponent implements OnInit {
+  //atributos
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
   empresas:Array<string>=[];

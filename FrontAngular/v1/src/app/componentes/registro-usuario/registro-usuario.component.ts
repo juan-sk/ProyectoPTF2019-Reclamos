@@ -20,6 +20,7 @@ import { R3DelegatedFnOrClassMetadata } from '@angular/compiler/src/render3/r3_f
 
 
 export class RegistroUsuarioComponent implements OnInit {
+  //atrubitos
   usuarioARegistrar:UsuarioRegistrado= new UsuarioRegistrado();
   nombre:string;
   apellido:string;
@@ -42,46 +43,44 @@ export class RegistroUsuarioComponent implements OnInit {
   errorFecha:string;
   sexo:string;
   formato:DataView
-
   formRegistro :FormGroup;
-  
- regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+  regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
-constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
-
-ngOnInit() {
-      //agrupacion de campos en html para validar con rolores rojo - verde
-      //los nombres aqui usados son de formControlName en html
-      //ademas de desavilitar o habilitar el boton de registro segun se requiera
-      this.formRegistro = this.formBuilder.group({ 
-      Nombre:[ '', Validators.required ],
-      Apellido:[ '', Validators.required ],
-      Rut:['',Validators.required],
-      Fecha:['',Validators.required],
-      Fono:['',Validators.required],
-      Genero:['',Validators.required],
-      Correo:['',Validators.required],
-      Correo2:['',Validators.required],
-      Pass:['',Validators.required],
-      Pass2:['',Validators.required]});
-      
-    }
-    //metodo de registro con campos validos e implementacion de formato segun lo requiera
-    registro(){
-      this.usuarioARegistrar.nombreUsuario=this.nombre;
-      this.usuarioARegistrar.apellidoUsuario=this.apellido;
-      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-      this.usuarioARegistrar.fechaNacUsuario= this.fecha;
-      this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
-      this.usuarioARegistrar.generoUsuario=this.genero;
-      this.usuarioARegistrar.emailUsuario=this.correo;
-      this.usuarioARegistrar.passUsuario=this.pass;  
-      this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
-        alert("se agrego correctamente");
-      })
-      this.router.navigate(["perfil"]); 
-      localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
-    }
+  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
+  //este metodo se ejecuta al momento de iniciar el componente
+  ngOnInit() {
+    //agrupacion de campos en html para validar con rolores rojo - verde
+    //los nombres aqui usados son de formControlName en html
+    //ademas de desavilitar o habilitar el boton de registro segun se requiera
+    this.formRegistro = this.formBuilder.group({ 
+    Nombre:[ '', Validators.required ],
+    Apellido:[ '', Validators.required ],
+    Rut:['',Validators.required],
+    Fecha:['',Validators.required],
+    Fono:['',Validators.required],
+    Genero:['',Validators.required],
+    Correo:['',Validators.required],
+    Correo2:['',Validators.required],
+    Pass:['',Validators.required],
+    Pass2:['',Validators.required]});
+    
+  }
+  //metodo de registro con campos validos e implementacion de formato segun lo requiera
+  registro(){
+    this.usuarioARegistrar.nombreUsuario=this.nombre;
+    this.usuarioARegistrar.apellidoUsuario=this.apellido;
+    this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
+    this.usuarioARegistrar.fechaNacUsuario= this.fecha;
+    this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
+    this.usuarioARegistrar.generoUsuario=this.genero;
+    this.usuarioARegistrar.emailUsuario=this.correo;
+    this.usuarioARegistrar.passUsuario=this.pass;  
+    this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
+      alert("se agrego correctamente");
+    })
+    this.router.navigate(["perfil"]); 
+    localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
+  }
   
   //boton redirecciona a empresa
   homeEmpresa(){
@@ -92,11 +91,13 @@ ngOnInit() {
   login(){
     this.router.navigate(['login']);
   }
-
+  //formatoDate(Date):Date->string 
+  //extrae el año de un objeto de tipo Date 
+  // y lo convierte a string
   formatoDate(date:Date):string{
     let year = date.toLocaleString();
     year=year.substr(0,4);
-      return year;
+     return year;
   }
 
   //invocacion de metodo validar fecha y seteo de mensaje de error mostrado en pantalla
@@ -133,26 +134,25 @@ ngOnInit() {
     let validar:ValidarContrasena  = new ValidarContrasena();
     let resultado = validar.esValido( this.pass,this.pass2);
     if(resultado.result ){
-       this.errPass="";
+      this.errPass="";
     }else{
-       this.errPass=resultado.message;
-      }
+      this.errPass=resultado.message;
     }
-    //invocacion del metodo validarTelefono y seteando el mensaje de error mostrado en pantalla
-    //no recibe parametros pero internamente requiere 2 strings que representan los telefonos
+  }
+  //invocacion del metodo validarTelefono y seteando el mensaje de error mostrado en pantalla
+  //no recibe parametros pero internamente requiere 2 strings que representan los telefonos
+  validarTelefono(){
+    let validar:ValidarTelefono = new ValidarTelefono();
+    let resultado = validar.checkTelefono( this.fono);
+    if(resultado.result ){
+      this.errorTel="" ;
+    }else{
+      this.errorTel=resultado.message;
+    }
+  }
 
-    validarTelefono(){
-      let validar:ValidarTelefono = new ValidarTelefono();
-      let resultado = validar.checkTelefono( this.fono);
-      if(resultado.result ){
-        this.errorTel="" ;
-      }else{
-        this.errorTel=resultado.message;
-      }
-   }
-
-   //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
-   //no recibe parametros pero internamente recibe un string 
+  //invocacion del metodo validateRut y seteando el mensaje de error mostrado en pantalla 
+  //no recibe parametros pero internamente recibe un string 
   validateRut(){
     let validar:ValidarRut  = new ValidarRut();
     let resultado = validar.esValido(this.rut);
@@ -180,8 +180,10 @@ ngOnInit() {
    }
     return Number(rutNumeros);
   }
+  //reclamo():vacio->vacio
+  //redirecciona al componente realizar_reclamo
   reclamo(){
-    this.router.navigate(["anonimo/realizar_sugerencia"]);
+    this.router.navigate(["anonimo/realizar_reclamo"]);
   }
   
   //buscarPorId(): vacio -> vacio
@@ -205,6 +207,8 @@ ngOnInit() {
 
     }
   }
+  //home: void -> void
+  //Redirige a vista Home 
   home() {
     this.router.navigate(['home']);
   }

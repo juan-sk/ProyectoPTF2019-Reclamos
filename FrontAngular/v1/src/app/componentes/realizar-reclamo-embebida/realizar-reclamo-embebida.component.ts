@@ -10,6 +10,7 @@ import { EnviarEmailService } from 'src/app/Services/enviar-email.service';
   styleUrls: ['./realizar-reclamo-embebida.component.css']
 })
 export class RealizarReclamoEmbebidaComponent implements OnInit {
+  //atributos
   rs:ReclamoSugerencia=new ReclamoSugerencia();
   empresas:string[]=["aguas andinas","enel","gasco","vtr"];
   tipos:string[]=["Reclamo","Sugerencia"];
@@ -17,6 +18,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
   empresa:string;
   sesion:boolean=false;
   idEmpresa;
+
   constructor(private servicioMail:EnviarEmailService,private router:Router,private serviceRS:RsServiceService,private pathVariavles:ActivatedRoute) { }
 
   ngOnInit() {
@@ -25,14 +27,14 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
       this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
     }
     this.pathVariavles.params.subscribe(params=> this.idEmpresa=params['id']);
-  console.log("id_ "+this.idEmpresa);
+  
   }
   //Permite la realización de sugerencia guardando datos en DB
   realizarReclamoSugerencia() {
     try {
       
       this.rs.idEmpresa=this.idEmpresa;
-      console.log(this.rs.idEmpresa);
+      
       this.rs.tipo=this.tipo;
         
       this.rs.idReclamoSugerencia=0;
@@ -51,8 +53,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
       localStorage.setItem("tipo",this.rs.tipo);
         
       this.rs.fechaResuelto=new Date("2019-01-01");
-      console.log("nombre empresa: "+this.rs.idEmpresa);
-      console.log(this.rs.fechaResuelto.toDateString());
+  
       this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
 
       try {
@@ -64,7 +65,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
           //alert("reclamo generado enviado con exito ");
           //this.enviarEmail();
           this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
-          console.log("hola");
+       
           this.router.navigate(["rs_enviado"]);
         });
       } catch (error) {
@@ -72,8 +73,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
           let rs:ReclamoSugerencia=data;
             
           localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-          console.log(localStorage.getItem("idRS"));
-          //alert("reclamo generado enviado con exito ");
+         
           this.router.navigate(["rs_enviado"]);
         });
       }finally{
@@ -81,8 +81,8 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
           let rs:ReclamoSugerencia=data;
             
           localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-          console.log(localStorage.getItem("idRS"));
-          //alert("reclamo generado enviado con exito ");
+         
+         
           this.router.navigate(["rs_enviado"]);
       });
       }

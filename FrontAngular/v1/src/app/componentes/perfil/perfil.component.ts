@@ -19,8 +19,7 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
 
 //Clase PerfilComponent
 export class PerfilComponent implements OnInit {
-
-  constructor(private router:Router,private servicioRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
+  //atributos
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
@@ -32,6 +31,8 @@ export class PerfilComponent implements OnInit {
   
   botonEstadoEnProceso:boolean[]=[];
   botonEstadoResuelto:boolean[]=[];  
+  
+  constructor(private router:Router,private servicioRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
 
   //ngOnInit: void -> void
   //Funcion que inicia al cargar el componente
