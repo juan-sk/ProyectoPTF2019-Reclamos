@@ -19,27 +19,35 @@ public class EmpresaControlador {
 	@Autowired
 	EmpresaService service;
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar	
+	//agregar: Empresa e -> Empresa
+	//recibe una Empresa y la guarda en la DB y devuelve la empresa
+	//Ej: agregar(Empresa x) devuelve Empresa
 	@PostMapping
 	public Empresa agregar(@RequestBody Empresa e) {
 		return service.add(e);
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Editar
+	//editarEmpresa: Empresa -> String
+	//recibe una Empresa y la sobre escribe en la DB con ediciones, retorna un mensaje de tipo String. 
+	//Ej: editarEmpresa(Empresa x) devuelve String "Empresa Editada"
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
 	public String editarEmpresa(@RequestBody Empresa x) {
 		service.add(x);
 		return "Empresa Editada";
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Eliminar
+	//deleteEmpresa: int rutEmpresa -> String
+	//recibe un rut de tipo int, busca una Empresa por rut y la elimina. Retorna un mensaje de tipo String
+	//Ej: deleteEmpresa(int rut) devuelve String "Empresa Eliminada"
 	@RequestMapping(value = "/delete/{rutEmpresa}", method = RequestMethod.GET)
 	public String deleteEmpresa(@PathVariable("rutEmpresa") int rutEmpresa) {
 		service.delete(rutEmpresa);
 		return "Empresa Eliminada";
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de nombres de Empresas
+	//nombreEmpresas: void -> ArrayList<String>
+	//devuelve un arrayList de los nombres de las empresas de la DB
+	//Ej: nombreEmpresas() devuelve ArrayList<String>
 	@RequestMapping(value="/{nombre}", method=RequestMethod.GET)
 	public ArrayList<String> nombreEmpresas(){
 		ArrayList<String> nombresE = new ArrayList<String>();
@@ -49,7 +57,9 @@ public class EmpresaControlador {
 		return nombresE;
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca una Empresa por su ID	
+	//nombrePorId: int -> Empresa
+	//Busca una empresa por su rut de tipo int, devuelve la empresa Empresa.
+	//Ej: nombrePorId(int rut) devuelve Empresa x
 	@RequestMapping(value="/nombre/{id}", method = RequestMethod.GET)
 	public Empresa nombrePorId(@PathVariable("id")int idEmpresa) {
 		Empresa x = new Empresa();
@@ -57,7 +67,9 @@ public class EmpresaControlador {
 		return x;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca una Empresa por su Nombre
+	//idByName: String -> Empresa
+	//Busca una empresa por su nombre e la DB, retorna la empresa
+	//Ej: idByName(String nombre) devuelve Empresa x
 	@RequestMapping(value = "/nombre/id/{nombreEmpresa}", method = RequestMethod.GET)
 	public Empresa idByName(@PathVariable("nombreEmpresa") String nombreEmpresa) {
 		Empresa x = new Empresa();
