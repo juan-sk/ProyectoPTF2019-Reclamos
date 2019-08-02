@@ -1,3 +1,6 @@
+/*----------------------*/
+/* VALIDACION DE CORREO */
+/*----------------------*/
 export class ValidarCorreos{
     //prueba
     constructor(){

@@ -1,3 +1,8 @@
+/*---------------*/
+/* APP COMPONENT */
+/*---------------*/
+// Componente principal de la app, contiene el header y footer.
+
 import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 @Component({

@@ -1,4 +1,6 @@
-
+/*------------------------*/
+/* VALIDACION DE TELEFONO */
+/*------------------------*/
 export class ValidarTelefono{
     
     constructor(){
