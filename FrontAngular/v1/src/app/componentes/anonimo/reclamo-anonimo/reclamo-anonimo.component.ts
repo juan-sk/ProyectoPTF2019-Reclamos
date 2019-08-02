@@ -12,6 +12,7 @@ import { Empresa } from 'src/app/Modelo/Empresa';
 })
 
 export class ReclamoAnonimoComponent implements OnInit {
+  //atributos
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
   empresas:string[]=[]; 
@@ -20,16 +21,21 @@ export class ReclamoAnonimoComponent implements OnInit {
   cantidadCarcteres:number=0;
 
   constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
-  
+  //este metodo se ejecuta al momento de iniciar el componente
   ngOnInit() {
     this.rs.idReclamoSugerencia=0;
     this.rs.detalleReclamoSugerencia=" ";
+    //se busca la lista de empresas regustradas en la base de datos 
+    //a travez del metodo listar empresas de servicioEmpresa:EmpresaServiceServie
+    //esta lista de empresas es guardada en la variable empresa
     this.servicioEmpresa.listaEmpresas().subscribe(data=>{
       this.empresas=data;
     
     });
     }
-   
+  //realizarReclamoSugerencia():vacio->vacio
+  //este metodo es el encargado de enviar el objeto rs de tipo
+  //ReclamoSugerencia al back end 
   realizarReclamoSugerencia() {
     try {
       this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
@@ -60,7 +66,7 @@ export class ReclamoAnonimoComponent implements OnInit {
           this.serviceRS.getLastReclamo().subscribe(data=>{
             let rs:ReclamoSugerencia=data;
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+            
             this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
           });
         }
@@ -84,7 +90,7 @@ export class ReclamoAnonimoComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
- //Abre ventana de realizar sugerencia
+  //Abre ventana de realizar sugerencia
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
   }
