@@ -18,9 +18,11 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   empresa:Empresa=new Empresa();
   ngOnInit() {
   }
+  //Abre pestaña Registrar Usuario
   registrarse(){
     this.router.navigate(["registrar"]);
   }
+  //Abre pestaña login usuario
   login(){
     this.router.navigate(['login']);
   }
@@ -63,6 +65,7 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
     return parafo;
   }
 
+  //Permite la generación de PDF para descargar n de ID
   generarPdf(){
     
     //informacion del reclamo o sujerencia
@@ -119,15 +122,19 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
      this.empresa.nombreEmpresa="no se puedo ver empresa"
     }
   }
+  //Lleva a pestaña Registrar 
   registrar(){
     this.router.navigate(["registrar"]);
   }
+  //Lleva a pestaña Nuestro Equipo
   irNosotros(){
     this.router.navigate(["nuestro_equipo"]);
   }
+  //Lleva a pestaña Home
   home(){
     this.router.navigate(['home']);
   }
+  //Lleva a pestaña Hacer reclamo
   irReclamo(){
     if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
       this.router.navigate(["anonimo/realizar_reclamo"]);
@@ -136,11 +143,11 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
 
     }
   }
-
+  //Lleva a pestaña realizar sugerencia
   realizarSugerencia(){
     this.router.navigate(['anonimo/realizar_sugerencia']);
   }
-
+  //Lleva a pestaña Nuestro Equipo
   nosotros(){
     this.router.navigate(['nuestro_equipo']);
   }

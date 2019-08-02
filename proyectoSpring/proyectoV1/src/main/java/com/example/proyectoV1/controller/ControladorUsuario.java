@@ -22,39 +22,53 @@ public class ControladorUsuario {
 	@Autowired
 	UsuarioService service;
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar
+	//agregar: Usuario -> Usuario
+	//recibe un usuario tipo Usuario, lo guarda en la DB y devuelve el usuario.
+	//Ej: agregar(Usuario x) devuelve (Usuario x)
 	@PostMapping
 	public Usuario agregar(@RequestBody Usuario p) {
 		return service.add(p);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Editar 
+	//editarUsuario: Usuario -> String
+	//recibe un usuario de tipo Usuario y lo sobre escribe para editarlo, devuelve un mensaje tipo String
+	//para validar
+	//Ej: editarUsuario(Usuario x) devuelve "Usuario Editado"
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
 	public String editarUsuario (@RequestBody Usuario x) {
 		service.add(x);  
 		return "Usuario Editado";
 	} 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Eliminar
+	//deleteUser: int -> String
+	//recibe un rut de usuario de tipo int, busca un Usuario por ese rut y lo elimina. Retorna un mensaje
+	//de tipo String para validar que se elimino.
+	//Ej: deleteUser(int rut) devuelve "Usuario Eliminado"
 	@RequestMapping(value = "/delete/{rutUsuario}", method=RequestMethod.GET)
 	public String deleteUser(@PathVariable ("rutUsuario") int rutUsuario) {
 		service.delete(service.listarId_RutUsuario(rutUsuario));
 		return "Usuario Eliminado";
 	} 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de Todos los Usuarios
+	//Listar: void -> List<Usuario>
+	//Devuelve una lista de todos los usuarios
+	//Ej: Listar() devuelve List<Usuario>
 	@RequestMapping(value="/all", method = RequestMethod.GET)
 	public List<Usuario>Listar(){
 	return service.listar(); 
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Buscar Usuario por Rut
+	//buscarRutUsuario: int -> Usuario
+	//recibe un rut de usuario de tipo int, busca un usuario por ese rut y lo devuelve.
+	//Ej: buscarRutUsuario(int rut) devuelve Usuario
 	@RequestMapping(value="/{rutUsuario}", method=RequestMethod.GET)
 	public Usuario buscarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 		return service.listarId_RutUsuario(rutusuario);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-	//LogIn Usuario
+	//logIn: Usuario -> ResponseEntity<Usuario>
+	//recibe un usuario y compara su email y su contraseña con la DB, si es valido, realiza el log in
+	//Ej: logIn(Usuario x) devuelve ResponseEntity<Usuario>
 	@PostMapping (path= {"/login"})
 	public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
 		 try {
