@@ -14,9 +14,11 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent implements OnInit {
+  //atributos
   administrador:boolean=false;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   ReclamosSugerencias:ReclamoSugerencia[]=[];
+
   constructor(private router:Router,private servicioRS:RsServiceService){}
 
   //opciones grafico reclamo Vs sugerencia (codigo = rVSs)
@@ -156,6 +158,7 @@ export class EstadisticasComponent implements OnInit {
     }
     return cantReclamosResueltos;
   }
+
   formatoDatosGrafico(cantResueltos,arr:ReclamoSugerencia[]):number[]{
     let nuevoArreglo:number[]=[];
     nuevoArreglo.push(cantResueltos);
@@ -165,7 +168,7 @@ export class EstadisticasComponent implements OnInit {
     return nuevoArreglo;
   }
 
-  
+  //este metodo se ejecuta al iniciar el componente 
  ngOnInit() {
    //se utiliza el metodo parse de la calse JSON para convertir la informacion
     // guardada en localstorage en el "campo" trabajador a un objeto de tipo Trabajador
@@ -196,7 +199,9 @@ export class EstadisticasComponent implements OnInit {
 
 
  }
-
+//descargarInforme():vacio ->vacio
+//este metodo genera el documentto pdf con los graficos incluidos
+//una vez generado de procede a la descarga
 descargarInforme(){
   let reclamosVSsugerenciaData = this.rVSsData;
   let reclamoRVSReclamoNoR=this.rRVSrNrData;
@@ -206,6 +211,7 @@ descargarInforme(){
     html2canvas(document.getElementById('chart-rRVSrNr')).then(function(canvas2) {
       html2canvas(document.getElementById('chart-sRVSsNr')).then(function(canvas3) {
         let fecha=new Date();
+
         let img1 = canvas1.toDataURL("image/png");
         let img2 = canvas2.toDataURL("image2/png");
         let img3 = canvas3.toDataURL("image3/png");
@@ -222,7 +228,7 @@ descargarInforme(){
         doc.text(6,74,"Grafico Reclamos Vs Sugerencias");
         doc.addImage(img1,'PNG',6,74,180,100);
      
-        console.log()
+     
         doc.text(6,185,"Reclamos:     "+reclamosVSsugerenciaData[0]);
         doc.text(6,192,"Sugerencias : "+reclamosVSsugerenciaData[1]);
 
@@ -277,7 +283,7 @@ descargarInforme(){
     });
   });
 }
-//irPerfil(): vavio->vacio (redireccion a componente perfil empresa)
+  //irPerfil(): vavio->vacio (redireccion a componente perfil empresa)
   //al llamar el metodo se realida el redireccionamiento al componente perfil-empresa
   //a travez del path empreza/perfil, este componente es parte de la vista de trabajador de la empresa
   irPerfil(){
@@ -295,22 +301,27 @@ descargarInforme(){
   irReclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
   }
+  //verEstadisticas():vacio->vacio
+  //redirecciona al componente estadisticas de empresa
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
-  trabajadores(){
 
-  }
-  
+  //irTrabajadores():vacio->vacio
+  //redirige al componente trabajadores de empresa
   irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
   
+  //cerrarSesion():vavio-> vacio
+  //al ejecutar el metodo se borra la informacion de el localstorage y rediririge al componente home_empresa
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
-
+  //formatoSLA(): ReclamoSugerencia[]->number[]
+  //devuelve un areglo de numeros con fomrato [numero,numero]
+  //con los valores de sla en teimpo y sla fuera de tiempo
   formatoSLA(rsArreglo:ReclamoSugerencia[]):number[] {
     let slaGood: number = 0;
     let slaBad: number = 0;
@@ -320,7 +331,7 @@ descargarInforme(){
       let fechaResuelto=""+rsArreglo[i].fechaResuelto;
       let fechaReclamo=""+rsArreglo[i].fechaReclamoSugerencia;
 
-      let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(fechaResuelto)))*-1);
+      let comparacion:number=((+this.formatoNumero(""+fechaReclamo))-(+this.formatoNumero(""+this.formatoDate(fechaResuelto)))*-1);
       
       if (comparacion <= 2) {
         slaGood++;
@@ -334,8 +345,12 @@ descargarInforme(){
 
     return rsArregloRtn;
   }
-
-  formoatoNumero(date:string):string{
+  //formatoNumero(string): string->string
+  //recive como parametro un objeto de strgin que viene del con el formato de 
+  // date.toLocateDateStirng()
+  // el cual es cambiado para poder ser comparado posterior mente 
+  // 02-02-1992 devuelve 19920202
+  formatoNumero(date:string):string{
     let year=date.substr(0,4);
     let month=date.substr(5,2)
     let day=date.substr(8,2); 
@@ -344,7 +359,7 @@ descargarInforme(){
   //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
   //esto es nesesario por la forma en que la fecha es guardada en la vase de datos(de guarda de manera ingertida)
-  //ejemplo: date= 17-07-2019; formatoDate(date) debuelve-> 2019-07-17
+  //ejemplo: date= 17-07-2019; formatoDate(date.toLocateDateString()) devuelve-> 2019-07-17
   formatoDate(date:string):string{
     let year=date.substr(6,10);
     let month=date.substr(3,2)
