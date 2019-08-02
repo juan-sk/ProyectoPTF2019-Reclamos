@@ -80,7 +80,7 @@ export class RealizarReclamoComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+            
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["rs_enviado"]);
           });
@@ -89,7 +89,7 @@ export class RealizarReclamoComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+            
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["rs_enviado"]);
           });

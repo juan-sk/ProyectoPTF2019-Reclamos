@@ -46,7 +46,6 @@ export class ServiceService {
   // invalido-> en el cado que las credenciales no coincidan, sin la informacion del usuario
   // error ->en el caso que no se encientre el usuario en la db,tambien sin la informacion del usuario 
   logIn(credenciales:UsuarioRegistrado){
-    console.log("email: "+credenciales.emailUsuario+" pass: "+credenciales.passUsuario);
     return this.http.post<UsuarioRegistrado>(this.url+'/login',credenciales);
   }
   

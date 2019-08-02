@@ -79,8 +79,7 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
     //fecha.toDateString().replace(" ","_")// convertir objeto Date a string
 
     try {
-      console.log(localStorage.getItem("empresa"));
-      console.log(this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{
+      this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{
         this.empresa=data;
         let doc = new jsPDF();
         //añadir imagen (logo superior)
@@ -117,7 +116,7 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
         let nombreArchivo:string="G3_"+fecha+"_"+id+".pdf";
         //metodo para generar el pdf
         doc.save(nombreArchivo);
-      }));
+      });
       
     } catch (error) {
      this.empresa.nombreEmpresa="no se puedo ver empresa"

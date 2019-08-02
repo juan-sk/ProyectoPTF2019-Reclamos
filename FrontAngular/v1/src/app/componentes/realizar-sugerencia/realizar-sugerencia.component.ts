@@ -72,11 +72,11 @@ export class RealizarSugerenciaComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+      
             //alert("reclamo generado enviado con exito ");
             //this.enviarEmail();
             this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
-            console.log("hola");
+           
             this.router.navigate(["rs_enviado"]);
           });
         } catch (error) {
@@ -84,7 +84,7 @@ export class RealizarSugerenciaComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+           
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["rs_enviado"]);
           });
@@ -93,7 +93,7 @@ export class RealizarSugerenciaComponent implements OnInit {
             let rs:ReclamoSugerencia=data;
             
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-            console.log(localStorage.getItem("idRS"));
+          
             //alert("reclamo generado enviado con exito ");
             this.router.navigate(["rs_enviado"]);
           });

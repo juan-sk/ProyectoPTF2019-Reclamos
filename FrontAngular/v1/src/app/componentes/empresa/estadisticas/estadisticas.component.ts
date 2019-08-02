@@ -163,8 +163,7 @@ export class EstadisticasComponent implements OnInit {
     let nuevoArreglo:number[]=[];
     nuevoArreglo.push(cantResueltos);
     nuevoArreglo.push(arr.length-cantResueltos);
-    console.log("asdfs");
-    console.log(nuevoArreglo);
+ 
     return nuevoArreglo;
   }
 

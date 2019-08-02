@@ -116,7 +116,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
   //una vez guardado se redirecciona al componente de responder reclamo 
   //este cmponente corresponde a la vista de trabajador de empresa
   responderReclamo(RSAresolver:ReclamoSugerencia){
-    console.log(RSAresolver)
+ 
     localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
     this.router.navigate(["empresa/responderReclamo"]);
   }
