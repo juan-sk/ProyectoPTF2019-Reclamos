@@ -13,18 +13,28 @@ public interface TrabajadorRepositorio extends Repository<Trabajador,Integer>{
 	Trabajador save(Trabajador t);
     ////////////////////////////////////////////////////////////////////////////////////////////////
 	//delete: Trabajador -> Trabajador
-	//
+	//recibe un Trabajador y lo elimina
+	//Ej: delete(Trabajador x) devuelve Trabajador
 	Trabajador delete(Trabajador t);
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Encontrar un Trabajador por ID
+	//findOne: int -> Trabajador
+	//recibe un id de trabajador, lo busca y lo devuelve
+	//Ej: findOne(int id) devuelve Trabajador
 	Trabajador findOne(int idTrabajador);
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Listar todos los trabajadores
+	//findAll: void -> List<Trabajador>
+	//devuelve una lista de todos los trabajadores
+	//Ej: findAll() devuelve List<Trabajador>
 	List<Trabajador> findAll();
 	////////////////////////////////////////////////////////////////////////////////////////////////
-	//Buscar trabajador por nombre empresa, nombre trabajador y pass trabajador
+	//findByEmpresaAndNombreTrabajadorAndPassTrabajador: String, String, String -> Trabajador
+	//busca un trabajador por nombre de empresa, nombre de trabajador y contraseña, devuelve el Trabajador
+	//Ej: findByEmpresaAndNombreTrabajadorAndPassTrabajador(String nombreEmpresa,
+	//String nombreTrabajador, String passTrabajador) devuelve Trabajador
 	Trabajador findByEmpresaAndNombreTrabajadorAndPassTrabajador(String empresa, String nombreTrabajador, String passTrabajador);
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de trabajadores por empresa
+	//findByEmpresa: String -> List<Trabajador>
+	//recibe el nombre de una empresa y devuelve una lista de los trabajadores de esa empresa
+	//Ej: findByEmpresa(String nombreEmpresa) devuelve List<Trabajador>
 	List<Trabajador> findByEmpresa(String empresa);
 }
