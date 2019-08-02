@@ -15,11 +15,12 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
   styleUrls: ['./empresa-lista-reclamos.component.css']
 })
 export class EmpresaListaReclamosComponent implements OnInit {
-
+  //atributos
   reclamos:ReclamoSugerencia[]=[];
   colores:string[]=[];
   administrador:boolean=false;
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
+
   constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
  
   //formatoDate():string->string
@@ -50,6 +51,8 @@ export class EmpresaListaReclamosComponent implements OnInit {
     return fechaCompleta;
 
   }
+  //fomratoNumero(string): string ->string
+  //cambia el formato una fecha ingresada en string
   formatoNumero(date:string):string{
     
     let year=date.substr(0,4);
@@ -59,6 +62,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
     return year+""+month+""+day;
   }
+
   // este metodo es ejecutato al momento de iniciar el componente 
   ngOnInit() {
     
@@ -97,7 +101,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
         let fechaReclamo=this.reclamos[i].fechaReclamoSugerencia;
         
         let comparacion:number=((+this.formatoNumero(""+fechaReclamo))-(+this.formatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
-        console.log(this.formatoNumero(""+fechaReclamo)+" asdasd "+this.formatoNumero(""+this.formatoDate(hoy.toLocaleDateString())));
+        
         if(comparacion>=2 && (this.reclamos[i].estado=="en proceso")){
           this.colores[i]="#ed6d60";
         }
@@ -136,24 +140,29 @@ export class EmpresaListaReclamosComponent implements OnInit {
   irReclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
   }
+  //verEstadisticas(): vavcio-> vacio
+  //al llamar al metodo se redirecciona al componente estadisticas de empresa 
   verEstadisticas(){
     this.router.navigate(["empresa/estadisticas"]);
   }
-  trabajadores(){
-
-  }
+  //cerrarSesion():vavio-> vacio
+  //al ejecutar el metodo se borra la informacion de el localstorage y rediririge al componente home_empresa
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
+  //home(): vaicio ->vacio
+  //al ejecutar el metodo redirige al componente home 
   home(){
     this.router.navigate(['home']);
   }
-
+  //homeEmpresa(): vacio -> vacio
+  //al llamar al metodo se redirecciona al componente home_empresa
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
-
+  //irTrabajadores():vacio->vacio
+  //redirige al componente trabajadores de empresa
   irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
