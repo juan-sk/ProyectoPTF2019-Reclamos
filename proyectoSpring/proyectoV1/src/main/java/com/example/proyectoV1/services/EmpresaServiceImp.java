@@ -11,32 +11,37 @@ public class EmpresaServiceImp implements EmpresaService{
 	@Autowired
 	EmpresaRepositorio repositorio;
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Agregar
-	@Override
+	//add: Empresa -> Empresa
+	//recibe una Empresa y la guarda en la DB, devuelve Empresa
+	//Ej: add(Empresa x) devuelve Empresa	@Override
 	public Empresa add(Empresa e) {
 		return repositorio.save(e);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	//Eliminar
-	@Override
+	//delete: int -> void
+	//recibe un rut de empresa, la busca y la elimina. 
+	//Ej: delete(int rut)	@Override
 	public void delete(int rutEmpresa) {
 		repositorio.delete(rutEmpresa);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//Lista de Todas las Empresas
-	@Override
+	//listarEmpresa: void -> List<Empresa>
+	//devuelve una lista de todas las empresas de la DB
+	//Ej: listarEmpresa() devuelve List<Empresa>	@Override
 	public List<Empresa> listarEmpresa() {
 		return repositorio.findAll();
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca una Empresa por su ID
-	@Override
+	//idEmpresa: int -> Empresa
+	//recibe un id de empresa, la busca y la devuelve
+	//Ej: idEmpresa(int idEmpresa) devuelve Empresa	@Override
 	public Empresa idEmpresa(int idEmpresa) {
 		return repositorio.findOne(idEmpresa);
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	//Busca una Empresa por su nombre
-	@Override
+	//nombreEmpresa: String -> Empresa
+	//recibe un nombre de empresa, la busca y la devuelve
+	//Ej: nombreEmpresa(String nombre) devuelve Empresas	@Override
 	public Empresa nombreEmpresa(String nombreEmpresa) {
 		return repositorio.findBynombreEmpresa(nombreEmpresa);
 	}
