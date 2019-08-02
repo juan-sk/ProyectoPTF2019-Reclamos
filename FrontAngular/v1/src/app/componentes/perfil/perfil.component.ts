@@ -17,7 +17,7 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
   styleUrls: ['./perfil.component.css']
 })
 
-//Clase principal de Perfil Usuario
+//Clase PerfilComponent
 export class PerfilComponent implements OnInit {
 
   constructor(private router:Router,private servicioRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
