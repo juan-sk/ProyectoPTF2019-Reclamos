@@ -31,8 +31,7 @@ export class TrabajadoresComponent implements OnInit {
 
   }
   eliminarTrabajador(trabajador:Trabajador){
-    this.servicioTrabajador.eliminarTrabajador(trabajador.idTrabajador).subscribe();
-    location.reload();
+    this.servicioTrabajador.eliminarTrabajador(trabajador.idTrabajador).subscribe(data=>{location.reload();});
 
   }
   agregarTrabajador(){
