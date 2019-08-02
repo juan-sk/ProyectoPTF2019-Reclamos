@@ -12,7 +12,9 @@ public class SendMailService {
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
-	
+	//sendMail: String, String, String -> void
+	//recibe destinatario, asunto y cuerpo de un mail y lo envia
+	//Ej: sendMail(String para, String asunto, String cuerpo)
 	public void sendMail(String to, String subjet, String body) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setFrom("soporte@3chile.com");
