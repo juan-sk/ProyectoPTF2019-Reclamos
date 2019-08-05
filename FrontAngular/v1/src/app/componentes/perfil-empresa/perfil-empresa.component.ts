@@ -42,19 +42,36 @@ export class PerfilEmpresaComponent implements OnInit {
   formatoDate(date:string):string{
     let fechaSeparada=date.split("/");
     let fechaFinal:string[]=[]
-    if(+fechaSeparada[0]<10){
-      fechaFinal.push("0"+fechaSeparada[0]);
-    }
-    else{
+    if(+fechaSeparada[0]<10&&+fechaSeparada[0]!=null){
       fechaFinal.push(fechaSeparada[0]);
     }
+    else if(+fechaSeparada[0]!=null){
+      fechaFinal.push(fechaSeparada[0]);
+    }else{}
 
-    if(+fechaSeparada[1]<10){
-      fechaFinal.push("0"+fechaSeparada[1]);
-    }else{
+    if(+fechaSeparada[1]<10&&+fechaSeparada[1]!=null){
       fechaFinal.push(fechaSeparada[1]);
+    }else if(+fechaSeparada[1]!=null){
+      fechaFinal.push(fechaSeparada[1]);
+    }else{}
+   
+    if(fechaFinal[0].length==10 ){
+      fechaFinal=[]
+      fechaSeparada=date.split("-");
+      if(+fechaSeparada[0]<10){
+        fechaFinal.push(fechaSeparada[0]);
+      }
+      else{
+        fechaFinal.push(fechaSeparada[0]);
+      }
+  
+      if(+fechaSeparada[1]<10){
+        fechaFinal.push(fechaSeparada[1]);
+      }else{
+        fechaFinal.push(fechaSeparada[1]);
+      }
+      
     }
-
     fechaFinal.push(fechaSeparada[2]);
     let year=fechaFinal[2];
     let month=fechaFinal[1];
@@ -97,7 +114,7 @@ export class PerfilEmpresaComponent implements OnInit {
         let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
 
         let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
-        
+        console.log(this.formatoDate(hoy.toLocaleDateString()))
         if(comparacion>=2 && (this.reclamosSugerencias[i].estado=="en proceso")){
           this.colores[i]="#ed6d60";
         }
